@@ -9,7 +9,7 @@
 			<%
 			if(session.getAttribute("user")==null) {
 			%>
-			<a href="/web/view/kwon/login/login.jsp">로그인</a> | <a href="#">회원가입</a>
+			<a href="/web/view/kwon/login/login.jsp">로그인</a> | <a href="/web/view/lim/login.jsp">회원가입</a>
 			<%
 			} else {
 				Users u = (Users) session.getAttribute("user");
