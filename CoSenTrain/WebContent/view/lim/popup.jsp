@@ -14,4 +14,14 @@
 
 
 </body>
+
+<script type="text/javascript">
+function lim_verify(){
+
+	window.open("popup2.jsp", "id",
+	"left=700,top=400,width=400,height=400");
+
+}
+
+</script>
 </html>

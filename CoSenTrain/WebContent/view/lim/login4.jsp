@@ -59,11 +59,92 @@
       <br />
       
       <!--  start-->
-      <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
+      <!-- <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;"> -->
      
+      <form action="joinInsert.jsp" name="joinFrm" method="post">
+		 
+		<div>
+			<table>
+ 
+				 
+					<tr>
+						<th> 이름</th>
+						<td><input type="text" name="name" class="inputText"
+							required="required" maxlength="5" size="30" onblur="nameCheck()" /></td>
+					</tr>
+			
+					<tr>
+						<th>홈페이지*</th>
+						<td>비밀번호<input type="password" name="password1" class="inputText"
+											size="30" /></td>
+					    <td>비밀번호확인<input type="password" name="password2" class="inputText"
+							size="30" onblur="passFun()" />
+
+							<td><input type="hidden" name="password"></input></td></td>
+					    
+					</tr>
+					<tr>
+						<th>현장발매*</th>
+						<td>비밀번호<input type="password" name="password1" class="inputText"
+											size="30" /></td>
+					    <td>비밀번호확인<input type="password" name="password2" class="inputText"
+							size="30" onblur="passFun()" />
+
+							<td><input type="hidden" name="password"></input></td></td>
+					    
+					</tr>
+
+					<tr>
+			             <th>생년월일*</th>
+					</tr>
+					   <input type="text" value="" readonly="readonly">
+					<tr>
+					    <th>성별*</th>
+					    <input type="text" value="" readonly="readonly">
+					    
+					</tr>
+					
+					<tr>
+						<th>이메일*</th>
+						<td><input type="text" value=""> <input type="button" value="이메일 인증"/>    
+						</td>
+					</tr>
+					<tr>
+						<th>이메일수신여부</th>
+						<td>예<input type="radio" value="yes"> 아니오<input type="radio" value="no"/>    
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<th>자택전화</th>
+						<td><input type="text" name="phone" size="30"> </td>
+						
+						</tr>
+						
+					
+					<tr>
+						<th>휴대전화*</th>
+						<td><input type="text" name="phone" size="30"><input type="button" value="휴대전화인증"> </td>
+						
+						</tr>	
+						<tr>
+						<th >주소</th>	 
+	                    <td>   <input type="text" size="10"> <input type="button" value="검색"></td>				 
+   					     <td> <input type="text" size="30">  <input type="text" size="30"></td>
+   					</tr>
+			 
+			</table>
+			<div class="apply">
+				<span class="apply"><a href="javascript:apply()"
+					class="apply">등록</a></span>
+			</div>
+		</div>
+		<!-- </div> -->
+	</form>
       
-       <img alt="14이상" src="/web/img/lim/join/14join.JPG" onclick="limlogin1()"> 
-       <img alt="14이하" src="/web/img/lim/join/14join_.JPG" onclick="limlogin2()"> 
+      
+      
       
        
       
@@ -81,17 +162,5 @@
    <script type="text/javascript"  src="/web/js/container/clock.js" charset="UTF-8"></script>
  
 </body>
-<script type="text/javascript">
- function limlogin1(){
-	 location.href="/web/view/lim/login2.jsp?page=/view/lim/join.jsp";
- }
-
- function limlogin2(){
-	 location.href="/web/view/lim/login2.jsp?page=/view/lim/join.jsp";
-   
- }
  
-</script>
 </html>
-
-
