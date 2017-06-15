@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<img alt="" src="/web/img/lim/join/skt.JPG">
-<img alt="" src="/web/img/lim/join/lg.JPG">
-<img alt="" src="/web/img/lim/join/kt.JPG">
+<img alt="" src="/web/img/lim/join/skt.JPG" onclick="lim_verify()">
+<img alt="" src="/web/img/lim/join/lg.JPG" onclick="lim_verify()">
+<img alt="" src="/web/img/lim/join/kt.JPG" onclick="lim_verify()">
 
 
 </body>
