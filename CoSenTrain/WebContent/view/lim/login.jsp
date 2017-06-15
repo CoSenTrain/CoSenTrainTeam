@@ -46,7 +46,7 @@
 <div class="login-wrapper">
    <div class="login-wrapper-center">
       <br />
-      <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">로그인</h1>
+      <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">회원가입</h1>
       <span style="float:right;font-size:12px;margin-right:30px;">
          <a href="/web/view/container/container.jsp" class="fa fa-home" style="cursor:pointer;text-decoration:none;color:black;"></a>
          <i style="cursor:default;">&gt;</i>
