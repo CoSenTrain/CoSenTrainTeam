@@ -32,9 +32,7 @@
    margin: 0 auto;
    background-color: snow;
 }
-.lim_join{
  
-}
    </style>
 </head>
 <body>
@@ -62,7 +60,8 @@
       <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
      
       
-   
+         
+         <input type="button" value="휴대전화 인증" onclick="lim_phone()">
        
       
       </div>
@@ -77,7 +76,13 @@
       </div>
    
    <script type="text/javascript"  src="/web/js/container/clock.js" charset="UTF-8"></script>
- 
+   <script type="text/javascript">
+    function lim_phone() {
+		
+    	
+	}
+   
+   </script>
 </body>
  
 </html>

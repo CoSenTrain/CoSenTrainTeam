@@ -62,9 +62,9 @@
       <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
      
       
-       
-       <input type="button" value="14+ login" onclick="limlogin1()">
-       <input type="button" value="14- login" onclick="limlogin2()">
+       <img alt="14이상" src="/web/img/lim/join/14join.JPG" onclick="limlogin1()"> 
+       <img alt="14이하" src="/web/img/lim/join/14join_.JPG" onclick="limlogin2()"> 
+      
        
       
       </div>
@@ -83,11 +83,12 @@
 </body>
 <script type="text/javascript">
  function limlogin1(){
-	 href.location="/web/view/lim/login2.jsp";
+	 location.href="/web/view/lim/login2.jsp";
  }
 
  function limlogin2(){
-	 href.location="/web/view/lim/login2.jsp";
+	 location.href="/web/view/lim/login2.jsp";
+   
  }
  
 </script>
