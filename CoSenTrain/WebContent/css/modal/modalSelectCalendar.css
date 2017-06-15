@@ -1,0 +1,217 @@
+
+
+/* The Modal (background) */
+.sel-calendar-modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1000; /* Sit on top */
+	padding-top: 50px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.sel-calendar-modal .modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	/* width: 407px; */
+	width: 814px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+	from {top:-300px; opacity:0} 
+	to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+	from {top:-300px; opacity:0}
+	to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.sel-calendar-modal #selectCalendarClose {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.sel-calendar-modal #selectCalendarClose:hover,
+.sel-calendar-modal #selectCalendarClose:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.sel-calendar-modal .modal-header {
+	padding: 2px 16px;
+	background-color: navy;
+	color: snow;
+}
+
+.sel-calendar-modal .modal-background {
+	width:100%;
+	height:359px;
+	background: navy; /* For browsers that do not support gradients */	
+	background: -webkit-linear-gradient(left top, navy, crimson); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, navy, crimson); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, navy, crimson); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, navy, crimson); /* Standard syntax (must be last) */
+}
+
+
+
+<!--	소스 활용	-->
+<!--	https://www.w3schools.com/howto/howto_css_calendar.asp	-->
+
+.sel-calendar-modal .calendar-wrapper {width: 820px;margin: 0 auto;}
+.sel-calendar-modal .calendar-wrapper * {box-sizing:border-box;}
+.sel-calendar-modal .calendar-wrapper ul {list-style-type: none;}
+.sel-calendar-modal .calendar-wrapper {
+	width: 400px;
+	margin: 3px;
+	font-family: Verdana,sans-serif;
+	float: left
+
+}
+
+.sel-calendar-modal .calendar-wrapper:nth-child(odd) .month{
+	cursor: default;
+	padding: 50px 25px;
+	background: darkcyan; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, darkcyan, deepskyblue); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, darkcyan, deepskyblue); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, darkcyan, deepskyblue); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, darkcyan, deepskyblue); /* Standard syntax */
+	/*background: #1abc9c;*/
+}
+
+.sel-calendar-modal .calendar-wrapper:nth-child(even) .month{
+	cursor: default;
+	padding: 50px 25px;
+	background: deepskyblue; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, deepskyblue, darkcyan); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, deepskyblue, darkcyan); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, deepskyblue, darkcyan); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, deepskyblue, darkcyan); /* Standard syntax */
+	/*background: #1abc9c;*/
+}
+
+.sel-calendar-modal .month ul {
+	margin: 0;
+	padding: 0;
+}
+
+.sel-calendar-modal .month ul li {
+	color: white;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.sel-calendar-modal .weekdays {
+	cursor: default;
+	margin: 0;
+	padding: 10px 0;
+	background-color: #ddd;
+}
+
+.sel-calendar-modal .weekdays li {
+	display: inline-block;
+	width: 52px;
+	color: #666;
+	text-align: center;
+}
+
+.sel-calendar-modal .weekdays li:nth-child(7n+7) {color: blue;}
+.sel-calendar-modal .weekdays li:nth-child(7n+1) {color: red;}
+
+.sel-calendar-modal .days {
+	height: 164px;
+	margin: 0;
+	padding: 10px 0;
+	background: #eee;
+}
+
+.sel-calendar-modal .days li {
+	list-style-type: none;
+	display: inline-block;
+	width: 57px;
+	text-align: center;
+	margin-bottom: 5px;
+	font-size:12px;
+}
+
+.sel-calendar-modal .days li .active {
+	padding: 3px;
+	background: dodgerblue;
+	color: snow !important;
+	cursor: pointer;
+}
+
+
+
+.sel-calendar-modal .sel-calendar-modal #modalChosenBtn:hover {
+	color: gold;
+	background-color: crimson;
+	cursor: pointer;
+}
+
+
+/************************* snackBar *******************************/
+
+#selCalModalSnackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#selCalModalSnackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
