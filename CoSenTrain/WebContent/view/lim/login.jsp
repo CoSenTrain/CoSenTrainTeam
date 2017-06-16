@@ -11,31 +11,33 @@
    <link href="/web/css/container/fa.css" rel="stylesheet" type="text/css">
    <link href="/web/css/container/dropdown.css" rel="stylesheet" type="text/css">
    <link href="/web/css/container/standardColors.css" rel="stylesheet" type="text/css">
-
-   <style>
-      input {
-         margin: 0;
-         padding: 10px;
-         border: 0;
-         font-size: 15px;
-      }
-.login-wrapper {
-   background-image: url("/web/img/bg/bg_container.jpg");
-   background-repeat: repeat;
-   background-size: inherit;
-   background-position: center;
-   background-color: #64053C;
-}
-      
-.login-wrapper-center {
-   width: 1000px;
-   margin: 0 auto;
-   background-color: snow;
-}
-.lim_join{
  
+   <style>
+input {
+	margin: 0;
+	padding: 10px;
+	border: 0;
+	font-size: 15px;
 }
-   </style>
+
+.login-wrapper {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+
+.login-wrapper-center {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: snow;
+}
+
+.lim_join {
+	
+}
+</style>
 </head>
 <body>
    <div class="container">
@@ -61,11 +63,11 @@
       <!--  start-->
       <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
      
-      
+       <div id="dv">
        <img alt="14이상" src="/web/img/lim/join/14join.JPG" onclick="limlogin1()"> 
        <img alt="14이하" src="/web/img/lim/join/14join_.JPG" onclick="limlogin2()"> 
       
-       
+      </div>
       
       </div>
       <!-- end -->

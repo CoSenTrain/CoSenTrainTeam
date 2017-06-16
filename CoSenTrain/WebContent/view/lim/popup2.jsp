@@ -5,22 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+
+
+</script>
 </head>
 <body onload="math()">
   
   
-  <form action="" name="joinFrm" method="post">
+  <form action="popup3.jsp" name="joinFrm" method="post">
   <table border="1" background="cyan">
      <tr>
           <td><label>이름  </label></td>
-     <td><input type="text" placeholder="홍길동" size="20" ></td>
+     <td><input type="text" name="name" placeholder="홍길동" size="20" ></td>
      <td><select><option value="내국인">내국인 </option> 
       <option value="외국인">외국인 </option>
      </select></td>
       </tr>
       <tr>
     <td><label>생년월일</label></td> 
-    <td><input type="text" placeholder="ex.19800101" size="20"/> </td>
+    <td><input type="text" name="birth" placeholder="ex.19800101" size="20"/> </td>
     <td><label for="male"> <input type="radio"
 								class="inputRadio" name="gender1" id="male" value="남"
 								onclick="rxFun('1')" />남
@@ -31,7 +36,7 @@
        </tr>
      <tr>
      <td><label>휴대폰번호</label> </td>
-      <td colspan="2"><input type="text" placeholder="-제외하고 숫자만 입력" size="30" ></td>
+      <td colspan="2"><input type="text" name="phone" placeholder="-제외하고 숫자만 입력" size="30" ></td>
  </tr> 
   </table>
  <table>
@@ -41,8 +46,8 @@
  <td><label> 보안숫자입력 <br/>  <input type="text" size="20">  </label>  </td> </tr> 
   </table>
  <table>
-  <tr><td><input name="p" type="checkbox">개인정보이용동의</td><td><input name="a" type="checkbox">고유식별정보처리 동의</td>  </tr>
-  <tr><td><input name="s" type="checkbox">서비스이용약관 동의</td><td><input name="t" type="checkbox">통신사용약관동의</td>  </tr>
+  <tr><td><input name="p" type="checkbox" onclick="agreeCheck(this)">개인정보이용동의</td><td><input name="a" type="checkbox" onclick="agreeCheck(this)">고유식별정보처리 동의</td>  </tr>
+  <tr><td><input name="s" type="checkbox" onclick="agreeCheck(this)">서비스이용약관 동의</td><td><input name="t" type="checkbox" onclick="agreeCheck(this)">통신사용약관동의</td>  </tr>
  </table>
    <input type="button" value="확인" onclick="lim_submit()">
 </form>
@@ -69,6 +74,25 @@ function lim_submit(){
    window.open("popup3.jsp", "id",
 	"left=700,top=400,width=400,height=400");
 
+}
+
+function rxFun(r) {
+	var obj= document.joinFrm;
+	if(r==1){
+	  obj.gender.value='남';	
+	}else{
+		obj.gender.value='여';
+	}
+	
+}
+
+function agreeCheck(){
+	var obj=document.joinFrm;
+	
+	if(obj.checked){
+		
+	}
+	
 }
 
 </script>

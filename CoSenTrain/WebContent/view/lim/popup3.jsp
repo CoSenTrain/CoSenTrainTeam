@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+  <%String name= request.getParameter("name");
+    String birth = request.getParameter("birth");
+    String phone = request.getParameter("phone");
+    String gender =request.getParameter("gender");
+     System.out.println(name+"1"+birth+"2"+ phone+"3"+gender);
+     
+    
+  %>
+
 
  <label>인증번호를 입력하세요</label><input type="text" size="30" id="verify" /> <input type="button" value="제출" onclick="verify()">
 
@@ -16,7 +25,7 @@ function verify(){
   var obj=document.getElementById("verify");
   if(obj.value==1234){
 	  
-	  opener.parent.parent.parent.location.href = "/web/view/lim/login2.jsp?page=/view/lim/join2.jsp";
+	 // location.replace("/web/view/lim/login2.jsp?page=/view/lim/join2.jsp");
 	 
 	  
   }else{
