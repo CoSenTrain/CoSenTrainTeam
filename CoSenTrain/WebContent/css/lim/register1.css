@@ -1,0 +1,94 @@
+
+
+
+
+.reg-wrapper-first {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+
+
+.reg-wrapper-first-center {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: snow;
+}
+
+.reg-first {
+	width: 940px;
+	padding: 0 30px 30px 30px;
+	height: 500px;
+}
+
+.reg-first > div {
+	margin: 0;
+	padding: 50px 0;
+	width: 940px;
+	height: 200px;
+	background-color: #F3F3F3;
+}
+
+.reg-first > div > div:first-child {
+	width: 470px;
+	height: 200px;
+	float: left;
+}
+
+.reg-first > div > div:last-child {
+	width: 469px;
+	height: 200px;
+	float: left;
+	border-left: 1px dotted lightgray;
+}
+
+.reg-first-fourteen {
+	font-size: 60px;
+	position: relative;
+	width: 100px;
+	height: 90px;
+	margin: auto;
+	border: 3px solid crimson;
+	border-radius: 50%;
+	background-color: white;
+	padding: 23px 5px 4px 13px;
+	cursor:default;
+}
+
+.reg-first-fourteen i.fa-long-arrow-up {
+	position: absolute;
+	font-size: 50px;
+	bottom: 37px;
+}
+
+.reg-first-fourteen i.fa-long-arrow-down {
+	position: absolute;
+	font-size: 50px;
+	bottom: 35px;
+}
+
+.reg-first-desc {
+	width: 110px;
+	margin: 5px auto;
+	color: #666;
+	text-shadow: 1px 1px lightgray;
+}
+
+.reg-first-btn-wrapper {
+	text-align: center;
+}
+
+.reg-first-btn {
+	width: 150px;
+	height: 43px;
+	margin: 0;
+	margin-top: 3px;
+	border: 0;
+	color: snow;
+	font-weight: bold;
+	background-color: crimson;
+	border-radius: 0 7px;
+	cursor: pointer;
+}

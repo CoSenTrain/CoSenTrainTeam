@@ -74,7 +74,7 @@ input {
 					style="cursor: pointer; text-decoration: none; color: black;">Cosen
 						회원</a> <i style="cursor: default;">&gt;</i> <a href="#"
 					style="cursor: pointer; text-decoration: none; color: black;"
-					class="tkting-method">로그인</a>
+					class="tkting-method">회원가입</a>
 				</span> <br /> <br /> <br />
 
 				<!--  start-->

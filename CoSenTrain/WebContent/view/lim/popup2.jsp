@@ -55,7 +55,7 @@
 <script type="text/javascript">
 function math(){
  var obj=document.getElementById("math");
- obj.value= Math.random()*10000;	
+ obj.value= Math.floor(Math.random() * 10000) + 1;	
 }
 
 function lim_submit(){

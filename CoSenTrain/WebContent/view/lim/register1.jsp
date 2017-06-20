@@ -11,33 +11,8 @@
    <link href="/web/css/container/fa.css" rel="stylesheet" type="text/css">
    <link href="/web/css/container/dropdown.css" rel="stylesheet" type="text/css">
    <link href="/web/css/container/standardColors.css" rel="stylesheet" type="text/css">
+   <link href="/web/css/lim/register1.css" rel="stylesheet" type="text/css">
  
-   <style>
-input {
-	margin: 0;
-	padding: 10px;
-	border: 0;
-	font-size: 15px;
-}
-
-.login-wrapper {
-	background-image: url("/web/img/bg/bg_container.jpg");
-	background-repeat: repeat;
-	background-size: inherit;
-	background-position: center;
-	background-color: #64053C;
-}
-
-.login-wrapper-center {
-	width: 1000px;
-	margin: 0 auto;
-	background-color: snow;
-}
-
-.lim_join {
-	
-}
-</style>
 </head>
 <body>
    <div class="container">
@@ -45,8 +20,8 @@ input {
       
       <jsp:include page="/view/container/containerTop.jsp" flush="false" />
 <!-- LOGIN  Start -->
-<div class="login-wrapper">
-   <div class="login-wrapper-center">
+<div class="reg-wrapper-first">
+   <div class="reg-wrapper-first-center">
       <br />
       <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">회원가입</h1>
       <span style="float:right;font-size:12px;margin-right:30px;">
@@ -54,20 +29,38 @@ input {
          <i style="cursor:default;">&gt;</i>
          <a href="" style="cursor:pointer;text-decoration:none;color:black;">Cosen 회원</a>
          <i style="cursor:default;">&gt;</i>
-      <a href="#" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">로그인</a>
+      <a href="#" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">회원가입</a>
       </span>
       <br />
       <br />
       <br />
       
       <!--  start-->
-      <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
+      <div class="reg-first">
      
+       <!-- 
        <div id="dv">
        <img alt="14이상" src="/web/img/lim/join/14join.JPG" onclick="limlogin1()"> 
        <img alt="14이하" src="/web/img/lim/join/14join_.JPG" onclick="limlogin2()"> 
-      
+       
+       
       </div>
+       -->
+  
+       
+       <div>
+       	<div>
+       		<div class="reg-first-fourteen">14<i class="fa fa-long-arrow-up"></i></div>
+       		<div class="reg-first-desc">14세 이상 고객</div>
+       		<div class="reg-first-btn-wrapper"><button class="reg-first-btn" onclick="limRegister1()">가입하기</button></div>
+       	</div>
+       	<div>
+       		<div class="reg-first-fourteen">14<i class="fa fa-long-arrow-down"></i></div>
+       		<div class="reg-first-desc">14세 미만 고객</div>
+       		<div class="reg-first-btn-wrapper"><button class="reg-first-btn" onclick="limRegister2()">가입하기</button></div>
+       	</div>
+       </div>
+       
       
       </div>
       <!-- end -->
@@ -84,12 +77,12 @@ input {
  
 </body>
 <script type="text/javascript">
- function limlogin1(){
-	 location.href="/web/view/lim/login2.jsp?page=/view/lim/join.jsp";
+ function limRegister1(){
+	 location.href="/web/view/lim/register2.jsp?page=/view/lim/join.jsp";
  }
 
- function limlogin2(){
-	 location.href="/web/view/lim/login2.jsp?page=/view/lim/join.jsp";
+ function limRegister2(){
+	 location.href="/web/view/lim/register2.jsp?page=/view/lim/join.jsp";
    
  }
  

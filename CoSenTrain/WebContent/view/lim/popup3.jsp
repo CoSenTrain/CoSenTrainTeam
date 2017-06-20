@@ -25,7 +25,7 @@ function verify(){
   var obj=document.getElementById("verify");
   if(obj.value==1234){
 	  
-	 // location.replace("/web/view/lim/login2.jsp?page=/view/lim/join2.jsp");
+	 location.replace("/web/view/lim/login2.jsp?page=/view/lim/join2.jsp");
 	 
 	  
   }else{
