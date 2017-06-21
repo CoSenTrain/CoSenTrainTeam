@@ -70,7 +70,7 @@ input {
 				<span style="float: right; font-size: 12px; margin-right: 30px;">
 					<a href="/web/view/container/container.jsp" class="fa fa-home"
 					style="cursor: pointer; text-decoration: none; color: black;"></a>
-					<i style="cursor: default;">&gt;</i> <a href=""
+					<i style="cursor: default; ">&gt;</i> <a href=""
 					style="cursor: pointer; text-decoration: none; color: black;">Cosen
 						È¸¿ø</a> <i style="cursor: default;">&gt;</i> <a href="#"
 					style="cursor: pointer; text-decoration: none; color: black;"
@@ -108,7 +108,7 @@ input {
 		function lim_phone() {
 
 			window.open("popup.jsp", "id",
-					"left=700,top=400,width=400,height=400");
+					"left=830,top=400,width=420,height=420");
 
 		}
 	</script>

@@ -25,12 +25,11 @@
 
 							<!-- <img alt="휴대전화 인증" src="/web/img/lim/join/phone.JPG"
 				onclick="lim_phone()"> -->
-							<div style="text-align: center">
+							<div style="text-align: center; ">
 								<button
-									style="margin: 0 auto; color:#333; border:1px solid lightgray;  margin-top: 50px; width: 260px; border: 0; border-radius: 0 7px; cursor: pointer; height: 55px;"
+									style=" margin: 0 auto; color:#333; border:1px solid lightgray;  margin-top: 50px; width: 260px; border: 0; border-radius: 0 7px; cursor: pointer; height: 55px;"
 									onclick="lim_phone()">
-									<i
-										style="text-shadow: 1px 1px lightgray; font-weight: bold; font-size: 15px;">휴대전화
+									<i style="font-size: 30px" class="fa fa-mobile" ></i> <i style="text-shadow: 1px 1px lightgray; font-weight: bold; font-size: 15px; margin :0 0 30 0 auto;"> 휴대전화
 										인증</i>
 								</button>
 							</div>

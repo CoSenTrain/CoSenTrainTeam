@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <script type="text/javascript">
 
@@ -12,14 +14,18 @@
 </script>
 </head>
 <body onload="math()">
-  
-  
+ 
+ 
+  <div style="width:400px; height:400px; border: 1px solid lightgray;">
+  <div style="width:400px; height:50px;"><img alt="" src="/web/img/lim/join/niceid.JPG"> </div>
+  <div style="width:400px; height:20px;   text-align: center; font-size: 14px; font-weight: bold; margin-bottom:20px;"><i class="fa fa-envelope-o"></i> 휴대폰본인확인 (문자) </div>
   <form action="popup3.jsp" name="joinFrm" method="post">
-  <table border="1" background="cyan">
+  <div style="width:360px; background-color:#f9f9fa; height:90px; border : 1px solid lightgray; margin: 0 auto; ">
+  <table>
      <tr>
           <td><label>이름  </label></td>
-     <td><input type="text" name="name" placeholder="홍길동" size="20" ></td>
-     <td><select><option value="내국인">내국인 </option> 
+     <td><input type="text" id="name" name="name" placeholder="홍길동" size="20" ></td>
+     <td><select name="nation"><option value="내국인">내국인 </option> 
       <option value="외국인">외국인 </option>
      </select></td>
       </tr>
@@ -39,18 +45,45 @@
       <td colspan="2"><input type="text" name="phone" placeholder="-제외하고 숫자만 입력" size="30" ></td>
  </tr> 
   </table>
+  </form>
+  </div>
+  <div style="width:360px; height:15px;"></div>
+  <div style="width:360px; height:50px; border : 1px solid lightgray; text-align: center; margin: 0 auto; ">
+    <div>
+  <div style="float:left;">
+   <div style="width:140px; margin-top:12px; margin-left:20px;"><input type="text" id="math" value="" size="14"  readonly="readonly"></div>
+  
+  </div>
+  <div style="float: left; margin-left:30px;  ">  
+   <div style="width:140px; font-size: 9px; float:left;"><b>보안숫자입력</b><br><input type="text" size="15"> </div>
+  </div>
+  </div>
+  </div>
+    <div style="width:360px; height:15px;"></div>
+  <div>
  <table>
- <tr bordercolor="cyan">
- <td rowspan="2"> <input type="text" id="math" value="" readonly="readonly"> </td>
  
- <td><label> 보안숫자입력 <br/>  <input type="text" size="20">  </label>  </td> </tr> 
-  </table>
- <table>
-  <tr><td><input name="p" type="checkbox" onclick="agreeCheck(this)">개인정보이용동의</td><td><input name="a" type="checkbox" onclick="agreeCheck(this)">고유식별정보처리 동의</td>  </tr>
-  <tr><td><input name="s" type="checkbox" onclick="agreeCheck(this)">서비스이용약관 동의</td><td><input name="t" type="checkbox" onclick="agreeCheck(this)">통신사용약관동의</td>  </tr>
+  <tr><td><input style="margin-left:20px;" name="p" type="checkbox" onclick="agreeCheck(this)">개인정보이용동의</td><td><input name="a" type="checkbox" onclick="agreeCheck(this)">고유식별정보처리 동의</td>  </tr>
+  <tr><td><input style="margin-left:20px;" name="s" type="checkbox" onclick="agreeCheck(this)">서비스이용약관 동의</td><td><input name="t" type="checkbox" onclick="agreeCheck(this)">통신사용약관동의</td>  </tr>
+
  </table>
-   <input type="button" value="확인" onclick="lim_submit()">
-</form>
+ </div>
+   <div style="width:360px; height:15px;"></div>
+   <div style="text-align: center;">
+ <button style="text-align: center; width: 150px;
+	height: 43px;
+	margin: 0 auto;
+	margin-top: 3px;
+	border: 0;
+	color: snow;
+	font-weight: bold;
+	background-color: gray;
+	border-radius: 0 7px;
+	cursor: pointer;" onclick="lim_submit()">확인 </button></div>
+   <div style="width:360px; height:15px;"></div>
+<div style="width:400px; height:50px;"><img alt="" src="/web/img/lim/join/nice2.JPG"></div>
+ 
+
 </body>
 <script type="text/javascript">
 function math(){
@@ -59,20 +92,17 @@ function math(){
 }
 
 function lim_submit(){
- /*   var p=document.getElementsByName("p");
-   var a=document.getElementsByName("a");
-   var s=document.getElementsByName("s");
-   var t=document.getElementsByName("t");
-     alert(p.checked);
-   
+	var obj=document.joinFrm;
+    
    if(p.checked&&a.checked&&s.checked&&t.checked){
-	  alert('nice'); 
-	//var obj = document.joinFrm;
+	  window.open("popup3.jsp", "id",
+		"left=830,top=400,width=420,height=420");
+	 
+	  obj.submit();
    }else{
 	   alert('체크박스를 입력해주세요');
-   } */
-   window.open("popup3.jsp", "id",
-	"left=700,top=400,width=400,height=400");
+   }  
+  
 
 }
 
@@ -90,7 +120,7 @@ function agreeCheck(){
 	var obj=document.joinFrm;
 	
 	if(obj.checked){
-		
+		alert('hi');
 	}
 	
 }
