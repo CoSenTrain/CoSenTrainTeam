@@ -1,26 +1,38 @@
 package bean.lim;
 
-public class Users {
+public class Members {
 private int userno;
 private String name;	
 private String pwweb;
 private int pwticketing;
 private String birth;
+private String email;
 private String gender;
 private String emailreceivable;
+private String tel;
 private String phone;
 private int zipcodeno;
+private String sido;
+private String gugun;
+private String dong;
+private String bunji;
 private String addr;
+private String usertype;
 private String isDeleted;
+private String delComment;
 private String modDate;
 private String regDate;
 
- public Users(){
+ public Members(){
 	 super();
  }
 
-public Users(int userno, String name, String pwweb, int pwticketing, String birth, String gender,
-		String emailreceivable, String phone, int zipcodeno, String addr, String isDeleted, String modDate,
+
+
+
+public Members(int userno, String name, String pwweb, int pwticketing, String birth, String email, String gender,
+		String emailreceivable, String tel, String phone, int zipcodeno, String sido, String gugun, String dong,
+		String bunji, String addr, String usertype, String isDeleted, String delComment, String modDate,
 		String regDate) {
 	super();
 	this.userno = userno;
@@ -28,15 +40,26 @@ public Users(int userno, String name, String pwweb, int pwticketing, String birt
 	this.pwweb = pwweb;
 	this.pwticketing = pwticketing;
 	this.birth = birth;
+	this.email = email;
 	this.gender = gender;
 	this.emailreceivable = emailreceivable;
+	this.tel = tel;
 	this.phone = phone;
 	this.zipcodeno = zipcodeno;
+	this.sido = sido;
+	this.gugun = gugun;
+	this.dong = dong;
+	this.bunji = bunji;
 	this.addr = addr;
+	this.usertype = usertype;
 	this.isDeleted = isDeleted;
+	this.delComment = delComment;
 	this.modDate = modDate;
 	this.regDate = regDate;
 }
+
+
+
 
 public int getUserno() {
 	return userno;
@@ -44,6 +67,15 @@ public int getUserno() {
 
 public void setUserno(int userno) {
 	this.userno = userno;
+}
+
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
 }
 
 public String getName() {
@@ -142,14 +174,41 @@ public void setRegDate(String regDate) {
 	this.regDate = regDate;
 }
 
+
+public String getTel() {
+	return tel;
+}
+
+
+public void setTel(String tel) {
+	this.tel = tel;
+}
+
+
+public String getUsertype() {
+	return usertype;
+}
+
+
+public void setUsertype(String usertype) {
+	this.usertype = usertype;
+}
+
+
+
+
 @Override
 public String toString() {
-	return "users [userno=" + userno + ", name=" + name + ", pwweb=" + pwweb + ", pwticketing=" + pwticketing
-			+ ", birth=" + birth + ", gender=" + gender + ", emailreceivable=" + emailreceivable + ", phone=" + phone
-			+ ", zipcodeno=" + zipcodeno + ", addr=" + addr + ", isDeleted=" + isDeleted + ", modDate=" + modDate
-			+ ", regDate=" + regDate + "]";
+	return "Users [userno=" + userno + ", name=" + name + ", pwweb=" + pwweb + ", pwticketing=" + pwticketing
+			+ ", birth=" + birth + ", email=" + email + ", gender=" + gender + ", emailreceivable=" + emailreceivable
+			+ ", tel=" + tel + ", phone=" + phone + ", zipcodeno=" + zipcodeno + ", sido=" + sido + ", gugun=" + gugun
+			+ ", dong=" + dong + ", bunji=" + bunji + ", addr=" + addr + ", usertype=" + usertype + ", isDeleted="
+			+ isDeleted + ", delComment=" + delComment + ", modDate=" + modDate + ", regDate=" + regDate + "]";
 }
-	
+
+
+
+
 
 
 

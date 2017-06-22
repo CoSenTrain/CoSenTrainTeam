@@ -3,30 +3,52 @@
     PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <!-- 
-	private int userNo;
-	private String name;
-	private String pwWeb;
-	private int pwTicketing;
-	private String birth;
-	private String email;
-	private String gender;
-	private String emailRecivable;
-	private String tel;
-	private String phone;
-	private int zipcodeNo;
-	private String sido;
-	private String gugun;
-	private String dong;
-	private String bunji;
-	private String addr;
-	private String userType;
-	private char isDeleted;
-	private String delComment;
-	private String moddate;
-	private String regdate;
+	private int userno;
+private String name;	
+private String pwweb;
+private int pwticketing;
+private String birth;
+private String email;
+private String gender;
+private String emailreceivable;
+private String tel;
+private String phone;
+private int zipcodeno;
+private String sido;
+private String gugun;
+private String dong;
+private String bunji;
+private String addr;
+private String usertype;
+private String isDeleted;
+private String delComment;
+private String modDate;
+private String regDate;
  -->
-<sqlMap namespace="users">
-	<typeAlias alias="user" type="bean.kwon.Users"/>
+<sqlMap namespace="member">
+	<typeAlias alias="members" type="bean.lim.Members"/>
+	<select id="getNumber" resultClass="java.lang.Integer">
+	   select users_seq.NEXTVAL from dual
+	</select>
+	
+	  <insert id="insertMember" parameterClass="members" >
+	 insert into users values(#userno#,#name#,#pwweb#,#pwticketing#,#birth#,#email#,#gender#,#emailreceivable#,#tel#,#phone#,#zipcodeno#,#addr#,#usertype#,#isDeleted#,null,sysdate,sysdate)
+	 
+	</insert>
+	 
+	<!-- <select parameterClass="java.lang.String" resultClass="java.lang.String" id="idpwCheck"> select password from members where id=#id# </select>
+
+<statement parameterClass="java.lang.String" resultClass="java.lang.String" id="getUserName"> select name from members where id=#value# </statement>
+
+<select parameterClass="java.lang.String" resultClass="java.lang.String" id="idCheck"> select id from members where id=#id# </select>
+
+<statement parameterClass="member" id="insertMember"> insert into members values (#no#,#name#,#id#,#password#,#hobby#,#qna#,#gender#,#birthday#, #address#,#email#,#tel#,#cp#,sysdate) </statement>
+
+<statement resultClass="java.lang.Integer" id="getNumber"> select members_seq.nextval from dual </statement
+	 -->
+	
+	
+<!-- 	
 	<select id="selectUsers" parameterClass="java.util.Map" resultClass="user">
 SELECT userNo, 
         name, 
@@ -88,7 +110,9 @@ WHERE u.zipcodeNo = z.zipcodeNo
   	isDeleted = #isDeleted#
   		</isNotNull>
 	</select>
-</sqlMap>
+ -->
+ 
+ </sqlMap>
 
 <!-- 
 SELECT userNo, 

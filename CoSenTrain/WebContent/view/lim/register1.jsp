@@ -78,11 +78,12 @@
 </body>
 <script type="text/javascript">
  function limRegister1(){
-	 location.href="/web/view/lim/register2.jsp?page=/view/lim/join.jsp";
+	 
+	 location.href="/web/view/lim/register2.jsp";
  }
 
  function limRegister2(){
-	 location.href="/web/view/lim/register2.jsp?page=/view/lim/join.jsp";
+	 location.href="/web/view/lim/register2.jsp";
    
  }
  

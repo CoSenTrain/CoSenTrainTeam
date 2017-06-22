@@ -12,7 +12,7 @@
 								<tr>
 									<th>
 										<font size="3">
-											<a href="/web/view/test/test.jsp" style="color:orange;text-decoration:none;" target="mainn">CoSen Train</a>
+											<a href="#" style="color:orange;text-decoration:none;" target="mainn">CoSen Train</a>
 											<span style="cursor:default;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 											<a href="#" class="footer-link" style="color:snow;text-decoration:none;">ÆÀ ¼Ò°³</a>
 											<span style="cursor:default;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>

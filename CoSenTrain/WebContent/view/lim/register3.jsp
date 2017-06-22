@@ -1,7 +1,115 @@
+<%@page import="oracle.net.aso.a"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<title>Hello</title>
+<link rel="shortcut icon" href="">
+<link href="/web/css/container/container.css" rel="stylesheet"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="/web/css/container/fa.css" rel="stylesheet" type="text/css">
+<link href="/web/css/container/dropdown.css" rel="stylesheet"
+	type="text/css">
+<link href="/web/css/container/standardColors.css" rel="stylesheet"
+	type="text/css">
+<script type="text/javascript" src="/web/js/lim/httpRequest.js"></script>
+<!-- <script type="text/javascript">
+function showAjax() {
+	sendRequest('/web/js/twitter.xml', null, showTwitter, 'GET');
+	 
+}
+
+function showTwitter() {
+	if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+		 console.log(httpRequest.responseXML);
+		//document.getElementById("dv").innerHTML=document.getElementById("dv").innerHTML+httpRequest.responseText;  
+		printData();
+
+	}
+}
+
+</script> -->
+
+
+<style>
+input {
+	margin: 0;
+	padding: 10px;
+	border: 0;
+	font-size: 15px;
+}
+
+.login-wrapper {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+
+.login-wrapper-center {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: snow;
+}
+</style>
+</head>
+<body>
+
+					<%
+						 
+					  String name=  (String)application.getAttribute("name");
+					    String birth =(String)application.getAttribute("birth");
+					    String phone =(String)application.getAttribute("phone");  
+					    		String gender =(String)application.getAttribute("gender");
+					    		 application.setAttribute("name", name); 
+					    		   application.setAttribute("birth", birth); 
+					    		   application.setAttribute("phone", phone); 
+					    		   application.setAttribute("gender", gender); 
+					  /*  request.setAttribute("name", name);
+					   request.setAttribute("birth", birth);
+					   request.setAttribute("phone", phone);
+					   request.setAttribute("gender", gender);
+					   */ System.out.println(name);
+					   System.out.println(birth);
+					   System.out.println(phone);
+					   System.out.println(gender);
+					
+					%>
+	<div class="container">
+
+
+		<jsp:include page="/view/container/containerTop.jsp" flush="false" />
+		<!-- LOGIN  Start -->
+		<div class="login-wrapper">
+			<div class="login-wrapper-center">
+				<br />
+				<h1 style="padding: 30px 30px 0 30px;" class="tkting-method">회원가입</h1>
+				<span style="float: right; font-size: 12px; margin-right: 30px;">
+					<a href="/web/view/container/container.jsp" class="fa fa-home"
+					style="cursor: pointer; text-decoration: none; color: black;"></a>
+					<i style="cursor: default; ">&gt;</i> <a href=""
+					style="cursor: pointer; text-decoration: none; color: black;">Cosen
+						회원</a> <i style="cursor: default;">&gt;</i> <a href="#"
+					style="cursor: pointer; text-decoration: none; color: black;"
+					class="tkting-method">회원가입</a>
+				</span> <br /> <br /> <br />
+
+				<!--  start-->
+				<div
+					style="width: 940px; padding: 30px 30px 30px 30px; height: 720px; background-color: white;">
+
+
+ 
+				 
+						 
+  
  <div style="font-size: 17px; font-weight: bold; color:navy;">회원가입 및 이용에 관한 약관</div><br>
- <textarea style="width:900px; height:130px; background-color: #f9f9fa;" >  제1조(목적)
+ <textarea style="border: 1px solid  lightgray; width:900px; height:150px; background-color: #f9f9fa;" >  제1조(목적)
 이 약관은 주식회사 에스알(이하 “회사”라 합니다)의 회원가입 및 이용에 관한 약관(이하 “약관”이라 합니다)으로 회원으로 가입하고자 하는 사람(이하 “회원”이라 합니다)과 회사 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
 
 제2조(약관의 적용)
@@ -87,10 +195,12 @@
 부칙
 이 약관은 2016.10.31일부터 시행한다.</textarea> 
 <br>
- <div style="font-size: 14px; color:gray; margin-right:30px;float:right;">홈페이지 회원약관에 동의합니다.<b>(필수)</b><input id="check1" type="checkbox"  onclick="check(this)"></div>
+ <div style="font-size: 14px; color:gray; margin-right:40px;float:right;">홈페이지 회원약관에 동의합니다.<b>(필수)</b><input id="check1" type="checkbox"  onclick="check(this)"></div>
+<br>
+<br>
 
 <div style="font-size: 17px; font-weight: bold; color:navy;">개인정보 수집 및 이용에 대한 안내</div>
-<textarea style="margin-top: 5px; width:900px; height:130px; background-color: #f9f9fa;">개인정보의 수집 및 이용 목적
+<textarea style="margin-top:20px; margin-bottom:10px; border: 1px solid  lightgray;  width:900px; height:150px; background-color: #f9f9fa;">개인정보의 수집 및 이용 목적
 - 열차승차권 예약 및 발매 결제, 휴대폰확인, 회원가입 및 관리, 신규서비스 개발 및 마케팅ㆍ광고에의 활용, 고객 불만 접수 처리, 고지사항 전달, 분쟁조정을 위한 기록보전
 - 회사의 불공정한 업무처리 및 부정, 비리 행위에 대한 상담 및 제보
 - 이벤트 당첨자 확인 및 온라인 경품발송
@@ -142,35 +252,70 @@
 - 수집 동의 거부 및 불이익 : 위 개인정보의 제공에 대한 동의하지 않으시더라도
  ㈜SR 회원가입 및 서비스의 제공은 가능하며, 미동의 시 SRT-한국철도공사의 연계 이용이 제한 될 수 있습니다.</textarea>
  <br>
- <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ <div style="font-size: 14px; color:gray; float:right; margin-right:40px;">
  개인정보 수집 및 이용에 동의합니다.<b>(필수)</b><input id="check2" type="checkbox"></div><br>
- <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ <div style="font-size: 14px; color:gray; float:right; margin-right:40px;">
  선택정보 수집 및 이용에 동의합니다.(선택)<input id="check3" type="checkbox"> </div><br>
- <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ <div style="font-size: 14px; color:gray; float:right; margin-right:40px;">
  마케팅/홍보를 위한 개인정보 수집 및 이용에 동의합니다.(선택)<input id="check4" type="checkbox"> </div><br>
- <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ <div style="font-size: 14px; color:gray; float:right; margin-right:40px;">
  개인정보의 제3자 제공에 동의합니다.(선택)<input id="check5" type="checkbox"><br>
  </div><br> 
- <div style="border: 1px solid lightgray; text-align: center; width: 900px; height:40px; font-size: 17px; background-color: #f9f9fa;">
-        <div style="margin-top:10px;"> 위의 모든 약관에 동의합니다.<input type="checkbox" id="checkAll" onclick="checkAll()"></div>
+ <div style="margin-top:20px; border: 1px solid lightgray; text-align: center; width: 900px; height:50px; font-size: 17px; background-color: #f9f9fa;">
+        <div style="margin-top:12px; font-weight:bold; font-family: inherit; "> 위의 모든 약관에 동의합니다.  <input type="checkbox" id="checkAll" onclick="checkAll(this)"></div>
  </div>
  <div style="text-align: center;">
- <button style="margin-top:7px; width:70px; height: 50px; text-align: center; background-color: navy; color:white;"  onclick="join()">확인</button>
+ <button style="margin-top:12px; width:150px; height: 50px; text-align: center; background-color: crimson; color:white;"  onclick="join()">확인</button>
  </div>
+  
+			</div>
+
+
+		</div>
+		<!-- end -->
+	</div>
+
+	</div>
+
+	<!-- LOGIN  End   -->
+	<jsp:include page="/view/container/containerBottom.jsp" flush="false" />
+	<!-- 수정 부분 -->
+	 
+ 
+	<script type="text/javascript" src="/web/js/container/clock.js"
+		charset="UTF-8"></script>
+	 
+ 
+
+ 
+ 
+ </body>
  <script type="text/javascript">
   
-  function checkAll(){
- 
+  function checkAll(obj){
+     
+	  
 	 var obj1 =document.getElementById("check1");
 	 var obj2 =document.getElementById("check2");
 	 var obj3 =document.getElementById("check3");
 	 var obj4 =document.getElementById("check4");
 	 var obj5 =document.getElementById("check5");
-	 obj1.checked=true; 
-	 obj2.checked=true; 
-	 obj3.checked=true; 
-	 obj4.checked=true; 
-	 obj5.checked=true; 
+	 
+	if(obj.checked){
+		obj1.checked=true; 
+		 obj2.checked=true; 
+		 obj3.checked=true; 
+		 obj4.checked=true; 
+		 obj5.checked=true; 
+		 	
+	}else{
+		obj1.checked=false; 
+		 obj2.checked=false; 
+		 obj3.checked=false; 
+		 obj4.checked=false; 
+		 obj5.checked=false; 
+		
+	}
 	  
   }
   
@@ -181,6 +326,8 @@
 	 if(obj1.checked&&obj2.checked){
 		 
  location.href="/web/view/lim/register4.jsp";
+ 
+ 
 	 }else{
 		 alert('회원약관에 동의해주세요');
 	 } 
@@ -188,7 +335,12 @@
 	 
   }
 </script>
- 
+
+
+
+
+
+ </html>
  
  
  

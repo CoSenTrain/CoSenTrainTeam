@@ -18,14 +18,22 @@
     String birth = request.getParameter("birth");
     String phone = request.getParameter("phone");
     String gender =request.getParameter("gender");
+   
+   application.setAttribute("name", name); 
+   application.setAttribute("birth", birth); 
+   application.setAttribute("phone", phone); 
+   application.setAttribute("gender", gender); 
+    /* 
    request.setAttribute("name", name);
    request.setAttribute("birth", birth);
-   request.setAttribute("name", phone);
-   request.setAttribute("name", gender);
- 
-    
-  %>
-
+   request.setAttribute("phone", phone);
+   request.setAttribute("gender", gender); */
+   System.out.println(name);
+   System.out.println(birth);
+   System.out.println(phone);
+   System.out.println(gender);
+   %>
+   
 <div style="width:400px; height:400px; border: 1px solid lightgray;">
 <div style="width:400px; height:50px;"><img alt="" src="/web/img/lim/join/niceid.JPG"> </div>
  <div style="width:400px; height:20px;   text-align: center; font-size: 14px; font-weight: bold; margin-bottom:20px;"><i class="fa fa-envelope-o"></i> 휴대폰본인확인 (문자) </div>
@@ -46,15 +54,17 @@
 </body>
 <script type="text/javascript">
 function verify(){
+	 
   var obj=document.getElementById("verify");
   if(obj.value==1234){
 	  
-	 location.replace("/web/view/lim/register2.jsp?page=/view/lim/register3.jsp");
+	 
+	  location.href="/web/view/lim/register3.jsp";
 	 
 	  
   }else{
 	  alert('인증번호를 정확히 입력해주세요');
-  }	
+  }	  
   
 }
 
