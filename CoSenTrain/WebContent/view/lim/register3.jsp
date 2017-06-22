@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
- 
- 
- <h1>회원가입 및 이용에 관한 약관  </h1>
- <textarea> 제1조(목적)
+ <div style="font-size: 17px; font-weight: bold; color:navy;">회원가입 및 이용에 관한 약관</div><br>
+ <textarea style="width:900px; height:130px; background-color: #f9f9fa;" >  제1조(목적)
 이 약관은 주식회사 에스알(이하 “회사”라 합니다)의 회원가입 및 이용에 관한 약관(이하 “약관”이라 합니다)으로 회원으로 가입하고자 하는 사람(이하 “회원”이라 합니다)과 회사 간의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
 
 제2조(약관의 적용)
@@ -89,10 +87,10 @@
 부칙
 이 약관은 2016.10.31일부터 시행한다.</textarea> 
 <br>
-홈페이지 회원약관에 동의합니다.(필수)<input type="checkbox">
+ <div style="font-size: 14px; color:gray; margin-right:30px;float:right;">홈페이지 회원약관에 동의합니다.<b>(필수)</b><input id="check1" type="checkbox"  onclick="check(this)"></div>
 
-<h1>개인정보 수집 및 이용에 대한 안내</h1>
-<textarea>개인정보의 수집 및 이용 목적
+<div style="font-size: 17px; font-weight: bold; color:navy;">개인정보 수집 및 이용에 대한 안내</div>
+<textarea style="margin-top: 5px; width:900px; height:130px; background-color: #f9f9fa;">개인정보의 수집 및 이용 목적
 - 열차승차권 예약 및 발매 결제, 휴대폰확인, 회원가입 및 관리, 신규서비스 개발 및 마케팅ㆍ광고에의 활용, 고객 불만 접수 처리, 고지사항 전달, 분쟁조정을 위한 기록보전
 - 회사의 불공정한 업무처리 및 부정, 비리 행위에 대한 상담 및 제보
 - 이벤트 당첨자 확인 및 온라인 경품발송
@@ -144,18 +142,50 @@
 - 수집 동의 거부 및 불이익 : 위 개인정보의 제공에 대한 동의하지 않으시더라도
  ㈜SR 회원가입 및 서비스의 제공은 가능하며, 미동의 시 SRT-한국철도공사의 연계 이용이 제한 될 수 있습니다.</textarea>
  <br>
- 개인정보 수집 및 이용에 동의합니다.(필수)<input type="checkbox"> 
- 선택정보 수집 및 이용에 동의합니다.(선택)<input type="checkbox">
- 마케팅/홍보를 위한 개인정보 수집 및 이용에 동의합니다.(선택)<input type="checkbox">
- 개인정보의 제3자 제공에 동의합니다.(선택)<input type="checkbox">
+ <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ 개인정보 수집 및 이용에 동의합니다.<b>(필수)</b><input id="check2" type="checkbox"></div><br>
+ <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ 선택정보 수집 및 이용에 동의합니다.(선택)<input id="check3" type="checkbox"> </div><br>
+ <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ 마케팅/홍보를 위한 개인정보 수집 및 이용에 동의합니다.(선택)<input id="check4" type="checkbox"> </div><br>
+ <div style="font-size: 14px; color:gray; float:right; margin-right:30px;">
+ 개인정보의 제3자 제공에 동의합니다.(선택)<input id="check5" type="checkbox"><br>
+ </div><br> 
+ <div style="border: 1px solid lightgray; text-align: center; width: 900px; height:40px; font-size: 17px; background-color: #f9f9fa;">
+        <div style="margin-top:10px;"> 위의 모든 약관에 동의합니다.<input type="checkbox" id="checkAll" onclick="checkAll()"></div>
+ </div>
+ <div style="text-align: center;">
+ <button style="margin-top:7px; width:70px; height: 50px; text-align: center; background-color: navy; color:white;"  onclick="join()">확인</button>
+ </div>
+ <script type="text/javascript">
+  
+  function checkAll(){
  
- <tr border="1"> 위의 모든 약관에 동의합니다.<input type="checkbox"></tr>
- 
- <input type="button" value="확인" onclick="join()"> 
- 
- <<script type="text/javascript">
+	 var obj1 =document.getElementById("check1");
+	 var obj2 =document.getElementById("check2");
+	 var obj3 =document.getElementById("check3");
+	 var obj4 =document.getElementById("check4");
+	 var obj5 =document.getElementById("check5");
+	 obj1.checked=true; 
+	 obj2.checked=true; 
+	 obj3.checked=true; 
+	 obj4.checked=true; 
+	 obj5.checked=true; 
+	  
+  }
+  
   function join(){
- location.href="/web/view/lim/login4.jsp";
+	  var obj1 =document.getElementById("check1");
+		 var obj2 =document.getElementById("check2");
+		 
+	 if(obj1.checked&&obj2.checked){
+		 
+ location.href="/web/view/lim/register4.jsp";
+	 }else{
+		 alert('회원약관에 동의해주세요');
+	 } 
+	 
+	 
   }
 </script>
  

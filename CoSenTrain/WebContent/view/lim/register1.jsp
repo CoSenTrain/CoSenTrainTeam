@@ -27,9 +27,9 @@
       <span style="float:right;font-size:12px;margin-right:30px;">
          <a href="/web/view/container/container.jsp" class="fa fa-home" style="cursor:pointer;text-decoration:none;color:black;"></a>
          <i style="cursor:default;">&gt;</i>
-         <a href="" style="cursor:pointer;text-decoration:none;color:black;">Cosen 회원</a>
+         <a href="#" style="cursor:pointer;text-decoration:none;color:black;">Cosen 회원</a>
          <i style="cursor:default;">&gt;</i>
-      <a href="#" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">회원가입</a>
+      <a href="/web/view/lim/register1.jsp" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">회원가입</a>
       </span>
       <br />
       <br />

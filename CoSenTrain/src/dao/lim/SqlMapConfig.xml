@@ -22,6 +22,8 @@
   <!-- List the SQL Map XML files. They can be loaded from the 
        classpath, as they are here (com.domain.data...) -->
   <sqlMap resource="dao/kwon/Ticketing.xml"/>
+    <sqlMap resource="dao/kwon/Users.xml"/>
+    <sqlMap resource="dao/lim/Users.xml"/>
   <!-- List more here...
   <sqlMap resource="com/mydomain/data/Order.xml"/>
   <sqlMap resource="com/mydomain/data/Documents.xml"/>
