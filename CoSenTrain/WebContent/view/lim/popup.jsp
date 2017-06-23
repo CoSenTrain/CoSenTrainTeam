@@ -13,22 +13,32 @@
 <div style="width:400px; height:50px;"><img alt="" src="/web/img/lim/join/niceid.JPG"> </div>
 <div style="width:400px; height:20px; text-align: center;"><i style="font-family: 14px; font-weight: bold;  aria-hidden="true"><i class="fa fa-volume-control-phone"></i>  이용 중이신 통신사를 선택하세요</i></div>
 <div style="width:400px; height:280px; text-align: center;">
- 
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+ <script type="text/javascript">
+  $(function(){
+	  
+  });
+</script>
 <img alt="" src="/web/img/lim/join/skt.JPG" onclick="lim_verify()">
 <img alt="" src="/web/img/lim/join/lg.JPG" onclick="lim_verify()">
 <img alt="" src="/web/img/lim/join/kt.JPG" onclick="lim_verify()">
 </div>
-
+ 
 <div style="width:400px; height:50px;"><img alt="" src="/web/img/lim/join/nice2.JPG"></div>
 </div>
 </body>
 
 <script type="text/javascript">
+
+function close(){
+	
+	window.parent.opener.self.close(); 
+}
+
 function lim_verify(){
-
-	window.open("popup2.jsp", "id",
-	"left=830,top=400,width=420,height=420");
-
+       
+	location.href="popup2.jsp";
+  
 }
 
 </script>

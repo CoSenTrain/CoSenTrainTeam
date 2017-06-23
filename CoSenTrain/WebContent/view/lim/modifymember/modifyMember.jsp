@@ -1,11 +1,8 @@
-<%@page import="dao.lim.MemberDao"%>
-<%@page import="bean.lim.Members"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
    <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
    <title>Hello</title>
    <link rel="shortcut icon" href="">
@@ -38,64 +35,24 @@
 .lim_join{
  
 }
-<%
- request.setCharacterEncoding("EUC-KR");
-%>
    </style>
-   <jsp:useBean id="b" class="bean.lim.Members"></jsp:useBean>
-<jsp:setProperty property="*" name="b"/>  
 </head>
 <body>
    <div class="container">
-         
-      <%
-      String name=  (String)application.getAttribute("name");
-	    String birth =(String)application.getAttribute("birth");
-	    String phone =(String)application.getAttribute("phone");  
-	    		String gender =(String)application.getAttribute("gender");
       
-	    		
-    Members member = new Members();
-      int no=MemberDao.getNumber();
-    member.setUserno(no);
-    member.setName(name); 
-    member.setPwweb(b.getPwweb());
-    member.setPwticketing(b.getPwticketing());
-    member.setBirth(birth);
-    
-    if(gender.equals("남")){
-    	gender="M";
-    }else if(gender.equals("여")){
-    	gender="W";
-    }
-    member.setGender(gender);
-    member.setEmail(b.getEmail());
-    member.setEmailreceivable(b.getEmailreceivable());
-    member.setTel(b.getTel());
-    member.setPhone(phone);
-    member.setUsertype("user");
-    member.setAddr(b.getAddr());
-    member.setZipcodeno(Integer.parseInt(request.getParameter("addr3")));
-    member.setIsDeleted("N");
-    System.out.println(member);
-    
-    MemberDao.insertMember(member);
-    
-  %>
-         
       
       <jsp:include page="/view/container/containerTop.jsp" flush="false" />
 <!-- LOGIN  Start -->
 <div class="login-wrapper">
    <div class="login-wrapper-center">
       <br />
-      <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">회원가입</h1>
+      <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">로그인</h1>
       <span style="float:right;font-size:12px;margin-right:30px;">
          <a href="/web/view/container/container.jsp" class="fa fa-home" style="cursor:pointer;text-decoration:none;color:black;"></a>
          <i style="cursor:default;">&gt;</i>
          <a href="" style="cursor:pointer;text-decoration:none;color:black;">Cosen 회원</a>
          <i style="cursor:default;">&gt;</i>
-      <a href="#" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">회원가입</a>
+      <a href="#" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">로그인</a>
       </span>
       <br />
       <br />
@@ -103,14 +60,7 @@
       
       <!--  start-->
       <div style="width:940px;padding:0 30px 30px 30px;height:500px;background-color:white;">
-  
-      
-       <div style="margin-bottom:50px; width:900px; height:200px; background-color: #f9f9fa; text-align: center;">   
-              <div style="width:900px; height:90px;"></div>
-          <div style="margin-bottom:80px;font-size: 20px; font-weight: bold; color: black;">  <i style="width:100px;height:100px; margin: 0 auto; "class="fa fa-train"></i> 
-            <b> <%=name%> 고객님 회원가입을 환영합니다. (코센트레인 회원번호 : <%=no %> ) </b></div>
-       
-       </div>
+     
       
        
       

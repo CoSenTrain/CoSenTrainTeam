@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +18,15 @@
 <link href="/web/css/container/standardColors.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript" src="/web/js/lim/httpRequest.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+	  $("#register2").click(function(){
+		 window.open("popup.jsp","popup","left=830,top=400,width=420,height=420"); 
+	  });
+  });
+</script>
+
 <!-- <script type="text/javascript">
 function showAjax() {
 	sendRequest('/web/js/twitter.xml', null, showTwitter, 'GET');
@@ -79,7 +90,7 @@ input {
 
 				<!--  start-->
 				<div
-					style="width: 940px; padding: 0 30px 30px 30px; height: 500px; background-color: white;">
+					style="width: 940px; padding: 30px 30px 30px 30px; height: 720px; background-color: white;">
 
  
 <div id="dv">
@@ -95,12 +106,11 @@ input {
 					<div>
 						<div style="border: 1px solid  lightgray; width: 550px; height: 220px; margin-left: 200px; margin-right: 200px;">
 
-							<!-- <img alt="휴대전화 인증" src="/web/img/lim/join/phone.JPG"
-				onclick="lim_phone()"> -->
+					
 							<div style="text-align: center; ">
-								<button
+								<button id="register2"
 									style=" margin: 0 auto; color:#333; border:1px solid lightgray;  margin-top: 50px; width: 260px; border: 0; border-radius: 0 7px; cursor: pointer; height: 55px;"
-									onclick="lim_phone()">
+									>
 									<i style="font-size: 30px" class="fa fa-mobile" ></i> <i style="text-shadow: 1px 1px lightgray; font-weight: bold; font-size: 15px; margin :0 0 30 0 auto;"> 휴대전화
 										인증</i>
 								</button>
@@ -159,9 +169,9 @@ input {
 		charset="UTF-8"></script>
 	<script type="text/javascript">
 		function lim_phone() {
-
-			window.open("popup.jsp", "id",
-					"left=830,top=400,width=420,height=420");
+    window.open("popup.jsp", "id",
+					"left=830,top=400,width=420,height=420");  
+			
 
 		}
 	</script>

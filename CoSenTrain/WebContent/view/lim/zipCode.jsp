@@ -10,6 +10,7 @@
 <title>우편번호 찾기</title>
 <link href="/web/css/lim/common.css" rel="stylesheet" type="text/css" />
 <link href="/web/css/lim/user.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 	function searchDong() {
 		var obj = document.searchFrm;

@@ -15,6 +15,7 @@
 	type="text/css">
 <link href="/web/css/container/standardColors.css" rel="stylesheet"
 	type="text/css">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <style>
 .table-wrapper {
 	border-spacing: 0;

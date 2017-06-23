@@ -12,7 +12,7 @@
    <link href="/web/css/container/dropdown.css" rel="stylesheet" type="text/css">
    <link href="/web/css/container/standardColors.css" rel="stylesheet" type="text/css">
    <link href="/web/css/lim/register1.css" rel="stylesheet" type="text/css">
- 
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
    <div class="container">
@@ -31,9 +31,9 @@
          <i style="cursor:default;">&gt;</i>
       <a href="/web/view/lim/register1.jsp" style="cursor:pointer;text-decoration:none;color:black;" class="tkting-method">회원가입</a>
       </span>
-      <br />
-      <br />
-      <br />
+      <br/>
+      <br/>
+      <br/>
       
       <!--  start-->
       <div class="reg-first">
