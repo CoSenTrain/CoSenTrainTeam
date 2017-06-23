@@ -39,6 +39,11 @@
 span {
 	display: inline-block;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
   
 .spanPass {
 	width: 120px;
@@ -233,7 +238,8 @@ input[type="button"]:last-child {
 								<th class="table-th">휴대전화&lowast;</th>
 								<td class="table-td">
 								 <label id="phone" name="phone"><%=phone %></label>
-									<button> <a href="javascript:phoneCertify()">휴대전화 인증</a></button>
+									<button><a href="javascript:phoneCertify()">휴대전화 인증</a></button>
+									 <!-- <a href="javascript:phoneCertify()"> -->
 									<ul>
 										<li>휴대전화번호를 등록하시면 코센트레인 홈페이지 및 앱에서 전화번호로 로그인할 수 있습니다.</li>
 										<li>휴대전화번호 변경 시 인증을 통해서만 변경이 가능합니다.</li>
@@ -273,6 +279,9 @@ input[type="button"]:last-child {
 	<script type="text/javascript" src="/web/js/container/clock.js"
 		charset="UTF-8"></script>
   <script type="text/javascript">
+  function check(){
+	  alert('hi');
+  }
   function zipCodeSearch(){
 	  window.open("zipCode.jsp", "address",
 		"left=800,top=400,width=400,height=400");
