@@ -24,6 +24,19 @@ FROM (
 ) 
 WHERE RM BETWEEN 1 AND 10
 	</select>
+	<select id="selectStationsOrdered" parameterClass="java.lang.String" resultClass="java.lang.String">
+SELECT name FROM STATION ORDER BY stationNo $ASC$
+	</select>
+	<select id="getTSchedule" parameterClass="java.util.Map" resultClass="sch">
+SELECT runningNo, tr.trainNo, tr.type trainType, srcName, destName, TO_CHAR(departureTime, 'YYYY/MM/DD HH24:MI:SS') AS departureTime, TO_CHAR(arrivalTime, 'YYYY/MM/DD HH24:MI:SS') AS arrivalTime 
+FROM runningSchedule ss, (SELECT r.routeNo, s.srcName, d.destName
+                        FROM route r, (SELECT stationNo src, name srcName FROM station) s, (SELECT stationNo dest, name destName FROM station) d
+                        WHERE r.src = s.src AND r.dest = d.dest) rr, (SELECT trainNo, type, moddate FROM train) tr
+WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo 
+  AND tr.trainNo = #trainNo#
+  AND tr.type = #trainType#
+  AND TO_CHAR(departureTime, 'YYYY/MM/DD') = #yyyymmdd#
+	</select>
 </sqlMap>
 
 <!-- 

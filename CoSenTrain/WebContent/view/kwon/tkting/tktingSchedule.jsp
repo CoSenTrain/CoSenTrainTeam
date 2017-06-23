@@ -42,7 +42,7 @@ request.setCharacterEncoding("EUC-KR");
 				<div class="tabcontent-common">
 						<input id="srcStationName" type="text" value="수서" name="src" style="border:1px solid gray;" size="10px" />
 						<a href="#" class="fa fa-map-marker sel-form-station sel-form-icon" ></a>
-						<i class="fa fa-exchange" style="padding: 0 20px;" onclick="(function(){var temp;var src=document.getElementById('srcStationName');var dest=document.getElementById('destStationName');temp=src.value;src.value=dest.value;dest.value=temp;})()"></i>
+						<i class="fa fa-exchange" style="padding: 0 20px;cursor: pointer;" onclick="(function(){var temp;var src=document.getElementById('srcStationName');var dest=document.getElementById('destStationName');temp=src.value;src.value=dest.value;dest.value=temp;})()"></i>
 						<input id="destStationName" type="text" value="부산" name="dest" style="border:1px solid gray;" size="10px" />
 						<a href="#" class="fa fa-map-marker sel-form-station sel-form-icon" ></a>
 						<input type="text" class="yyyymmdd" id="chosenDate" name="chosenDate" style="margin-left: 50px;" size="10px" />

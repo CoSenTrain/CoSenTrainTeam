@@ -13,9 +13,26 @@ public class TicketingDao {
 	
 	public static List<TktingSchedule> selectSchedule(Map<String, Object> map) {
 		try {
-			System.out.println(map);
 			return (List<TktingSchedule>) sqlMapper.queryForList("tkt.selectSchedule", map);
 		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static List<String> selectStationsOrdered(boolean asc) {
+		try {
+			return (List<String>) sqlMapper.queryForList("tkt.selectStationsOrdered", (asc ? "ASC" : "DESC"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static List<TktingSchedule> getTSchedule(Map<String, Object> map) {
+		try {
+			return (List<TktingSchedule>) sqlMapper.queryForList("tkt.getTSchedule", map);
+		} catch(Exception e) {
 			e.printStackTrace();
 			return null;
 		}

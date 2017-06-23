@@ -1,0 +1,114 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="java.util.stream.Collectors"%>
+<%@page import="java.util.Collection"%>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="dao.kwon.TicketingDao"%>
+<%@page import="java.util.List"%>
+<%@page import="bean.kwon.TktingSchedule"%>
+<%@page import="util.kwon.Obj"%>
+<%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%
+request.setCharacterEncoding("EUC-KR");
+
+
+//param 받기
+String trainType = request.getParameter("tType");
+String tNo = request.getParameter("tNo");		//trainNo 문자열 버전
+int trainNo = -1;								//trainNo 정수형 버전
+String srcName = request.getParameter("srcName");
+String destName = request.getParameter("destName");
+String departureTime = request.getParameter("departureTime");
+String arrivalTime = request.getParameter("arrivalTime");
+TktingSchedule schedule = new TktingSchedule();
+
+//param 다듬기
+trainType = (Obj.isStrNull(trainType) ? "" : trainType);
+tNo = (Obj.isStrNull(tNo) ? "-1" : tNo.trim());
+trainNo = Integer.valueOf(tNo);
+srcName = (Obj.isStrNull(srcName) ? "" : srcName);
+destName = (Obj.isStrNull(destName) ? "" : destName);
+departureTime = (Obj.isStrNull(departureTime) ? "" : departureTime);
+arrivalTime = (Obj.isStrNull(arrivalTime) ? "" : arrivalTime);
+
+schedule.setTrainType(trainType);
+schedule.setTrainNo(trainNo);
+schedule.setSrcName(srcName);
+schedule.setDestName(destName);
+schedule.setDepartureTime(departureTime);
+schedule.setArrivalTime(arrivalTime);
+
+Map<String, Object> map = new HashMap<String, Object>();
+map.put("trainType", trainType);
+map.put("trainNo", trainNo);
+map.put("yyyymmdd", departureTime.substring(0, 10));
+
+
+
+
+
+
+/**  ★ Java Version 8.0 Required; Stream Lib. has bean used ★ */
+try {
+/* 관리 목적 변수 */
+//역 순서 (true: 하행 / false: 하행)
+final List<String> stationsOrdered = TicketingDao.selectStationsOrdered(true);	//final val for annony
+//해당 열차의 전체 운행 정보 가져오기
+List<TktingSchedule> tSchedule = TicketingDao.getTSchedule(map);
+//해당 열차의 전체 운행 역 정보
+List<Object> stations = new ArrayList<Object>();
+for(TktingSchedule e : tSchedule) {
+	stations.add(e.getSrcName());
+	stations.add(e.getDestName());
+}
+stations = stations.stream().distinct().collect(Collectors.toList());
+Collections.sort(stations, new Comparator(){
+	public int compare(Object x, Object y) {
+		return (stationsOrdered.indexOf(x) - stationsOrdered.indexOf(y));
+	}
+});
+final List<Object> fStations = stations;
+//중간 역들
+for(int i = 0; i < tSchedule.size(); i++) {
+	TktingSchedule e = tSchedule.get(i);
+	if(e.getSrcName().equals("대전")) {
+		out.println("출발지 : " + e);
+	}
+	if(e.getDestName().equals("대전")) {
+		out.println("도착지 : " + e);
+	}
+}
+
+
+
+/*
+SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");  
+
+Date d1 = null;
+Date d2 = null;
+try {
+    d1 = format.parse(departureTime);
+    d2 = format.parse(arrivalTime);
+} catch (ParseException e) {
+    e.printStackTrace();
+}    
+
+long diff = d2.getTime() - d1.getTime();
+*/
+
+
+
+
+
+
+
+
+
+} catch(Exception e) {e.printStackTrace();}
+%>

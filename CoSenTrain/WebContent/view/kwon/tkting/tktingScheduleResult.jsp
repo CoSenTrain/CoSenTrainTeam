@@ -157,7 +157,7 @@ if(o instanceof List) {
 				<div class="tabcontent-common">
 						<input id="srcStationName" type="text" value="<%=src%>" name="src" style="border:1px solid gray;" size="10px" />
 						<a href="#" class="fa fa-map-marker sel-form-station sel-form-icon" ></a>
-						<i class="fa fa-exchange" style="padding: 0 20px;" onclick="(function(){var temp;var src=document.getElementById('srcStationName');var dest=document.getElementById('destStationName');temp=src.value;src.value=dest.value;dest.value=temp;})()"></i>
+						<i class="fa fa-exchange" style="padding: 0 20px;cursor: pointer;" onclick="(function(){var temp;var src=document.getElementById('srcStationName');var dest=document.getElementById('destStationName');temp=src.value;src.value=dest.value;dest.value=temp;})()"></i>
 						<input id="destStationName" type="text" value="<%=dest%>" name="dest" style="border:1px solid gray;" size="10px" />
 						<a href="#" class="fa fa-map-marker sel-form-station sel-form-icon" ></a>
 						<input type="text" value="<%=yyyy%>.<%=mm%>.<%=dd%>" id="chosenDate" name="chosenDate" style="margin-left: 50px;" size="10px" />
@@ -397,9 +397,9 @@ if(o instanceof List) {
 							<td><%=e.getDepartureTime().substring(11, 16)%></td>
 							<td><%=e.getArrivalTime().substring(11, 16)%></td>
 							<td><%=getDiffHhMm(e.getDepartureTime(), e.getArrivalTime())%></td>
-							<td><button style="background-color:indigo;border-radius:5px;color:snow;cursor:pointer;"><b>보기</b></button></td>
-							<td><button style="background-color:indigo;border-radius:5px;color:snow;cursor:pointer;"><b>보기</b></button></td>
-							<td><button style="background-color:crimson;border-radius:5px;color:snow;cursor:pointer;"><b>예약하기</b></button></td>
+							<td><button class="btn-show-popup-look" onclick="showPopupLookTime('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>');"><b>보기</b></button></td>
+							<td><button class="btn-show-popup-look" ><b>보기</b></button></td>
+							<td><button class="btn-show-popup-resv"><b>예약하기</b></button></td>
 						</tr>
 						<%
 						}

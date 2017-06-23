@@ -1,0 +1,95 @@
+
+
+
+.popup-wrapper {
+	width: 480px;
+	height: 474px;
+	padding: 5px;
+	background: navy; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, navy, crimson); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, navy, crimson); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, navy, crimson); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, navy, crimson); /* Standard syntax */
+}
+
+.popup-title {
+	width: 200px;
+	float: left;
+	cursor: default;
+}
+
+.popup-title font {
+	background-color: none;
+	color:snow;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.popup-close {
+	float: right;
+	margin-right: 5px;
+}
+
+.popup-close i {
+	background-color: none;
+	color:snow;
+	cursor: pointer;
+}
+
+.popup-body {
+	width: 435px;
+	height: 400px;
+	margin-top: 10px;
+	padding: 20px;
+	background-color: white;
+	float: left;
+	cursor: default;
+	overflow: auto;
+}
+
+.popup-body h5 {
+	margin: 0;
+	padding: 7px;
+	text-align: center;
+	background-color: crimson;
+	color: white;
+}
+
+.popup-body table {
+	width:435px;
+	padding: 0;
+	margin: 0;
+	border-spacing: 0;
+	font-size: 12px;
+}
+
+.popup-body table th {
+	background-color: #F0F0F0;
+}
+
+.popup-body table td {
+	text-align: center;
+}
+
+.popup-body table th, table td {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid lightgray;
+}
+
+.popup-body table col:first-child {
+	width: 135px;
+}
+
+.popup-body table .wx100 {
+	width: 100px;
+}
+
+.popup-body table th:nth-child(2),
+.popup-body table th:nth-child(3),
+.popup-body table th:nth-child(4),
+.popup-body table td:nth-child(2),
+.popup-body table td:nth-child(3),
+.popup-body table td:nth-child(4) {
+	border-left: 1px solid lightgray;
+}

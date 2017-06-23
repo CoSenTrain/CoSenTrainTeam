@@ -134,3 +134,17 @@
 .sel-train-result tbody tr:hover {color: brown;}
 .sel-train-result tbody tr:nth-child(odd) {background-color: snow;}
 .sel-train-result tbody tr:nth-child(even) {background-color: lightgray;}
+
+.sel-train-result .btn-show-popup-look {
+	background-color: indigo;
+	border-radius: 5px;
+	color: snow;
+	cursor: pointer;
+}
+
+.sel-train-result .btn-show-popup-resv {
+	background-color: crimson;
+	border-radius: 5px;
+	color: snow;
+	cursor: pointer;
+}
