@@ -57,6 +57,21 @@
 			<td>-</td>
 			<td>-</td>
 		</tr>
+		<tr>
+			<td id="jsText0" colspan="4"></td>
+		</tr>
+		<tr>
+			<td id="jsText1" colspan="4"></td>
+		</tr>
+		<tr>
+			<td id="jsText2" colspan="4"></td>
+		</tr>
+		<tr>
+			<td id="jsText3" colspan="4"></td>
+		</tr>
+		<tr>
+			<td id="jsText4" colspan="4"></td>
+		</tr>
 	</table>
 </div>
 
@@ -82,7 +97,16 @@ setTimeout(function() {
 	//alert(params);
 	sendRequest("popupLookTimePro.jsp", params, function(){
 		if(httpRequest.readyState == 4 && httpRequest.status == 200) {
-			alert(httpRequest.responseText);
+			var rs = JSON.parse(httpRequest.responseText);
+			console.log(rs);
+			
+			for(var i = 0; i < 5; i++) {
+				document.getElementById("jsText" + i).innerText = rs[i].station;
+				document.getElementById("jsText" + i).innerText += ", " + rs[i].arrival;
+				document.getElementById("jsText" + i).innerText += ", " + rs[i].departure;
+				document.getElementById("jsText" + i).innerText += ", " + rs[i].delayed;
+			}
+
 		}
 	}, 'GET');
 }, 50);

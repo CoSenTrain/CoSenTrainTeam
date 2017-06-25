@@ -73,8 +73,52 @@ Collections.sort(stations, new Comparator(){
 		return (stationsOrdered.indexOf(x) - stationsOrdered.indexOf(y));
 	}
 });
-final List<Object> fStations = stations;
+
+StringBuffer json = new StringBuffer();
+
+json.append("[");
+
+//출발 역
+for(int i = 0; i < tSchedule.size(); i++) {
+	TktingSchedule e = tSchedule.get(i);
+	if(e.getSrcName().equals(stations.get(0))) {
+		json.append("{")
+		.append("\"station\":").append("\"" + stations.get(0) + "\",")
+		.append("\"arrival\":").append("\"-\",")
+		.append("\"departure\":").append("\"" + e.getDepartureTime() + "\",")
+		.append("\"delayed\":").append("\"-\"")
+		.append("},");
+		break;
+	}
+}
+
 //중간 역들
+if(stations.size() > 2) {
+	for(int i = 1; i < stations.size(); i++) {
+		String stName1 = stations.get(i-1).toString();
+		String stName2 = stations.get(i).toString();
+		
+		json.append("{");
+		json.append("\"station\":").append("\"" + stName2 + "\",");
+		for(int j = 0; j < tSchedule.size(); j++) {
+			TktingSchedule e = tSchedule.get(j);
+			if(e.getDestName().equals(stName2)) {
+				json.append("\"arrival\":").append("\"" + e.getArrivalTime().substring("yyyy/MM/dd ".length()) + "\",");
+				break;
+			}
+		}
+		for(int j = 0; j < tSchedule.size(); j++) {
+			TktingSchedule e = tSchedule.get(j);
+			if(e.getSrcName().equals(stName2)) {
+				json.append("\"departure\":").append("\"" + e.getDepartureTime().substring("yyyy/MM/dd ".length()) + "\",");
+				break;
+			}
+		}
+		json.append("\"delayed\":").append("\"-\"");
+		json.append("},");
+	}
+}
+/* 
 for(int i = 0; i < tSchedule.size(); i++) {
 	TktingSchedule e = tSchedule.get(i);
 	if(e.getSrcName().equals("대전")) {
@@ -84,6 +128,29 @@ for(int i = 0; i < tSchedule.size(); i++) {
 		out.println("도착지 : " + e);
 	}
 }
+ */
+
+
+for(TktingSchedule e : tSchedule) {
+	//out.println(e + "<br />");
+}
+
+
+//종착 역
+for(int i = 0; i < tSchedule.size(); i++) {
+	TktingSchedule e = tSchedule.get(i);
+	if(e.getDestName().equals(stations.get(stations.size()-1))) {
+		json.append("{")
+		.append("\"station\":").append("\"" + stations.get(stations.size()-1) + "\",")
+		.append("\"arrival\":").append("\"" + e.getArrivalTime() + "\",")
+		.append("\"departure\":").append("\"-\",")
+		.append("\"delayed\":").append("\"-\"")
+		.append("}");
+		break;
+	}
+}
+json.append("]");
+
 
 
 
@@ -105,8 +172,8 @@ long diff = d2.getTime() - d1.getTime();
 
 
 
-
-
+json.trimToSize();
+out.print(json.toString());
 
 
 
