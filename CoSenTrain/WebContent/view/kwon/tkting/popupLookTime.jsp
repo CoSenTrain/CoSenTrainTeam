@@ -33,6 +33,7 @@
 			<col class="wx100">
 			<col class="wx100">
 		</colgroup>
+		<!-- 
 		<tr>
 			<th>역명</th>
 			<th>도착시간</th>
@@ -57,21 +58,7 @@
 			<td>-</td>
 			<td>-</td>
 		</tr>
-		<tr>
-			<td id="jsText0" colspan="4"></td>
-		</tr>
-		<tr>
-			<td id="jsText1" colspan="4"></td>
-		</tr>
-		<tr>
-			<td id="jsText2" colspan="4"></td>
-		</tr>
-		<tr>
-			<td id="jsText3" colspan="4"></td>
-		</tr>
-		<tr>
-			<td id="jsText4" colspan="4"></td>
-		</tr>
+		 -->
 	</table>
 </div>
 
@@ -101,12 +88,26 @@ setTimeout(function() {
 			console.log(rs);
 			
 			for(var i = 0; i < 5; i++) {
-				document.getElementById("jsText" + i).innerText = rs[i].station;
-				document.getElementById("jsText" + i).innerText += ", " + rs[i].arrival;
-				document.getElementById("jsText" + i).innerText += ", " + rs[i].departure;
-				document.getElementById("jsText" + i).innerText += ", " + rs[i].delayed;
+				var tr = document.createElement("tr");
+				
+				var tdStation = document.createElement("td");
+				tdStation.innerHTML = rs[i].station;
+				tr.appendChild(tdStation);
+				var tdArrival = document.createElement("td");
+				tdArrival.innerHTML = rs[i].arrival;
+				tr.appendChild(tdArrival);
+				var tdDeparture = document.createElement("td");
+				tdDeparture.innerHTML = rs[i].departure;
+				tr.appendChild(tdDeparture);
+				var tdDeleyed = document.createElement("td");
+				tdDeleyed.innerHTML = rs[i].delayed;
+				tr.appendChild(tdDeleyed);
+				
+				tb.appendChild(tr);
 			}
-
+			
+			
+			
 		}
 	}, 'GET');
 }, 50);

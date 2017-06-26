@@ -85,7 +85,7 @@ for(int i = 0; i < tSchedule.size(); i++) {
 		json.append("{")
 		.append("\"station\":").append("\"" + stations.get(0) + "\",")
 		.append("\"arrival\":").append("\"-\",")
-		.append("\"departure\":").append("\"" + e.getDepartureTime() + "\",")
+		.append("\"departure\":").append("\"" + e.getDepartureTime().substring("yyyy/MM/dd ".length(), "yyyy/MM/dd ".length() + "HH:mm".length()) + "\",")
 		.append("\"delayed\":").append("\"-\"")
 		.append("},");
 		break;
@@ -94,7 +94,7 @@ for(int i = 0; i < tSchedule.size(); i++) {
 
 //중간 역들
 if(stations.size() > 2) {
-	for(int i = 1; i < stations.size(); i++) {
+	for(int i = 1; i < stations.size() - 1; i++) {
 		String stName1 = stations.get(i-1).toString();
 		String stName2 = stations.get(i).toString();
 		
@@ -103,14 +103,14 @@ if(stations.size() > 2) {
 		for(int j = 0; j < tSchedule.size(); j++) {
 			TktingSchedule e = tSchedule.get(j);
 			if(e.getDestName().equals(stName2)) {
-				json.append("\"arrival\":").append("\"" + e.getArrivalTime().substring("yyyy/MM/dd ".length()) + "\",");
+				json.append("\"arrival\":").append("\"" + e.getArrivalTime().substring("yyyy/MM/dd ".length(), "yyyy/MM/dd ".length() + "HH:mm".length()) + "\",");
 				break;
 			}
 		}
 		for(int j = 0; j < tSchedule.size(); j++) {
 			TktingSchedule e = tSchedule.get(j);
 			if(e.getSrcName().equals(stName2)) {
-				json.append("\"departure\":").append("\"" + e.getDepartureTime().substring("yyyy/MM/dd ".length()) + "\",");
+				json.append("\"departure\":").append("\"" + e.getDepartureTime().substring("yyyy/MM/dd ".length(), "yyyy/MM/dd ".length() + "HH:mm".length()) + "\",");
 				break;
 			}
 		}
@@ -142,7 +142,7 @@ for(int i = 0; i < tSchedule.size(); i++) {
 	if(e.getDestName().equals(stations.get(stations.size()-1))) {
 		json.append("{")
 		.append("\"station\":").append("\"" + stations.get(stations.size()-1) + "\",")
-		.append("\"arrival\":").append("\"" + e.getArrivalTime() + "\",")
+		.append("\"arrival\":").append("\"" + e.getArrivalTime().substring("yyyy/MM/dd ".length(), "yyyy/MM/dd ".length() + "HH:mm".length()) + "\",")
 		.append("\"departure\":").append("\"-\",")
 		.append("\"delayed\":").append("\"-\"")
 		.append("}");
