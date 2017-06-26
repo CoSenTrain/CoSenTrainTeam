@@ -33,13 +33,13 @@
 			<col class="wx100">
 			<col class="wx100">
 		</colgroup>
-		<!-- 
 		<tr>
 			<th>역명</th>
 			<th>도착시간</th>
 			<th>출발시간</th>
 			<th>지연시간</th>
 		</tr>
+		<!-- 
 		<tr>
 			<td>수서</td>
 			<td>-</td>
