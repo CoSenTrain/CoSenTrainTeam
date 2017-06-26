@@ -22,7 +22,7 @@
 <!-- LOGIN  Start -->
 <div class="reg-wrapper-first">
    <div class="reg-wrapper-first-center">
-      <br />
+      <br/>
       <h1 style="padding: 30px 30px 0 30px;" class="tkting-method">회원가입</h1>
       <span style="float:right;font-size:12px;margin-right:30px;">
          <a href="/web/view/container/container.jsp" class="fa fa-home" style="cursor:pointer;text-decoration:none;color:black;"></a>

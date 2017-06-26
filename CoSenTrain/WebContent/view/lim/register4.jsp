@@ -134,11 +134,15 @@ input[type="button"]:last-child {
 
 					<%
 						 
-					  String name=  (String)application.getAttribute("name");
-					    String birth =(String)application.getAttribute("birth");
-					    String phone =(String)application.getAttribute("phone");  
-					    		String gender =(String)application.getAttribute("gender");
-					    		 application.setAttribute("name", name); 
+					  String name =  (String)application.getAttribute("name");
+					          if(name==null){name=""; }   
+					String birth =(String)application.getAttribute("birth");
+				       if(birth==null){birth=""; }
+					String phone =(String)application.getAttribute("phone");  
+				       if(phone==null){phone=""; }
+					String gender =(String)application.getAttribute("gender");
+				       if(gender==null){gender=""; }
+					   application.setAttribute("name", name); 
 					    		   application.setAttribute("birth", birth); 
 					    		   application.setAttribute("phone", phone); 
 					    		   application.setAttribute("gender", gender); 
@@ -169,14 +173,14 @@ input[type="button"]:last-child {
 				</span> <br /> <br /> <br />
 
 				<!--  start-->
-				<div style="width: 820px; padding: 30px 30px 30px 150px; height: 800px; background-color: white;">
+				<div style="width: 940px; padding: 0 30px 30px 30px; height: 800px; background-color: white;">
 
 					<form action="registerComplete.jsp" name="joinFrm" method="post">
 
 						<table>
 							<colgroup>
-								<col width="100px" />
-								<col />
+								<col width="150px" />
+								<col" />
 							</colgroup>
 							<tr>
 								<th class="table-th">이름</th>
@@ -187,7 +191,7 @@ input[type="button"]:last-child {
 								<td class="table-td"><span class="spanPass">비밀번호</span><span><input
 									 id="pwweb" name="pwweb" value="" type="text" /></span><span class="discription"> ※영문 및 숫자를 조합한
 										10자리 이상의 비밀번호</span><br /> <span class="spanPass">비밀번호 확인</span><span><input
-									id="pwweb2" name="pwweb2" value=""type="text" onblur="pwwebCheck()" /></span><br />
+									id="pwweb2" name="pwweb2" value="" type="text" onblur="pwwebCheck()" /></span><br />
 									
 									<ul>
 										<li>CoSen 홈페이지 및 앱에서 사용하는 로그인 비밀번호 입니다.</li>
@@ -206,11 +210,11 @@ input[type="button"]:last-child {
 							</tr>
 							<tr>
 								<th class="table-th">생년월일&lowast;</th>
-								<td class="table-td"><label name="birth" id="birth"><%=birth %></label><input type="hidden" name="bi"> </td>
+								<td class="table-td"><label name="birth" id="birth"><%=birth%></label><input type="hidden" name="bi"> </td>
 							</tr>
 							<tr>
 								<th class="table-th">성별&lowast;</th>
-								<td class="table-td"><label name="gender" id="gender"><%=gender %></label></td>
+								<td class="table-td"><label name="gender" id="gender"><%=gender%></label></td>
 							</tr>
 							<tr>
 								<th class="table-th">이메일&lowast;</th>

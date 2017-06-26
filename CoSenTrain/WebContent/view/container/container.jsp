@@ -21,6 +21,7 @@
 			padding: 10px;
 			border: 0;
 			font-size: 15px;
+			
 		}
 	</style>
 </head>
