@@ -6,8 +6,8 @@
 <%@page import="util.kwon.Obj"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%!TicketingDao ticketingDao = TicketingDao.getInstance();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,7 +78,7 @@ map.put("carType", carType);
 map.put("isAisleSeat", seatCate);
 
 ////   DAO   ///////////////////////////////////////////////////////////////////////////////////////////
-List<TktingSchedule> selScheduleList = TicketingDao.selectSchedule(map);	//DAO
+List<TktingSchedule> selScheduleList = ticketingDao.selectSchedule(map);	//DAO
 request.setAttribute("tripType", tripType);
 request.setAttribute("adultCnt", adultCnt);
 request.setAttribute("childCnt", childCnt);

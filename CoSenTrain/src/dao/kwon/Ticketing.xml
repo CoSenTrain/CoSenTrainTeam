@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!DOCTYPE sqlMap      
-    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
-    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
-<sqlMap namespace="tkt">
-	<typeAlias alias="sch" type="bean.kwon.TktingSchedule"/>
-	<select id="selectSchedule" parameterClass="java.util.Map" resultClass="sch">
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.kwon.TktingSchedule">
+	<select id="selectSchedule" parameterType="java.util.Map" resultType="sch">
 SELECT RM, runningNo, trainNo, trainType, srcName, destName, departureTime, arrivalTime
 FROM (
   SELECT ROW_NUMBER() OVER(ORDER BY departureTime) RM, runningNo, tr.trainNo, tr.type trainType, srcName, destName, TO_CHAR(departureTime, 'YYYY/MM/DD HH24:MI:SS') AS departureTime, TO_CHAR(arrivalTime, 'YYYY/MM/DD HH24:MI:SS') AS arrivalTime
@@ -12,33 +11,41 @@ FROM (
                         FROM route r, (SELECT stationNo src, name srcName FROM station) s, (SELECT stationNo dest, name destName FROM station) d
                         WHERE r.src = s.src AND r.dest = d.dest) rr, (SELECT trainNo, type, moddate FROM train) tr
  WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo 
-    AND TO_NUMBER(TO_CHAR(ss.departureTime, 'HH24'), '99')  >= TO_NUMBER(#hh#, '99')
-    AND rr.srcName = #src# AND rr.destName = #dest#
-    AND TO_CHAR(ss.departureTime, 'YYYY.MM.DD') = #chosenDate#
-    <dynamic>
-    	<isEqual property="carType" compareValue="regular">AND (SELECT COUNT(*) FROM car WHERE trainNo IN(tr.trainNo) AND TYPE = 'regular') > 0</isEqual>
-    	<isEqual property="carType" compareValue="advanced">AND (SELECT COUNT(*) FROM car WHERE trainNo IN(tr.trainNo) AND TYPE = 'advanced') > 0</isEqual>
-    	<isEqual property="isAisleSeat" compareValue="windowSeat">AND (SELECT COUNT(*) FROM seat  WHERE carNo IN(SELECT carNo FROM car WHERE trainNo IN(tr.trainNo)) AND seatName NOT LIKE '%B%') > 0</isEqual>
-    	<isEqual property="isAisleSeat" compareValue="aisleSeat">AND (SELECT COUNT(*) FROM seat  WHERE carNo IN(SELECT carNo FROM car WHERE trainNo IN(tr.trainNo)) AND seatName LIKE '%B%') > 0</isEqual>
-    </dynamic>
+    AND TO_NUMBER(TO_CHAR(ss.departureTime, 'HH24'), '99')  >= TO_NUMBER(#{hh}, '99')
+    AND rr.srcName = #{src} AND rr.destName = #{dest}
+    AND TO_CHAR(ss.departureTime, 'YYYY.MM.DD') = #{chosenDate}
+    <choose>
+    	<when test="carType != null and carType.equalsIgnoreCase('regular')">
+    		 AND (SELECT COUNT(*) FROM car WHERE trainNo IN(tr.trainNo) AND TYPE = 'regular') > 0 
+    	</when>
+    	<when test="carType != null and carType.equalsIgnoreCase('advanced')">
+    		 AND (SELECT COUNT(*) FROM car WHERE trainNo IN(tr.trainNo) AND TYPE = 'advanced') > 0 
+    	</when>
+    	<when test="isAisleSeat != null and isAisleSeat.equalsIgnoreCase('windowSeat')">
+    		 AND (SELECT COUNT(*) FROM seat  WHERE carNo IN(SELECT carNo FROM car WHERE trainNo IN(tr.trainNo)) AND seatName NOT LIKE '%B%') > 0 
+    	</when>
+    	<when test="isAisleSeat != null and isAisleSeat.equalsIgnoreCase('aisleSeat')">
+    		 AND (SELECT COUNT(*) FROM seat  WHERE carNo IN(SELECT carNo FROM car WHERE trainNo IN(tr.trainNo)) AND seatName LIKE '%B%') > 0 
+    	</when>
+    </choose>
 ) 
 WHERE RM BETWEEN 1 AND 10
 	</select>
-	<select id="selectStationsOrdered" parameterClass="java.lang.String" resultClass="java.lang.String">
-SELECT name FROM STATION ORDER BY stationNo $ASC$
+	<select id="selectStationsOrdered" parameterType="java.util.Map" resultType="java.lang.String">
+SELECT name FROM STATION ORDER BY stationNo ${order}
 	</select>
-	<select id="getTSchedule" parameterClass="java.util.Map" resultClass="sch">
+	<select id="getTSchedule" parameterType="java.util.Map" resultType="sch">
 SELECT runningNo, tr.trainNo, tr.type trainType, srcName, destName, TO_CHAR(departureTime, 'YYYY/MM/DD HH24:MI:SS') AS departureTime, TO_CHAR(arrivalTime, 'YYYY/MM/DD HH24:MI:SS') AS arrivalTime 
 FROM runningSchedule ss, (SELECT r.routeNo, s.srcName, d.destName
                         FROM route r, (SELECT stationNo src, name srcName FROM station) s, (SELECT stationNo dest, name destName FROM station) d
                         WHERE r.src = s.src AND r.dest = d.dest) rr, (SELECT trainNo, type, moddate FROM train) tr
 WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo 
-  AND tr.trainNo = #trainNo#
-  AND tr.type = #trainType#
-  AND TO_CHAR(departureTime, 'YYYY/MM/DD') = #yyyymmdd#
+  AND tr.trainNo = #{trainNo}
+  AND tr.type = #{trainType}
+  AND TO_CHAR(departureTime, 'YYYY/MM/DD') = #{yyyymmdd}
 ORDER BY TO_DATE(departureTime, 'YYYY/MM/DD HH24:MI:SS') ASC
 	</select>
-</sqlMap>
+</mapper>
 
 <!-- 
 SELECT RM, runningNo, trainNo, trainType, srcName, destName, departureTime, arrivalTime, ROUND(24 * (to_date(arrivalTime, 'HH24:MI') - to_date(departureTime, 'HH24:MI')), 2) diffHours

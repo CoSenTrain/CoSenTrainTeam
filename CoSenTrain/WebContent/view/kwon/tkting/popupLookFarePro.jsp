@@ -14,6 +14,7 @@
 <%@page import="bean.kwon.TktingSchedule"%>
 <%@page import="util.kwon.Obj"%>
 <%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%!TicketingDao ticketingDao = TicketingDao.getInstance();%>
 <%
 request.setCharacterEncoding("EUC-KR");
 

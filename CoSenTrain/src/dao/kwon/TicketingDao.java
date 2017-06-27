@@ -1,40 +1,77 @@
 package dao.kwon;
 
+import java.io.Closeable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.ibatis.sqlmap.client.SqlMapClient;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import bean.kwon.TktingSchedule;
-import util.kwon.ServiceUtil;
 
 public class TicketingDao {
-	private static SqlMapClient sqlMapper = ServiceUtil.getSqlMap();
+	private final static TicketingDao instance = new TicketingDao();
+	private SqlSessionFactory sqlSessionFactory;
+
+	//constructor
+	private TicketingDao() {
+		sqlSessionFactory = SqlSessionFactoryMgr.getSqlSessionFactory();
+	}
 	
-	public static List<TktingSchedule> selectSchedule(Map<String, Object> map) {
+	//getInstance()
+	public static TicketingDao getInstance() {
+		return instance;
+	}
+	
+	//close
+	private void closeSqlSession(Closeable c) {
 		try {
-			return (List<TktingSchedule>) sqlMapper.queryForList("tkt.selectSchedule", map);
+			if(c != null) c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List<TktingSchedule> selectSchedule(Map<String, Object> map) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectSchedule", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
 		}
 	}
 	
-	public static List<String> selectStationsOrdered(boolean asc) {
+	public List<String> selectStationsOrdered(boolean asc) {
+		SqlSession sqlSession = null;
 		try {
-			return (List<String>) sqlMapper.queryForList("tkt.selectStationsOrdered", (asc ? "ASC" : "DESC"));
+			sqlSession = sqlSessionFactory.openSession();
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("order", (asc ? "ASC" : "DESC"));
+			return sqlSession.selectList("selectStationsOrdered", map);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
 		}
 	}
 	
-	public static List<TktingSchedule> getTSchedule(Map<String, Object> map) {
+	public List<TktingSchedule> getTSchedule(Map<String, Object> map) {
+		SqlSession sqlSession = null;
 		try {
-			return (List<TktingSchedule>) sqlMapper.queryForList("tkt.getTSchedule", map);
-		} catch(Exception e) {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("getTSchedule", map);
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
 		}
 	}
+	
 }

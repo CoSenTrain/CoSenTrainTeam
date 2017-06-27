@@ -3,19 +3,8 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="util.kwon.Obj"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>LOGIN PROCESS</title>
-</head>
-<body>
-
-<h1>LOGIN PROCESS</h1>
-<hr />
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%!UsersDao userDao = UsersDao.getInstance();%>
 <%
 request.setCharacterEncoding("EUC-KR");
 String path = new String();
@@ -55,7 +44,7 @@ if(Obj.isStrNull(logId) && Obj.isStrNull(logPw)) {
 	map.put("logPw", logPw);
 	map.put("isDeleted", "N");
 	
-	Users user = UsersDao.signUserIn(map);
+	Users user = userDao.signUserIn(map);
 	out.println("user = " + user + "<br />");
 	
 	if(user == null) {
@@ -75,7 +64,3 @@ if(redirect) {
 
 %>
 
-
-
-</body>
-</html>
