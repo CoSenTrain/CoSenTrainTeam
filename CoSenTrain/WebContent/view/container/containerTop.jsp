@@ -60,7 +60,7 @@
 			<div class="dropdown-content">
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>회원 서비스</a>
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>기차역 정보</a>
-				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>유실물 정보</a>
+				<a href="/web/view/cho/yusilEdit.jsp"><i class="fa fa-caret-right" >&nbsp;</i>유실물 정보</a>
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>고객의 소리</a>
 			</div>
 		</div>
