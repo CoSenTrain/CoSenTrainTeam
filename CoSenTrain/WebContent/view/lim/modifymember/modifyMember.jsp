@@ -17,22 +17,23 @@
 <link href="/web/css/container/standardColors.css" rel="stylesheet"
 	type="text/css">
 <style type="text/css">
-.table-wrapper {
+  .table-wrapper {
 	border-spacing: 0;
 	border-top: 2px solid #F3F3F3;
 	width: 940px;
 	background-color: white;
-}
+}  
 
 .table-th {
 	background-color: #F3F3F3;
 	padding: 10px;
 	text-align: left;
+	 
 }
 
 .table-td {
 	background-color: white;
-	width: 900px;
+	 
 	padding: 10px;
 }
 
@@ -40,12 +41,12 @@
 	width: 120px;
 }
 
-ul {
+.table-ul {
 	padding-left: 20px;
 	margin: 0;
 }
 
-ul li {
+.table-li {
 	font-size: 13px;
 }
 
@@ -54,11 +55,11 @@ ul li {
 	font-size: 13px;
 }
 
-span {
+ span {
 	display: inline-block;
-}
+}  
 
-input[type="text"] {
+ input[type="text"] {
 	display: inline-block;
 	background-color: #F3F3F3;
 	padding: 3px;
@@ -81,14 +82,19 @@ input[type="button"] {
 	border: 0;
 	border-radius: 0 7px;
 	margin: 10px 1px;
-}
+}  
 </style>
 <style>
-button:hover {
+.buttonTab:hover {
 	background-color: crimson;
 }
+.tab4{
+width: 940px;
+height:700px;
 
-button {
+}
+
+.buttonTab {
 	hover: pink;
 	display: inline-block;
 	font-weight: bold;
@@ -101,12 +107,12 @@ button {
 	width: 230px;
 }
 
-input {
+/* input {
 	margin: 0;
 	padding: 10px;
 	border: 0;
 	font-size: 15px;
-}
+} */
 
 .login-wrapper {
 	background-image: url("/web/img/bg/bg_container.jpg");
@@ -182,9 +188,8 @@ input {
 
 
 				<!--  start-->
-				<div
-					style="width: 940px; padding: 0 30px 30px 30px; height: 1000px; background-color: white;">
-
+				<div style="width: 940px; padding: 0 30px 30px 30px; height: 1000px; background-color: white;">
+                     <div style="width:940px; height:50px;" >
 					<div style="text-align: center;">
 						<button class="buttonTab" onclick="modifyTab(this,event,'modify')"
 							id="defaultOpen">정보수정</button>
@@ -195,12 +200,14 @@ input {
 						<input type="hidden" id="changeMethod" name="changeMethod"
 							value="change" />
 					</div>
+					</div>
+				 
 					<div id="modify" class="tab4">
 						<form action="" method="post">
 							<table class="table-wrapper">
 							 <colgroup>
-								<col width="100px" />
-								<col />
+								<col width="240px" />
+								<col width="700px" />
 							</colgroup>
  
 								<tr>
@@ -209,25 +216,23 @@ input {
 								</tr>
 								<tr>
 									<th class="table-th">비밀번호</th>
-									<td class="table-td"><input type="button">비밀번호변경</input></td>
+									<td class="table-td"><input type="button" value="비밀번호변경"></input></td>
 								</tr>
 								<tr>
 									<th class="table-th">이메일</th>
 
 									<td class="table-td"><span class="spanPass"><input
-											type="text" size="20" value="iamipro@naver.com"></span> <span
-										class="spanPass"><input type="button">이메일변경</input></span> <span
-										class="spanPass"><td class="table-td">*인증이완료된
-												이메일입니다.</span></br>
+											type="text" size="20" value="iamipro@naver.com"></span> <span class="spanPass"
+										><input type="button">이메일변경</input></span> <span
+										>*인증이 완료된 이메일입니다.</span><br />
+                                                
 
-
-
-										<ul>
-											<li>이메일 인증을 받으시면 코센 폼페이지 및 앱에서 이메일로 로그인하실 수 있습니다.</li>
-											<li>이메일 변경 시 인증을 통해서만 변경이 가능합니다.</li>
+										<ul class="table-ul">
+											<li class="table-li">이메일 인증을 받으시면 코센 폼페이지 및 앱에서 이메일로 로그인하실 수 있습니다.</li>
+											<li class="table-li">이메일 변경 시 인증을 통해서만] 변경이 가능합니다.</li>
 										</ul></td>
 								</tr>
-								<tr>
+							  <tr>
 									<th class="table-th">자택전화</th>
 									<td class="table-td"><input type="text" size="20" /></td>
 								</tr>
@@ -254,11 +259,13 @@ input {
 									<td class="table-td"><span class="spanPass"><input
 											type="button">확인</input></span><span class="spanPass"><input
 											type="button">취소</input></span></td>
-								</tr>
-							</table>
+								</tr>    
+							</table> 
 						</form>
 
 					</div>
+					 
+					
 					<div id="change" class="tab4">change</div>
 					<div id="cerify" class="tab4">cerify</div>
 					<div id="out" class="tab4">out</div>
