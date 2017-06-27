@@ -397,7 +397,7 @@ if(o instanceof List) {
 							<td><%=e.getArrivalTime().substring(11, 16)%></td>
 							<td><%=getDiffHhMm(e.getDepartureTime(), e.getArrivalTime())%></td>
 							<td><button class="btn-show-popup-look" onclick="showPopupLookTime('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>');"><b>보기</b></button></td>
-							<td><button class="btn-show-popup-look" ><b>보기</b></button></td>
+							<td><button class="btn-show-popup-look" onclick="showPopupLookFare('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>');"><b>보기</b></button></td>
 							<td><button class="btn-show-popup-resv"><b>예약하기</b></button></td>
 						</tr>
 						<%
