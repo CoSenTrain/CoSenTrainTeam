@@ -36,6 +36,7 @@ WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo
   AND tr.trainNo = #trainNo#
   AND tr.type = #trainType#
   AND TO_CHAR(departureTime, 'YYYY/MM/DD') = #yyyymmdd#
+ORDER BY TO_DATE(departureTime, 'YYYY/MM/DD HH24:MI:SS') ASC
 	</select>
 </sqlMap>
 

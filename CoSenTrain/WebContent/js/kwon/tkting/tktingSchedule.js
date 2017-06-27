@@ -1,6 +1,8 @@
 /**
  * 
  */
+
+
 //this event onetk,manytk
 function openCity(o, evt, cityName) {
 	document.getElementById("tktingMethod").value = cityName;

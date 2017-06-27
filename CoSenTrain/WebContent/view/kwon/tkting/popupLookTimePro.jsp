@@ -59,6 +59,16 @@ try {
 /* 관리 목적 변수 */
 //역 순서 (true: 하행 / false: 하행)
 final List<String> stationsOrdered = TicketingDao.selectStationsOrdered(true);	//final val for annony
+final List<String> temp = new ArrayList<String>();
+if((stationsOrdered.indexOf(destName) - stationsOrdered.indexOf(srcName)) < 0) {	//상행이면
+	for(int i = stationsOrdered.size() - 1; i >= 0; i--) {
+		temp.add(stationsOrdered.get(i));
+	}
+	stationsOrdered.clear();
+	for(int i = 0; i < temp.size(); i++) {
+		stationsOrdered.add(temp.get(i));
+	}
+}
 //해당 열차의 전체 운행 정보 가져오기
 List<TktingSchedule> tSchedule = TicketingDao.getTSchedule(map);
 //해당 열차의 전체 운행 역 정보
