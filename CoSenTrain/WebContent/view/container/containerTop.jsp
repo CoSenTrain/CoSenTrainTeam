@@ -84,19 +84,19 @@
 		<%
 		
 	  }else{
-		  Users u = (Users) session.getAttribute("user");
-	     String name = u.getName();
-	     int userno = u.getUserNo();
+		 
+	       
+		  
 		%>
 		<div class="dropdown">
 			<button class="dropbtn">마이페이지</button>
 			<div class="dropdown-content">
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>승차권이용내역</a>
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>할인쿠폰</a>
-				<a href="/web/view/lim/modifymember/modifyMember.jsp?name=<%=name%>&userno=<%=userno%>"><i class="fa fa-caret-right" >&nbsp;</i>회원정보수정</a>
-				<a href="/web/view/lim/modifymember/modifyPassword.jsp?name=<%=name%>&userno=<%=userno%>"><i class="fa fa-caret-right" >&nbsp;</i>비밀번호변경</a>
-				<a href="/web/view/lim/modifymember/cerifyEmail.jsp?name=<%=name%>&userno=<%=userno%>"><i class="fa fa-caret-right" style="font-size:12px;" >&nbsp;</i>이메일 인증</a>
-				<a href="/web/view/lim/memberdelete/deleteMember.jsp?name=<%=name%>&userno=<%=userno%>"><i class="fa fa-caret-right" >&nbsp;</i>회원탈회</a>
+				<a href="/web/view/lim/modifymember/modifyMember.jsp"><i class="fa fa-caret-right" >&nbsp;</i>회원정보수정</a>
+				<a href="/web/view/lim/modifymember/modifyPassword.jsp"><i class="fa fa-caret-right" >&nbsp;</i>비밀번호변경</a>
+				<a href="/web/view/lim/modifymember/cerifyEmail.jsp"><i class="fa fa-caret-right" style="font-size:12px;" >&nbsp;</i>이메일 인증</a>
+				<a href="/web/view/lim/memberdelete/deleteMember.jsp"><i class="fa fa-caret-right" >&nbsp;</i>회원탈회</a>
 			</div>
 		</div>
 		

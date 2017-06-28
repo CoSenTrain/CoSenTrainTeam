@@ -1,3 +1,4 @@
+<%@page import="bean.kwon.Users"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -177,7 +178,17 @@ input[type="button"] {
 
 <body onload="start()">
 <%
- String name = request.getParameter("name");
+ request.setCharacterEncoding("EUC-KR");
+
+Users user1 = (Users) session.getAttribute("user"); 
+Users user2 = (Users) session.getAttribute("users"); 
+System.out.println("user1="+user1);
+System.out.println("user2="+user2);
+
+
+
+ String name = user1.getName();
+ System.out.println(name);
 int userno = Integer.parseInt(request.getParameter("userno"));
 
 %>
@@ -211,12 +222,12 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'modify')"  id="defaultOpen">정보수정</button>
+								onclick="modifyTab(this,event,'modify')"  >회원정보수정</button>
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'change')">비빌번호변경</button>
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'cerify')">이메일/휴대전화 인증</button>
-							<button class="buttonTab" onclick="modifyTab(this,event,'out')">회원탈퇴</button>
+							<button class="buttonTab" onclick="modifyTab(this,event,'out')" id="defaultOpen">회원탈퇴</button>
 							<input type="hidden" id="changeMethod" name="changeMethod"
 								value="change" />
 						</div>
@@ -225,7 +236,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 					<div id="modify" class="tab4">
 					<div style="width:900px; color:#666; height:30px; border:1px solid lightgray;  padding: 10px 30px 30px 5px; margin-top:20px; margin-bottom:20px;">
 					 <ul>
-					  <li><b><%=name %>(<%=userno %>)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
+					  <li><b><%=name %><%=request.getParameter("name") %>(<%=userno %>)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
 					  <li>이메일 및 휴대전화번호는 수단별 인증을 통해서만 수정이 가능합니다. </li>
 					  
 					 </ul>

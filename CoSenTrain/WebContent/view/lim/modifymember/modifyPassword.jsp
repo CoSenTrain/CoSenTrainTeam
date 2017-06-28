@@ -1,3 +1,4 @@
+<%@page import="bean.kwon.Users"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -177,9 +178,18 @@ input[type="button"] {
 
 <body onload="start()">
 <%
- String name = request.getParameter("name");
-int userno = Integer.parseInt(request.getParameter("userno"));
+request.setCharacterEncoding("EUC-KR");
 
+Users user1 = (Users) session.getAttribute("user"); 
+Users user2 = (Users) session.getAttribute("users"); 
+System.out.println("user1="+user1);
+System.out.println("user2="+user2);
+
+
+
+String name = user1.getName();
+System.out.println(name);
+int userno = Integer.parseInt(request.getParameter("userno"));
 %>
 
 
@@ -211,9 +221,9 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'modify')"  id="defaultOpen">정보수정</button>
+								onclick="modifyTab(this,event,'modify')" >회원정보수정</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'change')">비빌번호변경</button>
+								onclick="modifyTab(this,event,'change')"  id="defaultOpen">비빌번호변경</button>
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'cerify')">이메일/휴대전화 인증</button>
 							<button class="buttonTab" onclick="modifyTab(this,event,'out')">회원탈퇴</button>
@@ -241,7 +251,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 
 								<tr>
 									<th class="table-th">이름</th>
-									<td class="table-td">name</td>
+									<td class="table-td"><%=name %></td>
 								</tr>
 								<tr>
 									<th class="table-th">비밀번호</th>

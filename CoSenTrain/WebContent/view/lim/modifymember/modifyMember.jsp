@@ -1,3 +1,4 @@
+<%@page import="bean.kwon.Users"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -177,9 +178,14 @@ input[type="button"] {
 
 <body onload="start()">
 <%
- String name = request.getParameter("name");
-int userno = Integer.parseInt(request.getParameter("userno"));
+request.setCharacterEncoding("EUC-KR");
+Users u = (Users) session.getAttribute("user");
 
+String name = u.getName();
+int userno = u.getUserNo();
+String email = u.getEmail();
+String gender = u.getGender();
+String phone = u.getPhone();
 %>
 
 
@@ -211,7 +217,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'modify')"  id="defaultOpen">정보수정</button>
+								onclick="modifyTab(this,event,'modify')"  id="defaultOpen">회원정보수정</button>
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'change')">비빌번호변경</button>
 							<button class="buttonTab"
@@ -241,7 +247,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 
 								<tr>
 									<th class="table-th">이름</th>
-									<td class="table-td">name</td>
+									<td class="table-td"><%=name %></td>
 								</tr>
 								<tr>
 									<th class="table-th">비밀번호</th>
@@ -257,7 +263,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 	padding: 3px;
 	margin: 3px;
 									"
-											type="text" size="50" value="iamipro@naver.com"></span> <span
+											type="text" size="50" value="<%=email%>"></span> <span
 										class="spanPass"><input type="button" value="이메일변경"></input></span> <span style="font-size: 14px;">*인증이
 											완료된 이메일입니다.</span><br />
 
@@ -288,7 +294,7 @@ int userno = Integer.parseInt(request.getParameter("userno"));
 	padding: 3px;
 	margin: 3px;
 									"
-											type="text" size="20" /></span> <span class="spanPass"><input
+											type="text" size="20" value="<%=phone %>" /></span> <span class="spanPass"><input
 											type="button" value="휴대전화변경"></input></span> <span  style="font-size: 14px;" class="spanPass">*인증이
 											완료된 휴대전화입니다.</span> </br>
 										<ul class="table-ul">
