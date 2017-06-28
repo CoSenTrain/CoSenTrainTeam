@@ -85,6 +85,5 @@ public class TicketingDao {
 		} finally {			
 			closeSqlSession(sqlSession);
 		}
-	}
-	
+	}	
 }
