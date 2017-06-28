@@ -35,7 +35,6 @@
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>발권/취소(반환)</a>
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>예약변경</a>
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>이용내역/영수증</a>
-				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>인터넷반환접수</a>
 			</div>
 		</div>
 		<div class="dropdown">
