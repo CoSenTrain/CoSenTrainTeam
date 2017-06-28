@@ -42,7 +42,7 @@
 		String dong = request.getParameter("dong");
 		List<ZipCode> list = null;
 		if (dong != null||dong!="") {
-			list = ZipCodeDao.selectZipCode(dong);
+			list = ZipCodeDao.getInstance().selectZipCode(dong);
 		}
 	%>
 

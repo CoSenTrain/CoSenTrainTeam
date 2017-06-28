@@ -1,41 +1,14 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!DOCTYPE sqlMap      
-    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
-    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
-<!-- 
-	private int userNo;
-	private String name;
-	private String pwWeb;
-	private int pwTicketing;
-	private String birth;
-	private String email;
-	private String gender;
-	private String emailRecivable;
-	private String tel;
-	private String phone;
-	private int zipcodeNo;
-	private String sido;
-	private String gugun;
-	private String dong;
-	private String bunji;
-	private String addr;
-	private String userType;
-	private char isDeleted;
-	private String delComment;
-	private String moddate;
-	private String regdate;
- -->
-<sqlMap namespace="zipcode">
-	<typeAlias alias="zip" type="bean.lim.ZipCode"/>
- <select id="getZipCode" resultClass="zip">
-  select * from zipcode
- </select>
-
- <select id="selectZipCode" parameterClass="java.lang.String" resultClass="zip">
-   select zipcode,sido ,gugun,dong, nvl(bunji,' ')bunji,zipcodeno from zipcode where dong like '%'||#dong#||'%'
- </select>
-
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-
-</sqlMap>
-
+<mapper namespace="bean.lim.ZipCode">
+	 
+	<select id="getZipCode" resultType="zip"> select * from zipcode</select> 
+	 <select id="selectZipCode" resultType="zip" parameterType="java.lang.String">
+	 select zipcode,sido ,gugun,dong, nvl(bunji,' ')bunji,zipcodeno from zipcode where dong like '%'||#{dong}||'%'
+	 </select>
+	 
+</mapper>
+ 

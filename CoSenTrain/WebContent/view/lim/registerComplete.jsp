@@ -56,7 +56,7 @@
       
 	    		
     Members member = new Members();
-      int no=MemberDao.getNumber();
+    int no=MemberDao.getInstance().getNumber();
     member.setUserno(no);
     member.setName(name); 
     member.setPwweb(b.getPwweb());
@@ -79,7 +79,7 @@
     member.setIsDeleted("N");
     System.out.println(member);
     
-    MemberDao.insertMember(member);
+    MemberDao.getInstance().insertMember(member);
     
   %>
          

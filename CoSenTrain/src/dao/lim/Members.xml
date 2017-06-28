@@ -1,142 +1,16 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!DOCTYPE sqlMap      
-    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
-    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
-<!-- 
-	private int userno;
-private String name;	
-private String pwweb;
-private int pwticketing;
-private String birth;
-private String email;
-private String gender;
-private String emailreceivable;
-private String tel;
-private String phone;
-private int zipcodeno;
-private String sido;
-private String gugun;
-private String dong;
-private String bunji;
-private String addr;
-private String usertype;
-private String isDeleted;
-private String delComment;
-private String modDate;
-private String regDate;
- -->
-<sqlMap namespace="member">
-	<typeAlias alias="members" type="bean.lim.Members"/>
-	<select id="getNumber" resultClass="java.lang.Integer">
-	   select users_seq.NEXTVAL from dual
-	</select>
-	
-	  <insert id="insertMember" parameterClass="members" >
-	 insert into users values(#userno#,#name#,#pwweb#,#pwticketing#,#birth#,#email#,#gender#,#emailreceivable#,#tel#,#phone#,#zipcodeno#,#addr#,#usertype#,#isDeleted#,null,sysdate,sysdate)
-	 
-	</insert>
-	 
-	<!-- <select parameterClass="java.lang.String" resultClass="java.lang.String" id="idpwCheck"> select password from members where id=#id# </select>
-
-<statement parameterClass="java.lang.String" resultClass="java.lang.String" id="getUserName"> select name from members where id=#value# </statement>
-
-<select parameterClass="java.lang.String" resultClass="java.lang.String" id="idCheck"> select id from members where id=#id# </select>
-
-<statement parameterClass="member" id="insertMember"> insert into members values (#no#,#name#,#id#,#password#,#hobby#,#qna#,#gender#,#birthday#, #address#,#email#,#tel#,#cp#,sysdate) </statement>
-
-<statement resultClass="java.lang.Integer" id="getNumber"> select members_seq.nextval from dual </statement
-	 -->
-	
-	
-<!-- 	
-	<select id="selectUsers" parameterClass="java.util.Map" resultClass="user">
-SELECT userNo, 
-        name, 
-        pwWeb, 
-        pwTicketing, 
-        TO_CHAR(birth, 'YYYY/MM/DD') birth, 
-        email, 
-        gender, 
-        emailRecivable, 
-        tel, 
-        phone, 
-        u.zipcodeNo, 
-        sido,
-        gugun,
-        dong,
-        bunji,
-        addr, 
-        userType, 
-        isDeleted, 
-        delComment,
-        TO_CHAR(moddate, 'YYYY/MM/DD') moddate, 
-        TO_CHAR(regdate, 'YYYY/MM/DD') regdate
-FROM users u, zipcode z
-WHERE u.zipcodeNo = z.zipcodeNo
-  AND userType = #userType#
-  AND isDeleted = #isDeleted#
-	</select>
-	<select id="signUserIn" parameterClass="java.util.Map" resultClass="user">
-SELECT userNo, 
-        name, 
-        pwWeb, 
-        pwTicketing, 
-        TO_CHAR(birth, 'YYYY/MM/DD') birth, 
-        email, 
-        gender, 
-        emailRecivable, 
-        tel, 
-        phone, 
-        u.zipcodeNo, 
-        sido,
-        gugun,
-        dong,
-        bunji,
-        addr, 
-        userType, 
-        isDeleted, 
-        delComment,
-        TO_CHAR(moddate, 'YYYY/MM/DD') moddate, 
-        TO_CHAR(regdate, 'YYYY/MM/DD') regdate
-FROM users u, zipcode z
-WHERE u.zipcodeNo = z.zipcodeNo
-  		<isNotNull prepend="AND" property="logId">
-  	$signInWith$ = #logId#
-  		</isNotNull>
-  		<isNotNull prepend="AND" property="logPw">
-  	pwWeb = #logPw#
-  		</isNotNull>
-  		<isNotNull prepend="AND" property="isDeleted">
-  	isDeleted = #isDeleted#
-  		</isNotNull>
-	</select>
- -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.lim.Members">
  
- </sqlMap>
-
-<!-- 
-SELECT userNo, 
-        name, 
-        pwWeb, 
-        pwTicketing, 
-        TO_CHAR(birth, 'YYYY/MM/DD') birth, 
-        email, 
-        gender, 
-        emailRecivable, 
-        tel, 
-        phone, 
-        u.zipcodeNo, 
-        sido,
-        gugun,
-        dong,
-        bunji,
-        addr, 
-        userType, 
-        isDeleted, 
-        delComment,
-        TO_CHAR(moddate, 'YYYY/MM/DD') moddate, 
-        TO_CHAR(regdate, 'YYYY/MM/DD') regdate
-FROM users u, zipcode z
-WHERE u.zipcodeNo = z.zipcodeNo
-  AND userType = 'admin'
- -->
+ <select id="getNumber" resultType="java.lang.Integer">select users_seq.NEXTVAL from dual</select>
+ 
+ <insert id="insertMember" parameterType="member">
+  insert into users values(#{userno},#{name},#{pwweb},#{pwticketing},#{birth},#{email},#{gender},
+  #{emailreceivable},#{tel},#{phone},#{zipcodeno},#{addr},#{usertype},#{isDeleted},null,sysdate,sysdate)
+ 
+ </insert>
+ 
+ 
+</mapper>

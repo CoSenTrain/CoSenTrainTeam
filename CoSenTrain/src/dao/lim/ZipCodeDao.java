@@ -1,37 +1,87 @@
 package dao.lim;
 
+import java.io.Closeable;
 import java.util.List;
-import java.util.Map;
 
-import com.ibatis.sqlmap.client.SqlMapClient;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import bean.lim.ZipCode;
 
 public class ZipCodeDao {
-	private static SqlMapClient sqlMapper = util.lim.ServiceUtil.getSqlMap();
+	private final static ZipCodeDao instance = new ZipCodeDao();
+	private SqlSessionFactory sqlSessionFactory;
 	
-	public static List<ZipCode> getZipCode(){
+	private ZipCodeDao(){
+		sqlSessionFactory = SqlSessionFactoryUser.getSqlSessionFactory();
+	}
+	
+	public static ZipCodeDao getInstance(){
+		return instance;
+	}
+	
+	private void closeSqlSession(Closeable c){
 		try {
-			return (List<ZipCode>)sqlMapper.queryForList("zipcode.getZipCode");
+			if(c!=null) c.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
 			// TODO: handle exception
 		}
-		
 	}
-	public static List<ZipCode> selectZipCode(String dong){
+	
+	public List<ZipCode> getZipCode(){
+		SqlSession sqlSession =null;
 		try {
-			return (List<ZipCode>)sqlMapper.queryForList("zipcode.selectZipCode",dong);
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("getZipCode");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
 		}
 		
 		
+		
 	}
+	 public List<ZipCode> selectZipCode(String dong){
+		 SqlSession sqlSession = null;
+		 try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectZipCode", dong); 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		 
+	 }
+	public ZipCode getZip() throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getZip");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+	}
+	 
+	 
+	/* 
+	
+	 
+	 
 	
 	public static ZipCode getZip(){
 		try {
@@ -43,6 +93,6 @@ public class ZipCodeDao {
 		}
 		
 	}
-	
+	*/
 	
 }
