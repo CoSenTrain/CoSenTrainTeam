@@ -76,7 +76,7 @@ input[type="radio"] {
 input[type="button"] {
 	display: inline-block;
 	font-weight: bold;
-	background-color: navy;
+	background-color: crimson;
 	color: snow;
 	width: 150px;
 	height: 40px;
@@ -112,7 +112,7 @@ input[type="button"] {
 	display: inline-block;
 	font-weight: bold;
 	color: white;
-	background-color: navy;
+	background-color: crimson;
 	height: 50px;
 	border: 1px solid lightgray;
 	border-radius: 0 7px;
@@ -176,6 +176,13 @@ input[type="button"] {
 </script>
 
 <body onload="start()">
+<%
+ String name = request.getParameter("name");
+int userno = Integer.parseInt(request.getParameter("userno"));
+
+%>
+
+
 	<div class="container">
 
 
@@ -204,7 +211,7 @@ input[type="button"] {
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'modify')" id="defaultOpen">정보수정</button>
+								onclick="modifyTab(this,event,'modify')"  id="defaultOpen">정보수정</button>
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'change')">비빌번호변경</button>
 							<button class="buttonTab"
@@ -218,7 +225,7 @@ input[type="button"] {
 					<div id="modify" class="tab4">
 					<div style="width:900px; color:#666; height:30px; border:1px solid lightgray;  padding: 10px 30px 30px 5px; margin-top:20px; margin-bottom:20px;">
 					 <ul>
-					  <li><b>name(userno)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
+					  <li><b><%=name %>(<%=userno %>)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
 					  <li>이메일 및 휴대전화번호는 수단별 인증을 통해서만 수정이 가능합니다. </li>
 					  
 					 </ul>
@@ -228,8 +235,8 @@ input[type="button"] {
 						<form action="" method="post">
 							<table class="table-wrapper">
 								<colgroup>
-									<col width="100px" />
-									<col width="840px" />
+									<col width="140px" />
+									<col width="800px" />
 								</colgroup>
 
 								<tr>
@@ -335,7 +342,7 @@ input[type="button"] {
 					<div id="change" class="tab4"> 
 					<div style="width:900px; color:#666; height:30px; border:1px solid lightgray;  padding: 10px 30px 30px 5px; margin-top:20px; margin-bottom:20px;">
 					 <ul>
-					  <li><b>name(userno)</b>님의 홈페이지 및 현장발매 비밀번호를 변경합니다. </li>
+					  <li><b><%=name %>(<%=userno %>)</b>님의 홈페이지 및 현장발매 비밀번호를 변경합니다. </li>
 					  <li>개인정보와 관련된 숫자 또는 동일 반복 숫자 등은 비권장합니다. </li>
 					  
 					 </ul>
@@ -350,16 +357,31 @@ input[type="button"] {
 						영문 및 숫자를 조합하여 10자리 이상으로 입력하십시오.
 						<table style="margin-top:15px; margin-bottom:15px;">
 						 <tr>
-						 <th class="table-th" style="width:120px;">기존비밀번호</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+						 <th class="table-th" style="width:120px;">기존 비밀번호</th> <td class="table-td" style="display: inline-block;
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						 <tr>
-						 <th class="table-th" style="width:120px;">신규비밀번호</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+						 <th class="table-th" style="width:120px;">신규 비밀번호</th> <td class="table-td" style="display: inline-block;
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						 <tr>
-						 <th class="table-th" style="width:120px;">비밀번호확인</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+						 <th class="table-th" style="width:120px;">비밀번호 확인</th> <td class="table-td" style="display: inline-block;
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						</table>
 						<div style="text-align: center;">
@@ -373,15 +395,30 @@ input[type="button"] {
 						<table style="margin-top:15px; margin-bottom:15px;">
 						 <tr>
 						 <th class="table-th" style="width:120px;">기존 비밀번호</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;"  size="30"> </td>
 						 </tr>
 						  <tr>
 						 <th class="table-th" style="width:120px;">신규 비밀번호</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						  <tr>
 						 <th class="table-th" style="width:120px;">비밀번호 확인</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						</table>
 						<div style="text-align: center;">
@@ -397,7 +434,7 @@ input[type="button"] {
 					<div id="cerify" class="tab4">
 					<div style="width:900px; color:#666; height:30px; border:1px solid lightgray;  padding: 10px 30px 30px 5px; margin-top:20px; margin-bottom:20px;">
 					 <ul>
-					  <li><b>name(userno)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
+					  <li><b><%=name %>(<%=userno %>)</b>님의 회원 기본정보 및 주 이용구간 등 추가정보를 수정합니다. </li>
 					  <li>이메일 및 휴대전화번호는 수단별 인증을 통해서만 수정이 가능합니다. </li>
 					  
 					 </ul>
@@ -412,7 +449,12 @@ input[type="button"] {
 						<table style="margin-top:15px; margin-bottom:15px;">
 						 <tr>
 						 <th class="table-th" style="width:120px;">이메일</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						 
 						</table>
@@ -427,7 +469,12 @@ input[type="button"] {
 						<table style="margin-top:15px; margin-bottom:15px;">
 						 <tr>
 						 <th class="table-th" style="width:120px;">휴대전화번호</th> <td class="table-td" style="display: inline-block;
-	background-color: #F3F3F3;"> <input type="text" size="30"> </td>
+	background-color: #F3F3F3;"> <input type="text" style="display: inline-block;
+	 
+	 
+	height: 15px;
+	padding: 3px;
+	margin: 3px;" size="30"> </td>
 						 </tr>
 						 
 						</table>

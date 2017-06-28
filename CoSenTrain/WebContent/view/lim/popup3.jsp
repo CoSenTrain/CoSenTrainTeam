@@ -23,11 +23,7 @@
    application.setAttribute("birth", birth); 
    application.setAttribute("phone", phone); 
    application.setAttribute("gender", gender); 
-    /* 
-   request.setAttribute("name", name);
-   request.setAttribute("birth", birth);
-   request.setAttribute("phone", phone);
-   request.setAttribute("gender", gender); */
+   
    System.out.println(name);
    System.out.println(birth);
    System.out.println(phone);
@@ -66,7 +62,7 @@ $(function(){
 	
 	
 	 $("#change").click(function(){
-		 alert('hi');
+		 
 		if($("#verify").val()==1234){
 			alert(1234);
 			 $.ajax({
