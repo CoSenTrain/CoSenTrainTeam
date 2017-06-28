@@ -71,7 +71,7 @@
 				<a href="#"><i class="fa fa-caret-right" >&nbsp;</i>할인쿠폰</a>
 				<a href="/web/view/lim/modifymember/modifyMember.jsp"><i class="fa fa-caret-right" >&nbsp;</i>회원정보수정</a>
 				<a href="/web/view/lim/modifymember/modifyPhone.jsp"><i class="fa fa-caret-right" >&nbsp;</i>비밀번호변경</a>
-				<a href="#"><i class="fa fa-caret-right" style="font-size:12px;" >&nbsp;</i>이메일 인증</a>
+				<a href="/web/view/lim/modifymember/cerifyEmail.jsp"><i class="fa fa-caret-right" style="font-size:12px;" >&nbsp;</i>이메일 인증</a>
 				<a href="/web/view/lim/memberdelete/deleteMember.jsp"><i class="fa fa-caret-right" >&nbsp;</i>회원탈회</a>
 			</div>
 		</div>
