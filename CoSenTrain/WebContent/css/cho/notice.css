@@ -1,0 +1,193 @@
+.notice-wrapper {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+		
+ .notice-wrapper-center {
+	width: 1000px;
+	margin: 0 auto; 
+	background-color: #FFF;
+} 
+
+.notice-rootlayer-wrapper {
+	width: 940px;
+	height: 500px;
+	padding: 0 30px 30px 30px;
+}
+
+/* tab */
+/* 
+.notice-rootlayer-wrapper div.tabs{
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+
+.notice-rootlayer-wrapper div.tabs ul li a{
+ 	width: 50%;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+ */
+ 
+ 
+ 
+
+.notice-wrapper {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+
+.notice-wrapper .notice-wrapper-center {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: snow;
+}
+
+.notice-wrapper .tkting-schedule-wrapper {
+	padding: 30px;
+}
+
+.notice-wrapper .tkting-process-number {
+	background-color: gray;
+	color:snow;
+	padding: 2px 7px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+.notice-wrapper .tkting-process-number-active {
+	background-color: crimson;
+	color:snow;
+	padding: 2px 7px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+/* Style the tab */
+.notice-wrapper div.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+/* Style the buttons inside the tab */
+.notice-wrapper div.tab button {
+	width: 50%;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.notice-wrapper div.tab button:hover {
+	color: indianred;
+}
+
+/* Create an active/current tablink class */
+.notice-wrapper div.tab button.active {
+	background-color: crimson;
+	color: snow;
+}
+
+/* Style the tab content */
+.notice-wrapper .tabcontent {
+	display: none;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.notice-wrapper .tabcontent-common {
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	border-top: none;
+}
+
+/********************  form  ***************************/
+
+
+.notice-wrapper .fa-map-marker, .notice-wrapper .fa-calendar  {
+	text-decoration: none;
+	background-color: black;
+	border-radius: 0 5px 0 5px;
+	font-size: 17px;
+	padding-top: 10px;
+	color: snow;
+	width: 37px;
+	height: 27px;
+}
+
+.notice-wrapper #chosenDate {
+	margin-top: -5px;
+	height: 17px;
+	font-size: 15px;
+	border:1px solid gray;
+}
+
+.notice-wrapper #timeAfter, .notice-wrapper #timeAfter *,
+.notice-wrapper #timeAfter2, .notice-wrapper #timeAfter2 * {
+	border:1px solid gray;
+	width: 151px;
+	height: 37px;
+	font-size: 15px;
+	padding: 0 0 0 10px;
+}
+
+
+.notice-wrapper svg #seoul, .notice-wrapper svg #seoulAtModal,
+.notice-wrapper svg #daejun, .notice-wrapper svg #daejunAtModal,
+.notice-wrapper svg #daegu, .notice-wrapper svg #daeguAtModal,
+.notice-wrapper svg #ulsan, .notice-wrapper svg #ulsanAtModal,
+.notice-wrapper svg #busan, .notice-wrapper svg #busanAtModal {
+	fill: lightpink;
+}
+
+
+.notice-wrapper svg #seoul:hover, .notice-wrapper svg #seoulAtModal:hover,
+.notice-wrapper svg #daejun:hover, .notice-wrapper svg #daejunAtModal:hover,
+.notice-wrapper svg #daegu:hover, .notice-wrapper svg #daeguAtModal:hover,
+.notice-wrapper svg #ulsan:hover, .notice-wrapper svg #ulsanAtModal:hover,
+.notice-wrapper svg #busan:hover, .notice-wrapper svg #busanAtModal:hover {
+	fill: hotpink;
+}
+
+/*********************** train result *******************************/
+
+.sel-train-result thead tr {background-color: lightslategray;color:seashell;}
+.sel-train-result tbody tr {text-align:center;}
+.sel-train-result tbody tr:hover {color: brown;}
+.sel-train-result tbody tr:nth-child(odd) {background-color: snow;}
+.sel-train-result tbody tr:nth-child(even) {background-color: lightgray;}
+
+.sel-train-result .btn-show-popup-look {
+	background-color: indigo;
+	border-radius: 5px;
+	color: snow;
+	cursor: pointer;
+}
+
+.sel-train-result .btn-show-popup-resv {
+	background-color: crimson;
+	border-radius: 5px;
+	color: snow;
+	cursor: pointer;
+}
