@@ -74,4 +74,17 @@ public class TicketingDao {
 		}
 	}
 	
+	public int getRountFare(Map<String, Object> map) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getRountFare", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
 }

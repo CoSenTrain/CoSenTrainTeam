@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.kwon.Discount">
+	<select id="selectDiscount" resultType="discount">
+SELECT discountNo, DECODE(condition, '일반', 'normal', '어린이', 'child', '노인', 'senior', '장애', 'disabled', '국가유공자', 'nNerit', 'etc') condition, discount 
+FROM discount
+	</select>
+</mapper>

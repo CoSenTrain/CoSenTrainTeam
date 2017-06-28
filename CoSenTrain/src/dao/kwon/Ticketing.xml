@@ -45,6 +45,11 @@ WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo
   AND TO_CHAR(departureTime, 'YYYY/MM/DD') = #{yyyymmdd}
 ORDER BY TO_DATE(departureTime, 'YYYY/MM/DD HH24:MI:SS') ASC
 	</select>
+	<select id="getRountFare" parameterType="java.util.Map" resultType="java.lang.Integer">
+SELECT fare
+FROM route r, (SELECT stationNo src FROM station WHERE name = #{srcName}) s, (SELECT stationNo dest FROM station WHERE name = #{destName}) d
+WHERE r.src = s.src AND r.dest = d.dest
+	</select>
 </mapper>
 
 <!-- 

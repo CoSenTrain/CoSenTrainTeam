@@ -105,14 +105,14 @@ setTimeout(function() {
 	//alert(params);
 	sendRequest("popupLookFarePro.jsp", params, function(){
 		if(httpRequest.readyState == 4 && httpRequest.status == 200) {
-			var rs = JSON.parse(httpRequest.responseText);
-			console.log(rs);
-			alert(rs);
-			
-			
-			
-			
-			
+			var o = JSON.parse(httpRequest.responseText);
+			for(i in o) {
+				var cObjs = document.getElementsByClassName(i);
+				console.log(cObjs);
+				for (var j = 0; j < cObjs.length; j++) {
+					cObjs[j].innerHTML = o[i];
+				}
+			}
 		}
 	}, 'GET');
 }, 50);
