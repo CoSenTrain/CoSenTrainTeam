@@ -170,9 +170,9 @@ let selCalSnackBar;
 		//선택 날짜 보여주기
 		obj.innerText = obj.innerText.trim();
 		if(parseInt(obj.innerText) >= nowDate.getDate() && parseInt(this.innerText) <= firstMonthCnt) {
-			curSelectedOnCal.innerText = nowDate.getFullYear() + "." + (parseInt(nowDate.getMonth()) < 9 ? "0" + (nowDate.getMonth()+1) : (nowDate.getMonth()+1)) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
+			curSelectedOnCal.innerText = nowDate.getFullYear() + "." + (parseInt(nowDate.getMonth()) < 9 ? "0" + (nowDate.getMonth()) : (nowDate.getMonth())) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
 		} else {
-			curSelectedOnCal.innerText = nextMonthDate.getFullYear() + "." + (parseInt(nextMonthDate.getMonth()) < 9 ? "0" + (nextMonthDate.getMonth()+1) : (nowDate.getMonth()+1)) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
+			curSelectedOnCal.innerText = nextMonthDate.getFullYear() + "." + (parseInt(nextMonthDate.getMonth()) < 9 ? "0" + (nextMonthDate.getMonth()) : (nowDate.getMonth())) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
 		}
 	}
 	var availables = document.getElementsByClassName("available");
