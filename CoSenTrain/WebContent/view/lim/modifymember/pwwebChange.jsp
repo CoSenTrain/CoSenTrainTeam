@@ -60,20 +60,12 @@
     member.setUserno(userno);
     member.setName(name); 
     member.setPwweb(b.getPwweb());
-    member.setPwticketing(b.getPwticketing());
     member.setBirth(birth);
      member.setGender(gender);
-    member.setEmail(b.getEmail());
-    member.setEmailreceivable(b.getEmailreceivable());
-    member.setTel(b.getTel());
     member.setPhone(phone);
-    member.setUsertype("user");
-    member.setAddr(b.getAddr());
-    member.setZipcodeno(Integer.parseInt(request.getParameter("addr3")));
-    member.setIsDeleted("N");
     System.out.println(member);
-    
-    MemberDao.getInstance().modifyMember(member);
+
+    MemberDao.getInstance().modifypwWeb(member);
     
   %>
          
