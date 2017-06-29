@@ -6,24 +6,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="bean.cho.YusilBean">
 
 	<select id="selectYusil" resultType="you">
-		SELECT RM, NO,TITLE,CATEGORY,STORE,REGDATE,CONTENTS
+		SELECT RM, NO,TITLE,LOSTCATEGORY,LOSTSTORE,REGDATE,CONTENTS
 		FROM 
-		(SELECT rownum RM, NO,TITLE,CATEGORY,STORE,REGDATE,CONTENTS
+		(SELECT rownum RM, NO,TITLE,LOSTCATEGORY,LOSTSTORE,REGDATE,CONTENTS
 		FROM BOARD
 		WHERE TYPE='lost')
 	</select>
 	
 	<select id="selectYusilInfo" resultType="you" parameterType="java.lang.Integer">
-		SELECT NO,TITLE,CATEGORY,STORE,REGDATE,CONTENTS
+		SELECT NO,TITLE,LOSTCATEGORY,LOSTSTORE,REGDATE,CONTENTS
 		FROM BOARD
 		WHERE TYPE='lost' and NO=#{no}
 	
 	</select>
 	
-	<select id="selectSeq" resultType="java.lang.Integer">
+	<!-- <select id="selectSeq" resultType="java.lang.Integer">
 			SELECT yusil_seq.NEXTVAL FROM DUAL
 		</select>
-
+ -->
 </mapper>
 <!-- <sqlMap namespace="you"> <typeAlias alias="yusil" type="bean.cho.YusilBean"/> 
 	<select id="selectYusil" resultClass="yusil"> SELECT NO,TITLE,CATEGORY,STORE,REGDATE,CONTENTS 

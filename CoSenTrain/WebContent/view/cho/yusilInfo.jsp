@@ -9,9 +9,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+  function golist() {
+	document.location.href='/web/view/cho/yusilEdit.jsp';
+}
+</script>
 </head>
    <%
-     // String no = request.getParameter("no");
    		int no = Integer.parseInt(request.getParameter("no"));
     %>
  
@@ -41,10 +45,10 @@
       <td>물품명</td><td><%=n.getTitle()%></td>
      </tr>
      <tr>
-      <td>품목</td><td><%=n.getCategory()%></td>
+      <td>품목</td><td><%=n.getLostcategory()%></td>
      </tr>
      <tr>
-      <td>보관장소</td><td><%=n.getStore()%></td>
+      <td>보관장소</td><td><%=n.getLoststore()%></td>
      </tr>
      <tr>
       <td>접수일자</td><td><%=n.getRegdate()%></td>
@@ -58,20 +62,12 @@
      
     </table>
     
+    <br>
+    <input type="button" value="목록으로" onclick="golist()">
     
     
     
-   <%--  <%
-			if(session.getAttribute("user")==null) {
-			%>
-			<a href="/web/view/kwon/login/login.jsp">로그인</a> | <a href="/web/view/lim/register1.jsp">회원가입</a>
-			<%
-			} else {
-				Users u = (Users) session.getAttribute("user");
-			%>
-			<label style="color:gold"><b> <%=u.getName()%>님 </b></label> | <a href="/web/view/kwon/login/loginProcess.jsp">로그아웃</a>
-			<%
-			}
-			%> --%>
+    
+
 </body>
 </html>

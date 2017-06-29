@@ -32,12 +32,6 @@
 	$(function() {
 
 		$("#tabs").tabs();
-		//$("p").hide(1000).show(1000);
-
-	/* 	$("p").click(function() {
-			$(this).hide(1000).show(1000);
-		}); */
-		
 		$("#writeYusil").click(function() {
 			document.location.href='/web/view/cho/yusilInsert.jsp';
 			
@@ -45,6 +39,17 @@
 		
 		
 	});
+	
+	function yusilInfo(no) {
+		$.ajax({
+			url:'/web/view/cho/yusilInfo.jsp?no='+no,
+			dataType:'html',
+			type:'GET',
+			success:function(htmlValue) {
+				$("div#manyTk").html(htmlValue);
+			}			
+		});
+	}
 	
 	
 /* 	function writeYusil()() {
@@ -114,7 +119,21 @@
 					<button class="tablinks" onclick="openCity(this, event, 'manyTk')">유실물 찾기</button>
 				</div>
 				<div id="oneTk" class="tabcontent">
-					AAAAAAAAAAAAAAAAAAA
+					<div>
+					 유실물 신고안내<br>
+				          열차를 이용하면서 분실한 물건이 있다면 유실물센터 또는 고객센터(1800-1472) (유실물센터 : [수서역] 02-6177-8245 / [동탄역] 031-328-9502 / [지제역] 031-646-8805) 로 문의하시거나<br>
+				    SR 홈페이지(www.srail.co.kr)에서 검색 및 확인 할 수 있습니다.<br>
+					</div><br>
+					<div>
+					 유실물 신고안내<br>
+				          열차를 이용하면서 분실한 물건이 있다면 유실물센터 또는 고객센터(1800-1472) (유실물센터 : [수서역] 02-6177-8245 / [동탄역] 031-328-9502 / [지제역] 031-646-8805) 로 문의하시거나<br>
+				    SR 홈페이지(www.srail.co.kr)에서 검색 및 확인 할 수 있습니다.<br>
+					</div><br>
+					<div>
+					 유실물 신고안내<br>
+				          열차를 이용하면서 분실한 물건이 있다면 유실물센터 또는 고객센터(1800-1472) (유실물센터 : [수서역] 02-6177-8245 / [동탄역] 031-328-9502 / [지제역] 031-646-8805) 로 문의하시거나<br>
+				    SR 홈페이지(www.srail.co.kr)에서 검색 및 확인 할 수 있습니다.<br>
+					</div>
 				</div>
 				<div id="manyTk" class="tabcontent">
 					
@@ -144,10 +163,11 @@
 							<td><%=n.getRm()%></td>
 							<td><%=n.getTitle()%></td>
 							<td>
-								<a href="/web/view/cho/yusilInfo.jsp?no=<%=n.getNo()%>"><%=n.getContents()%></a>
+								<%-- <a href="/web/view/cho/yusilInfo.jsp?no=<%=n.getNo()%>"><%=n.getContents()%></a> --%>
+								<a href="javascript:yusilInfo(<%=n.getNo()%>)"><%=n.getContents()%></a>
 							</td>
-							<td><%=n.getCategory()%></td>
-							<td><%=n.getStore()%></td>
+							<td><%=n.getLostcategory()%></td>
+							<td><%=n.getLoststore()%></td>
 							<td><%=n.getRegdate()%></td>
 						</tr>
 						<%

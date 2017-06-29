@@ -19,8 +19,8 @@ public class YusilBean {
 	private int replycnt;
 	private Date moddate;
 	private Date regdate;
-	private String category;
-	private String store;
+	private String lostcategory;
+	private String loststore;
 
 	
 	public YusilBean() {
@@ -30,7 +30,7 @@ public class YusilBean {
 
 	public YusilBean(int rm, int no, String title, String contents, String imgfile, String type, int userno,
 			String feedbackcontentstype, String feedbackreplytype, int step, int lev, int parentno, int refgroup,
-			int replycnt, Date moddate, Date regdate, String category, String store) {
+			int replycnt, Date moddate, Date regdate, String lostcategory, String loststore) {
 		super();
 		this.rm = rm;
 		this.no = no;
@@ -48,8 +48,8 @@ public class YusilBean {
 		this.replycnt = replycnt;
 		this.moddate = moddate;
 		this.regdate = regdate;
-		this.category = category;
-		this.store = store;
+		this.lostcategory = lostcategory;
+		this.loststore = loststore;
 	}
 
 
@@ -213,24 +213,35 @@ public class YusilBean {
 	}
 
 
-	public String getCategory() {
-		return category;
+	public String getLostcategory() {
+		return lostcategory;
 	}
 
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setLostcategory(String lostcategory) {
+		this.lostcategory = lostcategory;
 	}
 
 
-	public String getStore() {
-		return store;
+	public String getLoststore() {
+		return loststore;
 	}
 
 
-	public void setStore(String store) {
-		this.store = store;
+	public void setLoststore(String loststore) {
+		this.loststore = loststore;
 	}
+
+
+	@Override
+	public String toString() {
+		return "YusilBean [rm=" + rm + ", no=" + no + ", title=" + title + ", contents=" + contents + ", imgfile="
+				+ imgfile + ", type=" + type + ", userno=" + userno + ", feedbackcontentstype=" + feedbackcontentstype
+				+ ", feedbackreplytype=" + feedbackreplytype + ", step=" + step + ", lev=" + lev + ", parentno="
+				+ parentno + ", refgroup=" + refgroup + ", replycnt=" + replycnt + ", moddate=" + moddate + ", regdate="
+				+ regdate + ", lostcategory=" + lostcategory + ", loststore=" + loststore + "]";
+	}
+
 
 	
 	
