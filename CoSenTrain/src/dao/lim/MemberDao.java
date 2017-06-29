@@ -58,6 +58,25 @@ public class MemberDao {
 			closeSqlSession(sqlSession);
 		}
 	}
-	 
+	
+	public void modifyMember(Members member) throws Exception{
+		SqlSession sqlSession  = null;
+		try {
+			sqlSession= sqlSessionFactory.openSession();
+			sqlSession.update("modifyMember", member);
+			sqlSession.commit();
+			
+		} catch (Exception e) {
+			sqlSession.rollback();
+			e.printStackTrace();
+			
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+		
+	}
+	
 
 }

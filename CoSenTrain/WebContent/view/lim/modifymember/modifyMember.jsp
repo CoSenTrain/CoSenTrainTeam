@@ -174,6 +174,55 @@ input[type="button"] {
 	function start() {
 		document.getElementById("defaultOpen").click();
 	}
+	
+	function emailReceive(obj){
+      var obt = document.getElementById("emailreceivable");
+		if(obj==1){
+			obt.value='Y';
+		}else if(obj==2){
+			obt.value='N';
+		}
+		
+	}
+	function addressCheck(){
+		var obj1 = document.getElementById("zip");
+		var obj2 = document.getElementById("addr1");
+		var obj3 = document.getElementById("addr2");
+		var obj4 = document.getElementById("addr");
+		
+		obj4.value=obj1.value+' '+obj2.value+' '+obj3.value;
+	}
+	function checkModify(){
+		var obj1 = document.getElementById("zip");
+		var obj2 = document.getElementById("addr1");
+		var obj3 = document.getElementById("addr2");
+		var obj4 = document.getElementById("addr3);
+		var obj5 = document.getElementById("addr");
+		var obj6 = document.getElementById("tel");
+		var obj7 = document.getElementById("emailreceivable");
+	    
+		if(obj1.value!=""&&obj2.value!=""&&obj3.value!=""&&obj4.value!=""&&obj5.value!=""&&obj6.value!=""&&obj7.value!=""){
+	    	return true;
+	    	
+	    }else{
+	    	alert('희원정보사항을 입력해주세요');
+	    }
+		 
+	
+	}
+	
+	function modifySubmit(){
+     		 
+		  if(checkModify()){
+		   var obj=document.modifyFrm;
+			obj.submit();
+		   alert('감사합니다.');
+		 }else{
+			 alert('입력사항을 모두 입력해주세요');
+		 }  
+	   
+	}
+	
 </script>
 
 <body onload="start()">
@@ -186,6 +235,13 @@ int userno = u.getUserNo();
 String email = u.getEmail();
 String gender = u.getGender();
 String phone = u.getPhone();
+application.setAttribute("name", name);
+application.setAttribute("userno", userno);
+application.setAttribute("email", email);
+application.setAttribute("gender", gender);
+application.setAttribute("phone", phone);
+
+
 %>
 
 
@@ -238,7 +294,7 @@ String phone = u.getPhone();
 					
 					</div>
 					
-						<form action="" method="post">
+						<form action="/web/view/lim/modifymember/modifyComplete.jsp" method="post" name="modifyFrm">
 							<table class="table-wrapper">
 								<colgroup>
 									<col width="140px" />
@@ -251,7 +307,7 @@ String phone = u.getPhone();
 								</tr>
 								<tr>
 									<th class="table-th">비밀번호</th>
-									<td class="table-td"><input type="button" value="비밀번호변경"></input></td>
+									<td class="table-td"><a href="/web/view/lim/modifymember/modifyPassword.jsp"><input type="button" value="비밀번호변경"></a></input></td>
 								</tr>
 								<tr>
 									<th class="table-th">이메일</th>
@@ -264,7 +320,7 @@ String phone = u.getPhone();
 	margin: 3px;
 									"
 											type="text" size="50" value="<%=email%>"></span> <span
-										class="spanPass"><input type="button" value="이메일변경"></input></span> <span style="font-size: 14px;">*인증이
+										class="spanPass"><a href="/web/view/lim/modifymember/cerifyEmail.jsp"><input type="button" value="이메일변경"></input></a></span> <span style="font-size: 14px;">*인증이
 											완료된 이메일입니다.</span><br />
 
 
@@ -283,7 +339,7 @@ String phone = u.getPhone();
 	height: 20px;
 	padding: 3px;
 	margin: 3px;
-									" type="text" size="20" /></td>
+									" type="text" size="20" id="tel" name="tel" value=""  /></td>
 								</tr>
 								<tr>
 									<th class="table-th">휴대전화</th>
@@ -294,8 +350,8 @@ String phone = u.getPhone();
 	padding: 3px;
 	margin: 3px;
 									"
-											type="text" size="20" value="<%=phone %>" /></span> <span class="spanPass"><input
-											type="button" value="휴대전화변경"></input></span> <span  style="font-size: 14px;" class="spanPass">*인증이
+											type="text" size="20" value="<%=phone %>" /></span> <span class="spanPass"><a href="/web/view/lim/modifymember/cerifyEmail.jsp"> <input
+											type="button" value="휴대전화변경"></a></input></span> <span  style="font-size: 14px;" class="spanPass">*인증이
 											완료된 휴대전화입니다.</span> </br>
 										<ul class="table-ul">
 											<li  class="table-li">휴대전화번호를 등록하시면 코센 홈페이지 및 앱에서 휴대전화 번호로 로그인 할 수 있습니다.</li>
@@ -311,22 +367,22 @@ String phone = u.getPhone();
 	padding: 3px;
 	margin: 3px;
 									"
-											type="text" size="8" /></span> <span class="spanPass"><input
-											type="button" value="검색"></input></span> </br> <span class="spanPass"><input
+											type="text" size="8" id="zip" name="zip" value="" /></span> <span class="spanPass"><a href="/web/view/lim/zipCode.jsp"><input
+											type="button" value="검색"></input></a></span> </br> <span class="spanPass"><input
 										style="display: inline-block;
 	background-color: #F3F3F3;
 	width:250px;
 	height: 20px;
 	padding: 3px;
 	margin: 3px;
-									"	type="text" size="25" /></span> <span class="spanPass"><input
+									"	type="text" size="25" id="addr1" name="addr1" value="" /></span> <span class="spanPass"><input
 										style="display: inline-block;
 	background-color: #F3F3F3;
 	width: 250px;
 	height: 20px;
 	padding: 3px;
 	margin: 3px;
-									"	type="text" size="25" /></span></td>
+									"	type="text" size="25" id="addr2" name="addr2" value=""  onblur="addressCheck()"/><input type="hidden" id="addr" name="addr" value=""/><input type="hidden" id="addr3" name="addr3" value=""/> </span></td>
 								</tr>
 								
 								<tr>
@@ -335,12 +391,13 @@ String phone = u.getPhone();
 								id="emailreceivable2" name="emailreceivable2" value=""	type="radio" onclick="emailReceive('2')"/> 아니오
 								 <input type="hidden" name="emailreceivable" id="emailreceivable" value=""></td>
 								</tr>
+								</form>
 							</table>
 							  <div style="text-align: center;">
-									<button class="buttonBottom">확인</button><button class="buttonBottom">취소</button>
-									<!-- <td class="table-td"><span class="spanPass"><button class="buttonBottom">확인</button></span><span class="spanPass"><button class="buttonBottom">취소</button></span></td> -->
+									<button class="buttonBottom" onclick="modifySubmit()">확인</button> <button class="buttonBottom">취소</button> 
 								</div>
-						</form>
+									
+						
 
 					</div>
 
@@ -361,6 +418,8 @@ String phone = u.getPhone();
 						<div style="font-size:20px; font-weight:bold;  color:gray;">홈페이지 비밀번호 변경 </div><br>
 						코센홈페이지 및 앱에서 사용하는 로그인 비밀번호입니다.<br>
 						영문 및 숫자를 조합하여 10자리 이상으로 입력하십시오.
+						
+						<form action="/web/view/lim/modifymember/pwwebCheck.jsp" method="post" name="pwwebfrm">
 						<table style="margin-top:15px; margin-bottom:15px;">
 						 <tr>
 						 <th class="table-th" style="width:120px;">기존 비밀번호</th> <td class="table-td" style="display: inline-block;
@@ -369,7 +428,7 @@ String phone = u.getPhone();
 	 
 	height: 15px;
 	padding: 3px;
-	margin: 3px;" size="30"> </td>
+	margin: 3px;" size="30" id="pwweb1" name="pwweb1" value=""> </td>
 						 </tr>
 						 <tr>
 						 <th class="table-th" style="width:120px;">신규 비밀번호</th> <td class="table-td" style="display: inline-block;
@@ -378,7 +437,7 @@ String phone = u.getPhone();
 	 
 	height: 15px;
 	padding: 3px;
-	margin: 3px;" size="30"> </td>
+	margin: 3px;" size="30" id="pwweb2" name="pwweb2" value=""> </td>
 						 </tr>
 						 <tr>
 						 <th class="table-th" style="width:120px;">비밀번호 확인</th> <td class="table-td" style="display: inline-block;
@@ -387,11 +446,12 @@ String phone = u.getPhone();
 	 
 	height: 15px;
 	padding: 3px;
-	margin: 3px;" size="30"> </td>
+	margin: 3px;" size="30" id="pwweb3" name="pwweb3" onblur="pwWebCheck()"> <input type="hidden" id="pwweb" name="pwweb" value=""/> </td>
 						 </tr>
 						</table>
+						</form>
 						<div style="text-align: center;">
-						  <button class="buttonBottom">확인</button>
+						  <button class="buttonBottom" onclick="">확인</button>
 						 </div>
 						</div>
 						<div style="padding:20px 0 0 10px;  width:448px; height:170px;float:left;">

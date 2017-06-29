@@ -12,5 +12,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
  </insert>
  
+ <update id="modifyMember" parameterType="member">
+ update users set tel=#{tel}, zipcodeno=#{zipcodeno},addr=#{addr},emailreceivable={emailreceivable},
+ moddate = TO_DATE(SYSDATE, 'YYYY/MM/DD HH24:MI:SS')
+ where userno=#{userno}
  
+ </update>
 </mapper>
+<!-- 
+-<update parameterType="cart" id="updateProduct">
+UPDATE CART SET PRODUCTNAME=#{productName}, PRODUCTORIGIN=#{productOrigin}, PRODUCTPRICE=#{productPrice}, PRODUCTCATEGORY=#{productCategory} 
+<if test="fileName!=null">, FILENAME=#{fileName}</if>
+WHERE PK=#{pk} 
+</update> -->
+
+<!-- private int userno;
+private String name;	
+private String pwweb;
+private int pwticketing;
+private String birth;
+private String email;
+private String gender;
+private String emailreceivable;
+private String tel;
+private String phone;
+private int zipcodeno;
+private String sido;
+private String gugun;
+private String dong;
+private String bunji;
+private String addr;
+private String usertype;
+private String isDeleted;
+private String delComment;
+private String modDate;
+private String regDate; -->

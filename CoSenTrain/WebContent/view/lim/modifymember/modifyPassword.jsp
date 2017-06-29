@@ -179,18 +179,16 @@ input[type="button"] {
 <body onload="start()">
 <%
 request.setCharacterEncoding("EUC-KR");
+Users u = (Users) session.getAttribute("user");
 
-Users user1 = (Users) session.getAttribute("user"); 
-Users user2 = (Users) session.getAttribute("users"); 
-System.out.println("user1="+user1);
-System.out.println("user2="+user2);
-
-
-
-String name = user1.getName();
-System.out.println(name);
-int userno = Integer.parseInt(request.getParameter("userno"));
+String name = u.getName();
+int userno = u.getUserNo();
+String email = u.getEmail();
+String gender = u.getGender();
+String phone = u.getPhone();
 %>
+
+
 
 
 	<div class="container">
