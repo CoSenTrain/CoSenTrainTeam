@@ -418,7 +418,7 @@ function modifyTab(o, evt, cityName) {
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
 													<input type="text"
-													style="height: 15px; padding: 3px; margin: 3px;"
+													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb1" name="pwweb1" value=""
 													onblur="pwWeb1()"/>
 													<input type="hidden" id="pwwebhidden" name="pwwebhidden" value="<%=pwweb%>"/>
@@ -429,7 +429,7 @@ function modifyTab(o, evt, cityName) {
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
 													<input type="text"
-													style=" height: 15px; padding: 3px; margin: 3px;"
+													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb2" name="pwweb2" value="">
 												</td>
 											</tr>
@@ -438,7 +438,7 @@ function modifyTab(o, evt, cityName) {
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
 													<input type="text"
-													style="height: 15px; padding: 3px; margin: 3px;"
+													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb3" name="pwweb3" value=""
 													onblur="pwWebCheck()"> <input type="hidden"
 													id="pwweb" name="pwweb" value="" />
