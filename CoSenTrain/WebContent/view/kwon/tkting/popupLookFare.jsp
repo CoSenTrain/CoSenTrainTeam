@@ -91,19 +91,34 @@
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script type="text/javascript"  src="/web/js/kwon/ajax/httpRequest.js" charset="UTF-8"></script>
-<script>
+<script charset="UTF-8">
 
 //값 세팅까지 시간을 주어야 함
 setTimeout(function() {
-	var tType = document.getElementById("tType").value;
-	var tNo = document.getElementById("tNo").value;
-	var srcName = document.getElementById("srcName").value;
-	var destName = document.getElementById("destName").value;
-	var departureTime = document.getElementById("departureTime").value;
-	var arrivalTime = document.getElementById("arrivalTime").value;
-	var params = "tType="+tType+"&tNo="+tNo+"&srcName="+srcName+"&destName="+destName+"&departureTime="+departureTime+"&arrivalTime="+arrivalTime;
-	//alert(params);
-	sendRequest("popupLookFarePro.jsp", params, function(){
+	var param_tType = document.getElementById("tType").value;
+	var param_tNo = document.getElementById("tNo").value;
+	var param_srcName = document.getElementById("srcName").value;
+	var param_destName = document.getElementById("destName").value;
+	var param_departureTime = document.getElementById("departureTime").value;
+	var param_arrivalTime = document.getElementById("arrivalTime").value;
+	//var params = {tType:tType, tNo:tNo, srcName:srcName, destName:destName, departureTime:departureTime, arrivalTime:arrivalTime};
+	//console.log(params);
+	$.ajax({
+		url:'popupLookFarePro.jsp',
+		dataType:'JSON',
+		type:'POST',
+		data:{tType:param_tType, tNo:param_tNo, srcName:param_srcName, destName:param_destName, departureTime:param_departureTime, arrivalTime:param_arrivalTime},
+		success:function(json) {
+			console.log(json);
+			for(i in json) {
+				var cObjs = document.getElementsByClassName(i);
+				for (var j = 0; j < cObjs.length; j++) {
+					cObjs[j].innerHTML = json[i];
+				}
+			}
+		}
+	});
+	/* sendRequest("popupLookFarePro.jsp", params, function(){
 		if(httpRequest.readyState == 4 && httpRequest.status == 200) {
 			var o = JSON.parse(httpRequest.responseText);
 			for(i in o) {
@@ -114,7 +129,7 @@ setTimeout(function() {
 				}
 			}
 		}
-	}, 'GET');
+	}, 'GET'); */
 }, 50);
 </script>
 

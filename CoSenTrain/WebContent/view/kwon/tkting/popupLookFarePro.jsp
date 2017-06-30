@@ -15,25 +15,25 @@
 <%@page import="java.util.List"%>
 <%@page import="bean.kwon.TktingSchedule"%>
 <%@page import="util.kwon.Obj"%>
-<%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%!CarDao carDao = CarDao.getInstance();%>
 <%!DiscountDao discountDao = DiscountDao.getInstance();%>
 <%!TicketingDao ticketingDao = TicketingDao.getInstance();%>
 <%
-request.setCharacterEncoding("EUC-KR");
+request.setCharacterEncoding("UTF-8");
 
 
-//param ¹Ş±â
+//param ë°›ê¸°
 String trainType = request.getParameter("tType");
-String tNo = request.getParameter("tNo");		//trainNo ¹®ÀÚ¿­ ¹öÀü
-int trainNo = -1;								//trainNo Á¤¼öÇü ¹öÀü
+String tNo = request.getParameter("tNo");		//trainNo ë¬¸ìì—´ ë²„ì „
+int trainNo = -1;								//trainNo ì •ìˆ˜í˜• ë²„ì „
 String srcName = request.getParameter("srcName");
 String destName = request.getParameter("destName");
 String departureTime = request.getParameter("departureTime");
 String arrivalTime = request.getParameter("arrivalTime");
 TktingSchedule schedule = new TktingSchedule();
 
-//param ´Ùµë±â
+//param ë‹¤ë“¬ê¸°
 trainType = (Obj.isStrNull(trainType) ? "" : trainType);
 tNo = (Obj.isStrNull(tNo) ? "-1" : tNo.trim());
 trainNo = Integer.valueOf(tNo);
@@ -53,12 +53,12 @@ Map<String, Object> map = new HashMap<String, Object>();
 map.put("srcName", srcName);
 map.put("destName", destName);
 
-//DB Á¤º¸ °¡Á®¿À±â
+//DB ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 int fare = ticketingDao.getRountFare(map);
 List<Discount> dList = discountDao.selectDiscount();
 List<String> carTypes = carDao.selectCarTypes();
 
-final int ADV_ADDITIONAL = 5000;	//Æ¯½ÇÀº 5000¿ø ´õ ºñ½Ó!
+final int ADV_ADDITIONAL = 5000;	//íŠ¹ì‹¤ì€ 5000ì› ë” ë¹„ìŒˆ!
 StringBuffer json = new StringBuffer();
 /* 
 <td class="adv-normal">0</td>
