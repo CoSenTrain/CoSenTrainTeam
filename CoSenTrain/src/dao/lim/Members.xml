@@ -18,6 +18,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  where userno=#{userno}
  
  </update>
+ <update id="modifypwWeb" parameterType="member">
+ update users set pwweb=#{pwweb},moddate = TO_DATE(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') where userno=#{userno}
+ 
+ </update>
+ 
+ <update id="modifypwTicketing" parameterType="member">
+ update users set pwticketing=#{pwticketing},moddate = TO_DATE(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') where userno=#{userno}
+ 
+ </update>
+  <update id="deleteMember" parameterType="member">
+ update users set isDeleted=#{isDeleted},delComment=#{delComment}
+ where userno=#{userno}
+ </update>
+ <select id="getMembers" resultType="member">
+ 
+ select * from users
+ </select> 
+ 
 </mapper>
 <!-- 
 -<update parameterType="cart" id="updateProduct">

@@ -175,7 +175,7 @@ input[type="button"]:last-child {
 				<!--  start-->
 				<div style="width: 940px; padding: 0 30px 30px 30px; height: 800px; background-color: white;">
 
-					<form action="registerComplete.jsp" name="joinFrm" method="post">
+					<form action="/web/view/lim/registerComplete.jsp" name="joinFrm" method="post">
 
 						<table>
 							<colgroup>
@@ -210,11 +210,11 @@ input[type="button"]:last-child {
 							</tr>
 							<tr>
 								<th class="table-th">생년월일&lowast;</th>
-								<td class="table-td"><label name="birth" id="birth"><%=birth%></label><input type="hidden" name="bi"> </td>
+								<td class="table-td"><label><%=birth%></label><input type="hidden" name="bi"> </td>
 							</tr>
 							<tr>
 								<th class="table-th">성별&lowast;</th>
-								<td class="table-td"><label name="gender" id="gender"><%=gender%></label></td>
+								<td class="table-td"><label><%=gender%></label></td>
 							</tr>
 							<tr>
 								<th class="table-th">이메일&lowast;</th>
@@ -258,11 +258,12 @@ input[type="button"]:last-child {
 								 <input type="hidden" id="addr" name="addr" value=""> <input type="hidden" id="addr3" name="addr3" value=""></td>
 							</tr>
 						</table>
+						</form>
 						<div style="text-align: center;">
 							<input type="button" value="확인" onclick="memberSubmit()"/> <input type="button"
 								value="취소" onclick="memberSubmit2()"/>
 						</div>
-					</form>
+					
 
 
 
@@ -340,8 +341,15 @@ input[type="button"]:last-child {
 			"left=800,top=400,width=400,height=400");
   }
   function memberSubmit(){
-	  obj = document.joinFrm;
+	  var obj = document.joinFrm;
+	  
+	  if(obj.emailreceivable.value!=""&&obj.name.value!=""&&obj.pwweb.value!=""&&obj.pwticketing.value!=""&&obj.email.value!=""&&obj.tel.value!=""&&obj.zip.value!=""&&obj.addr.value!=""){
+		  
 	  obj.submit();
+	  }else{
+		  alert('입력사항을 모두 입력해주세요');
+	  }
+	 
   }
  function memberSubmit2(){
 	  location.href="/web/view/container/container.jsp";

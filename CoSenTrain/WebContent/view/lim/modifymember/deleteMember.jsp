@@ -57,23 +57,15 @@
         int userno= (Integer)application.getAttribute("userno");
 	    		
     Members member = new Members();
-    member.setUserno(userno);
-    member.setName(name); 
-    member.setPwweb(b.getPwweb());
-    member.setPwticketing(b.getPwticketing());
+    member.setUserno(b.getUserno());
+    member.setName(b.getName()); 
     member.setBirth(birth);
      member.setGender(gender);
-    member.setEmail(b.getEmail());
-    member.setEmailreceivable(b.getEmailreceivable());
-    member.setTel(b.getTel());
-    member.setPhone(phone);
-    member.setUsertype("user");
-    member.setAddr(b.getAddr());
-    member.setZipcodeno(Integer.parseInt(request.getParameter("addr3")));
-    member.setIsDeleted("N");
+    member.setIsDeleted("Y");
+    member.setDelComment(b.getDelComment());
     System.out.println(member);
     
-    MemberDao.getInstance().modifyMember(member);
+    MemberDao.getInstance().deleteMember(member);
     
   %>
          
@@ -102,7 +94,7 @@
        <div style="margin-bottom:50px; width:900px; height:200px; background-color: #f9f9fa; text-align: center;">   
               <div style="width:900px; height:90px;"></div>
           <div style="margin-bottom:80px;font-size: 20px; font-weight: bold; color: black;">  <i style="width:100px;height:100px; margin: 0 auto; "class="fa fa-train"></i> 
-            <b> <%=name%> 고객님 회원정보가 수정되었습니다. (코센트레인 회원번호 : <%=userno %> ) </b></div>
+            <b> <%=name%> 고객님 그동안 이용해주셔서 감사합니다. </b></div>
        
        </div>
       

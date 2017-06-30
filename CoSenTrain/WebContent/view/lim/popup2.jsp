@@ -1,3 +1,6 @@
+<%@page import="dao.lim.MemberDao"%>
+<%@page import="bean.lim.Members"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -18,6 +21,19 @@
 
 
 </script>
+
+<%
+List<Members> member = MemberDao.getInstance().getMembers();
+ StringBuffer sb = new StringBuffer();
+ int size = member.size();
+ for(int i=0;i<member.size();i++){
+	 sb.append(member.get(i).getPhone()+",");
+ }
+ 
+		 
+
+%>
+
 </head>
 <body onload="math()">
  
@@ -48,7 +64,7 @@
        </tr>
      <tr>
      <td><label>휴대폰번호</label> </td>
-      <td colspan="2"><input type="text" id="phone" name="phone" value="" placeholder="-제외하고 숫자만 입력" size="30" ></td>
+      <td colspan="2"><input type="text" id="phone" name="phone" value="" placeholder="-제외하고 숫자만 입력" size="30" onblur="phoneCheck()"></td>
  </tr> 
   </table>
   </form>
@@ -101,7 +117,7 @@ function math(){
 function checkMath(){
 	var obt =document.getElementById("securityMath");
     if(obt.value==cnt){
-    	alert('일치합니다.');
+    	alert('보안 숫자가 일치합니다.');
     	return true;
     }else{
     	alert('불일치합니다.');
@@ -164,6 +180,16 @@ function agreeCheck(obj){
   }
 	
 }
+<%-- 
+function phoneCheck(){
+	var obj = document.getElementById("phone");
+	for(int i=0;i< <%=size%> ;i++){
+		var obj1= <%=sb. %> 
+		
+		if(obj.value==)
+	}
+	
+} --%>
 
 </script>
 

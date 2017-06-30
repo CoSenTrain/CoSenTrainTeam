@@ -61,6 +61,76 @@ public Members(int userno, String name, String pwweb, int pwticketing, String bi
 
 
 
+public String getSido() {
+	return sido;
+}
+
+
+
+
+public void setSido(String sido) {
+	this.sido = sido;
+}
+
+
+
+
+public String getGugun() {
+	return gugun;
+}
+
+
+
+
+public void setGugun(String gugun) {
+	this.gugun = gugun;
+}
+
+
+
+
+public String getDong() {
+	return dong;
+}
+
+
+
+
+public void setDong(String dong) {
+	this.dong = dong;
+}
+
+
+
+
+public String getBunji() {
+	return bunji;
+}
+
+
+
+
+public void setBunji(String bunji) {
+	this.bunji = bunji;
+}
+
+
+
+
+public String getDelComment() {
+	return delComment;
+}
+
+
+
+
+public void setDelComment(String delComment) {
+	this.delComment = delComment;
+}
+
+
+
+
 public int getUserno() {
 	return userno;
 }
