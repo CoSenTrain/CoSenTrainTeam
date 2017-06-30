@@ -28,9 +28,9 @@
 	function sendAddress(a,b,c,d,e,f){
  
 		
-		opener.joinFrm.zip.value=a;
-		opener.joinFrm.addr1.value=b+' '+c+' '+d+' '+e;
-		opener.joinFrm.addr3.value=f;
+		opener.modifyFrm.zip.value=a;
+		opener.modifyFrm.addr1.value=b+' '+c+' '+d+' '+e;
+		opener.modifyFrm.addr3.value=f;
 		self.close(); 
 	}
 	 
@@ -47,7 +47,7 @@
 	%>
 
 
-	<form action="zipCode.jsp" name="searchFrm" method="post">
+	<form action="/web/view/lim/modifymember/zipCode2.jsp" name="searchFrm" method="post">
 		<table width="400" height="380" border="0" cellpadding="0"
 			cellspacing="0">
 			<tr>

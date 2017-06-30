@@ -284,9 +284,7 @@ input[type="button"]:last-child {
 	<script type="text/javascript" src="/web/js/container/clock.js"
 		charset="UTF-8"></script>
   <script type="text/javascript">
-  function check(){
-	  alert('hi');
-  }
+ 
   function zipCodeSearch(){
 	  window.open("zipCode.jsp", "address",
 		"left=800,top=400,width=400,height=400");
@@ -301,7 +299,7 @@ input[type="button"]:last-child {
 		}else{
 			alert('비밀번호가 다릅니다.')
 		} 
-	  //196
+	 
   }
   
   function pwwebCheck(){

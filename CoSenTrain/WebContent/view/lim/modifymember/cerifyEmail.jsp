@@ -17,6 +17,7 @@
 	type="text/css">
 <link href="/web/css/container/standardColors.css" rel="stylesheet"
 	type="text/css">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>	
 <style type="text/css">
 .table-wrapper {
 	border-spacing: 0;
@@ -114,7 +115,24 @@ input[type="button"] {
 	padding: 0 15px 5px 15px;
 	width: 230px;
 }
+.buttonSearch{
+display: inline-block;
+	font-weight: bold;
+	background-color: #666;
+	color:snow; 
+	width: 150px;
+	height: 40px;
+	border: 0;
+	border-radius: 0 7px;
+	margin: 10px 1px;
+ 
+}
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+  
 .buttonBottom {
 	hover: crimson;
 	display: inline-block;
@@ -158,23 +176,6 @@ input[type="button"] {
 	margin: 0 auto;
 	background-color: snow;
 }
-
-.buttonSearch {
-	display: inline-block;
-	font-weight: bold;
-	background-color: #666;
-	color: snow;
-	width: 150px;
-	height: 40px;
-	border: 0;
-	border-radius: 0 7px;
-	margin: 10px 1px;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
-}
 </style>
 <%
 	request.setCharacterEncoding("EUC-KR");
@@ -194,187 +195,71 @@ a {
 	application.setAttribute("phone", phone);
 %>
 <script type="text/javascript">
+  $(function(){
+	  /* $("#second").attr('disabled','disabled');
+	  $("#first:text").keyup(function(){
+		 $("#second:text").val($("#first:text").val()); 
+	  }); */
+	  
+	  
+	/*   $("#pwweb2:password").keyup(function(){
+		 $("#pwweb3:password").val(''); 
+	  });
+	  $("#pwweb3:password").keyup(function(){
+		 if($("#pwweb2:password").val()!=""){
+			 if($("#pwweb2:password").val()!=$("#pwweb3:password").val()){
+				 $("div#aa").remove();
+				 $("span#ab").
+				 append('<div id="aa">비밀번호가 틀립니다</div>').find("div").
+				 css({'backgroundColor':'gray'});
+			 }else{
+				 $("div#aa").remove();
+				 $("span#ab").
+				 append('<div>비밀번호가 맞습니다</div>').find("div").
+				 css({'backgroundColor':'blue'});
+			 }
+		 } 
+	  }); */
+	  
+	  
+  });
+</script>
+<script type="text/javascript">
 function start() {
 	document.getElementById("defaultOpen").click();
+ 
+	 
 }
-	function modifyTab(o, evt, cityName) {
-		//openCity(o, evt, cityName) 
-		document.getElementById("changeMethod").value = cityName;
-
-		var tktingMethods = document.getElementsByClassName("tkting-method");
-		for (var i = 0; i < tktingMethods.length; i++) {
-			tktingMethods[i].innerText = o.innerText;
-		}
-
-		var i,
-			tabcontent,
-			tablinks;
-		tabcontent = document.getElementsByClassName("tab4");
-		for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
-		}
-		tablinks = document.getElementsByClassName("buttonTab");
-		for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className
-				.replace(" active", "");
-		}
-		document.getElementById(cityName).style.display = "block";
-		evt.currentTarget.className += " active";
-
+function modifyTab(o, evt, cityName) {
+	//openCity(o, evt, cityName)  
+	 
+	document.getElementById("changeMethod").value = cityName;
+     
+	var tktingMethods = document.getElementsByClassName("tkting-method");
+	for (var i = 0; i < tktingMethods.length; i++) {
+		tktingMethods[i].innerText = o.innerText;
 	}
-</script>
 
+	var i,
+		tabcontent,
+		tablinks;
+	tabcontent = document.getElementsByClassName("tab4");
+	for (i = 0; i < tabcontent.length; i++) {
+		tabcontent[i].style.display = "none";
+	}
+	tablinks = document.getElementsByClassName("buttonTab");
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].className = tablinks[i].className
+			.replace(" active", "");
+	}
+	document.getElementById(cityName).style.display = "block";
+	evt.currentTarget.className += " active";
+
+}
+</script>
 
 </head>
-<script type="text/javascript">
-	
-	
-	function emailReceive(obj){
-      var obt = document.getElementById("emailreceivable");
-		if(obj==1){
-			obt.value='Y';
-		}else if(obj==2){
-			obt.value='N';
-		}
-		
-	}
-	function addressCheck(){
-		var obj1 = document.getElementById("zip");
-		var obj2 = document.getElementById("addr1");
-		var obj3 = document.getElementById("addr2");
-		var obj4 = document.getElementById("addr");
-		
-		obj4.value=obj1.value+' '+obj2.value+' '+obj3.value;
-	}
-	function checkModify(){
-		var obj1 = document.getElementById("zip");
-		var obj2 = document.getElementById("addr1");
-		var obj3 = document.getElementById("addr2");
-		var obj4 = document.getElementById("addr3);
-		var obj5 = document.getElementById("addr");
-		var obj6 = document.getElementById("tel");
-		var obj7 = document.getElementById("emailreceivable");
-	    
-		if(obj1.value!=""&&obj2.value!=""&&obj3.value!=""&&obj4.value!=""&&obj5.value!=""&&obj6.value!=""&&obj7.value!=""){
-	    	return true;
-	    	
-	    }else{
-	    	alert('희원정보사항을 입력해주세요');
-	    }
-		 
-	
-	}
-	
-	function modifySubmit(){
-     		 
-		  if(checkModify()){
-		   var obj=document.modifyFrm;
-			obj.submit();
-		   alert('감사합니다.');
-		 }else{
-			 alert('입력사항을 모두 입력해주세요');
-		 }  
-	   
-	}
-	
-	function zipCodeSearch(){
-		  window.open("/web/view/lim/zipCode.jsp", "address",
-			"left=800,top=400,width=400,height=400");
-		  
-		  
-	  }
-	
-	function pwWeb(){
-		var obj = document.getElementById("pwweb1");
-		if(obj1.value==<%=pwweb%>){
-			alert('패스워드가 올바릅니다.');
-			return true;
-		}else{
-			alert('패스워드가 올바르지 않습니다. 다시 입력해주세요');
-		}
-		
-	}
-	
-	function pwWebCheck(){
-		var obj1 = document.getElementById("pwweb2");
-		var obj2 = document.getElementById("pwweb3");
-		var obj3 = document.getElementById("pwweb");
-		
-		if(obj1.value==obj2.value){
-			alert('일치합니다. 확인을 누르시면 변경됩니다.');
-		   	obj3.value=obj1.value;
-		  
-		}else{
-			alert('패스워드가 다릅니다.');
-		}
-	}
-	
-		
-	function pwWebSubmit(){
-		 
-		var obj3 = document.getElementById("pwweb");
-		
-		if(obj3.value!=""&&pwWeb()){
-		var obj = document.pwwebfrm;
-          obj.submit();			
-		}else{
-			alert('패스워드를 입력해주세요');
-		}
-		
-		
-	}
-		
-	function pwTicket(){
-	  var obj = document.getElementById("pwTicket1");
-		if(obj.value==<%=pwticketing%>){
-		    alert('비밀번호가 일치합니다.');			
-		     return true;
-		}else{
-			alert('비밀번호를 확인해주세요');
-		}
-	}
-	
-	function pwTicketCheck(){
-		 var obj1 = document.getElementById("pwTicket2");
-		 var obj2 = document.getElementById("pwTicket3");
-		 var obj3 = document.getElementById("pwticketing");
-		if(obj1.value==obj2.value){
-			alert('비밀번호가 일치합니다.');
-		    obj3.value=obj1.value;
-			
-		}else{
-			alert('비밀번호를 확인해주세요');
-		}
-		 
-	}
-	function pwTicketingSubmit(){
-		
-		 var obj3 = document.getElementById("pwticketing");
-		if(obj3.value!=""&&pwTicket()){
-			var obj = document.pwTicketfrm;
-			obj.submit();
-		}else{
-			alert('비밀번호를 입력해주세요');
-		}
-		
-	}
-	
-	function deleteMember(){
-		var obj1=document.getElementById("name");
-		var obj2=document.getElementById("userno");
-		var obj3=document.getElementById("delComment");
-		
-		if(obj1.value==<%=name%>&&obj2.value==<%=userno%>&&obj3.value!=""){
-			var obj=document.deleteFrm;
-			obj.submit();
-		}else{
-			alert('이름혹은 회원번호가 다릅니다.');
-		}
-		
-	}
-	
-	
-</script>
+
 
 <body onload="start()">
 
@@ -409,13 +294,12 @@ function start() {
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'modify')">회원정보수정</button>
+								onclick="modifyTab(this,event,'modify')" >회원정보수정</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'change')">비빌번호변경</button>
+								onclick="modifyTab(this,event,'change')" >비빌번호변경</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'cerify')" id="defaultOpen">이메일/휴대전화
-								인증</button>
-							<button class="buttonTab" onclick="modifyTab(this,event,'out')">회원탈퇴</button>
+								onclick="modifyTab(this,event,'cerify')" id="defaultOpen" >이메일/휴대전화 인증</button>
+							<button class="buttonTab" onclick="modifyTab(this,event,'out')" >회원탈퇴</button>
 							<input type="hidden" id="changeMethod" name="changeMethod"
 								value="cerify" />
 						</div>
@@ -500,7 +384,7 @@ function start() {
 											type="text" size="8" id="zip" name="zip" value="" /></span> <span
 										class="spanPass">
 											<button class="buttonSearch">
-												<a href="javascript:zipCodeSearch()">검색</a>
+												<a href="javascript:zipCodeSearch()">검색</a> 
 											</button>
 									</span> </br> <span class="spanPass"><input
 											style="display: inline-block; background-color: #F3F3F3; width: 250px; height: 20px; padding: 3px; margin: 3px;"
@@ -518,17 +402,18 @@ function start() {
 									<td class="table-td"><input id="emailreceivable1" value=""
 										name="emailreceivable1" type="radio"
 										onclick="emailReceive('1')" /> 예 &nbsp;&nbsp; <input
-										id="emailreceivable2" name="emailreceivable2" value=""
+										id="emailreceivable2" name="emailreceivable1" value=""
 										type="radio" onclick="emailReceive('2')" /> 아니오 <input
 										type="hidden" name="emailreceivable" id="emailreceivable"
 										value=""></td>
 								</tr>
-								</form>
+								
 							</table>
 							<div style="text-align: center;">
 								<button class="buttonBottom" onclick="modifySubmit()">확인</button>
 								<button class="buttonBottom1">취소</button>
 							</div>
+							</form>
 					</div>
 
 
@@ -561,17 +446,19 @@ function start() {
 												<th class="table-th" style="width: 120px;">기존 비밀번호</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb1" name="pwweb1" value=""
-													onblur="pwWeb()">
+													onblur="pwWeb1()"/>
+													<input type="hidden" id="pwwebhidden" name="pwwebhidden" value="<%=pwweb%>"/>
+												    <div id="aa"></div>
 												</td>
 											</tr>
 											<tr>
 												<th class="table-th" style="width: 120px;">신규 비밀번호</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb2" name="pwweb2" value="">
 												</td>
@@ -580,18 +467,20 @@ function start() {
 												<th class="table-th" style="width: 120px;">비밀번호 확인</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb3" name="pwweb3" value=""
 													onblur="pwWebCheck()"> <input type="hidden"
 													id="pwweb" name="pwweb" value="" />
+													<span id="ab"></span>
 												</td>
 											</tr>
 										</table>
-									</form>
+									
 									<div style="text-align: center;">
 										<button class="buttonBottom" onclick="pwWebSubmit()">확인</button>
 									</div>
+									</form>
 								</div>
 								<div
 									style="padding: 20px 0 0 10px; width: 448px; height: 170px; float: left;">
@@ -609,7 +498,7 @@ function start() {
 													<input type="text"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwTicket1" name="pwTicket1" value=""
-													onblur="pwTicket()">
+													onblur="pwTicket()"> <input type="hidden" id="tickethidden" name="tickethidden" value="<%=pwticketing%>">
 												</td>
 											</tr>
 											<tr>
@@ -633,11 +522,11 @@ function start() {
 												</td>
 											</tr>
 										</table>
-									</form>
+									
 									<div style="text-align: center;">
 										<button class="buttonBottom" onclick="pwTicketingSubmit()">확인</button>
 									</div>
-
+                                     </form>
 								</div>
 							</div>
 						</div>
@@ -721,20 +610,20 @@ function start() {
 						</div>
 						<div
 							style="width: 935px; height: 150px; border: 1px solid lightgray;">
-							<form action="/web/view/lim/modifymember/deleteMember.jsp"
+							<form action="deleteMemberComplete.jsp"
 								method="post" name="deleteFrm">
 								<table style="padding: 20px 200px 50px 300px;">
 									<tr>
 										<th style="width: 120px;">이름</th>
 										<td><input
 											style="display: inline-block; background-color: #F3F3F3; width: 150px; height: 15px; padding: 3px; margin: 3px;"
-											type="text" size="20" id="name" name="name" value=""></td>
+											type="text" size="20" id="name" name="name" value=""> <input type="hidden" id="n" name="n" value="<%=name%>"> </td>
 									</tr>
 									<tr>
 										<th style="width: 120px;">회원번호</th>
 										<td><input type="text"
 											style="display: inline-block; background-color: #F3F3F3; width: 150px; height: 15px; padding: 3px; margin: 3px;"
-											size="20" id="userno" name="userno" value=""></td>
+											size="20" id="userno" name="userno" value=""><input type="hidden" id="u" name="u" value="<%=userno%>"> </td>
 									</tr>
 									<tr>
 										<th style="width: 120px;">탈회사유</th>
@@ -745,11 +634,11 @@ function start() {
 
 
 								</table>
-							</form>
+							
 							<div style="text-align: center;">
 								<button class="buttonBottom" onclick="deleteMember()">다음</button>
 							</div>
-
+                             </form>
 						</div>
 
 					</div>
@@ -772,5 +661,160 @@ function start() {
 		charset="UTF-8"></script>
 
 </body>
+<script type="text/javascript">
+	
+	
+	function emailReceive(obj){
+      var obt = document.getElementById("emailreceivable");
+		if(obj==1){
+			obt.value='Y';
+		}else if(obj==2){
+			obt.value='N';
+		}
+		
+	}
+	function addressCheck(){
+ 	var obj1 = document.getElementById("zip");
+		var obj2 = document.getElementById("addr1");
+		var obj3 = document.getElementById("addr2");
+		var obj4 = document.getElementById("addr");
+		
+		obj4.value=obj1.value+' '+obj2.value+' '+obj3.value;
+		alert(obj4.value);
+	}
+	function checkModify(){
+		var obj1 = document.getElementById("zip");
+		var obj2 = document.getElementById("addr1");
+		var obj3 = document.getElementById("addr2");
+		var obj4 = document.getElementById("addr3");
+		var obj5 = document.getElementById("addr");
+		var obj6 = document.getElementById("tel");
+		var obj7 = document.getElementById("emailreceivable");
+	    
+		if(obj1.value!=""&&obj2.value!=""&&obj3.value!=""&&obj4.value!=""&&obj5.value!=""&&obj6.value!=""&&obj7.value!=""){
+	    	return true;
+	    	
+	    }else{
+	    	alert('희원정보사항을 입력해주세요');
+	    }
+		 
+	
+	}
+	
+	function modifySubmit(){
+     		 
+		  if(checkModify()){
+		   var obj=document.modifyFrm;
+			obj.submit();
+		   alert('감사합니다.');
+		 }else{
+			 alert('입력사항을 모두 입력해주세요');
+		 }  
+	   
+	}
+	
+	function zipCodeSearch(){
+		  window.open("zipCode2.jsp", "zip",
+			"left=800,top=400,width=400,height=400");
+		  
+		  
+	  }
+	
+	function pwWeb1(){
+		 var obj = document.getElementById("pwweb1");
+		var obj1 = document.getElementById("pwwebhidden");
+		if(obj.value==obj1.value){
+			alert('패스워드가 올바릅니다.');
+			return true;
+		}else{
+			alert('패스워드가 올바르지 않습니다. 다시 입력해주세요');
+		} 
+		
+	}
+	
+	function pwWebCheck(){
+		var obj1 = document.getElementById("pwweb2");
+		var obj2 = document.getElementById("pwweb3");
+		var obj3 = document.getElementById("pwweb");
+		
+		if(obj1.value==obj2.value){
+			alert('일치합니다. 확인을 누르시면 변경됩니다.');
+		   	obj3.value=obj1.value;
+		  
+		}else{
+			alert('패스워드가 다릅니다.');
+		}
+	}
+	
+		
+	function pwWebSubmit(){
+		 
+		var obj3 = document.getElementById("pwweb");
+		
+		if(obj3.value!=""&&pwWeb()){
+		var obj = document.pwwebfrm;
+          obj.submit();			
+		}else{
+			alert('패스워드를 입력해주세요');
+		}
+		
+		
+	}
+		
+	function pwTicket(){
+	  var obj = document.getElementById("pwTicket1");
+	  var obj1 = document.getElementById("tickethidden");
+		if(obj.value==obj1.value){
+		    alert('비밀번호가 일치합니다.');			
+		     return true;
+		}else{
+			alert('비밀번호를 확인해주세요');
+		}
+	}
+	
+	function pwTicketCheck(){
+		 var obj1 = document.getElementById("pwTicket2");
+		 var obj2 = document.getElementById("pwTicket3");
+		 var obj3 = document.getElementById("pwticketing");
+		if(obj1.value==obj2.value){
+			alert('비밀번호가 일치합니다.');
+		    obj3.value=obj1.value;
+			
+		}else{
+			alert('비밀번호를 확인해주세요');
+		}
+		 
+	}
+	function pwTicketingSubmit(){
+		
+		 var obj3 = document.getElementById("pwticketing");
+		if(obj3.value!=""&&pwTicket()){
+			var obj = document.pwTicketfrm;
+			obj.submit();
+		}else{
+			alert('비밀번호를 입력해주세요');
+		}
+		
+	}
+	
+	function deleteMember(){
+		 
+		var obj1=document.getElementById("name");
+		var obj2=document.getElementById("userno");
+		var obj3=document.getElementById("delComment");
+		var obj4=document.getElementById("n");
+		var obj5=document.getElementById("u");
+		
+		if(obj1.value==obj4.value&&obj2.value==obj5.value&&obj3.value!=""){
+			var obj=document.deleteFrm;
+			obj.submit();
+		}else{
+			alert('이름혹은 회원번호가 다릅니다.');
+		}
+		
+	}
+	
+	
+</script>
 
 </html>

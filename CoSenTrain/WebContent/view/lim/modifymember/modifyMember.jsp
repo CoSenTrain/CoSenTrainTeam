@@ -17,6 +17,7 @@
 	type="text/css">
 <link href="/web/css/container/standardColors.css" rel="stylesheet"
 	type="text/css">
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>	
 <style type="text/css">
 .table-wrapper {
 	border-spacing: 0;
@@ -193,12 +194,40 @@ a {
 	application.setAttribute("gender", gender);
 	application.setAttribute("phone", phone);
 %>
-
+<script type="text/javascript">
+  $(function(){
+	  /* $("#second").attr('disabled','disabled');
+	  $("#first:text").keyup(function(){
+		 $("#second:text").val($("#first:text").val()); 
+	  }); */
+	  
+	  
+	/*   $("#pwweb2:password").keyup(function(){
+		 $("#pwweb3:password").val(''); 
+	  });
+	  $("#pwweb3:password").keyup(function(){
+		 if($("#pwweb2:password").val()!=""){
+			 if($("#pwweb2:password").val()!=$("#pwweb3:password").val()){
+				 $("div#aa").remove();
+				 $("span#ab").
+				 append('<div id="aa">비밀번호가 틀립니다</div>').find("div").
+				 css({'backgroundColor':'gray'});
+			 }else{
+				 $("div#aa").remove();
+				 $("span#ab").
+				 append('<div>비밀번호가 맞습니다</div>').find("div").
+				 css({'backgroundColor':'blue'});
+			 }
+		 } 
+	  }); */
+	  
+	  
+  });
+</script>
 <script type="text/javascript">
 function start() {
 	document.getElementById("defaultOpen").click();
-	alert(<%=name%>);
-	alert(1);
+ 
 	 
 }
 function modifyTab(o, evt, cityName) {
@@ -373,7 +402,7 @@ function modifyTab(o, evt, cityName) {
 									<td class="table-td"><input id="emailreceivable1" value=""
 										name="emailreceivable1" type="radio"
 										onclick="emailReceive('1')" /> 예 &nbsp;&nbsp; <input
-										id="emailreceivable2" name="emailreceivable2" value=""
+										id="emailreceivable2" name="emailreceivable1" value=""
 										type="radio" onclick="emailReceive('2')" /> 아니오 <input
 										type="hidden" name="emailreceivable" id="emailreceivable"
 										value=""></td>
@@ -417,18 +446,19 @@ function modifyTab(o, evt, cityName) {
 												<th class="table-th" style="width: 120px;">기존 비밀번호</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb1" name="pwweb1" value=""
 													onblur="pwWeb1()"/>
 													<input type="hidden" id="pwwebhidden" name="pwwebhidden" value="<%=pwweb%>"/>
+												    <div id="aa"></div>
 												</td>
 											</tr>
 											<tr>
 												<th class="table-th" style="width: 120px;">신규 비밀번호</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb2" name="pwweb2" value="">
 												</td>
@@ -437,11 +467,12 @@ function modifyTab(o, evt, cityName) {
 												<th class="table-th" style="width: 120px;">비밀번호 확인</th>
 												<td class="table-td"
 													style="display: inline-block; background-color: #F3F3F3;">
-													<input type="text"
+													<input type="password"
 													style="display: inline-block; height: 15px; padding: 3px; margin: 3px;"
 													size="30" id="pwweb3" name="pwweb3" value=""
 													onblur="pwWebCheck()"> <input type="hidden"
 													id="pwweb" name="pwweb" value="" />
+													<span id="ab"></span>
 												</td>
 											</tr>
 										</table>
@@ -579,7 +610,7 @@ function modifyTab(o, evt, cityName) {
 						</div>
 						<div
 							style="width: 935px; height: 150px; border: 1px solid lightgray;">
-							<form action="deleteMember.jsp"
+							<form action="deleteMemberComplete.jsp"
 								method="post" name="deleteFrm">
 								<table style="padding: 20px 200px 50px 300px;">
 									<tr>
@@ -649,12 +680,13 @@ function modifyTab(o, evt, cityName) {
 		var obj4 = document.getElementById("addr");
 		
 		obj4.value=obj1.value+' '+obj2.value+' '+obj3.value;
+		alert(obj4.value);
 	}
 	function checkModify(){
 		var obj1 = document.getElementById("zip");
 		var obj2 = document.getElementById("addr1");
 		var obj3 = document.getElementById("addr2");
-		var obj4 = document.getElementById("addr3);
+		var obj4 = document.getElementById("addr3");
 		var obj5 = document.getElementById("addr");
 		var obj6 = document.getElementById("tel");
 		var obj7 = document.getElementById("emailreceivable");
@@ -689,15 +721,15 @@ function modifyTab(o, evt, cityName) {
 	  }
 	
 	function pwWeb1(){
-		alert('hi');
-		/* var obj = document.getElementById("pwweb1");
+	 
+		 var obj = document.getElementById("pwweb1");
 		var obj1 = document.getElementById("pwwebhidden");
 		if(obj.value==obj1.value){
 			alert('패스워드가 올바릅니다.');
 			return true;
 		}else{
 			alert('패스워드가 올바르지 않습니다. 다시 입력해주세요');
-		} */
+		} 
 		
 	}
 	
