@@ -18,6 +18,7 @@
 <link href="/web/css/container/dropdown.css" rel="stylesheet" type="text/css">
 <link href="/web/css/container/standardColors.css" rel="stylesheet"	type="text/css">
 <link href="/web/css/cho/notice.css" rel="stylesheet" type="text/css">
+<link href="/web/css/common/tableForList.css" rel="stylesheet" type="text/css">
 <!-- <link href="/web/css/cho/yusilEdit.css" rel="stylesheet" type="text/css"> -->
 
 <link rel="stylesheet"	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -137,45 +138,51 @@
 				</div>
 				<div id="manyTk" class="tabcontent">
 					
-					
 					<!-- max: 898px; -->
-					<table border="1" width="898px">
-						<colgroup>
-							<col width="50px" />
-							<col  />
-							<col  />
-							<col  />
-							<col  />
-							<col  />
-						</colgroup>
-						<tr>
-							<th>순번</th>
-							<th>물품명</th>
-							<th>상세내용</th>
-							<th>품목</th>
-							<th>보관장소</th>
-							<th>접수일</th>
-						</tr>
-						<%
-						for (YusilBean n : list) {
-						%>
-						<tr>
-							<td><%=n.getRm()%></td>
-							<td><%=n.getTitle()%></td>
-							<td>
-								<%-- <a href="/web/view/cho/yusilInfo.jsp?no=<%=n.getNo()%>"><%=n.getContents()%></a> --%>
-								<a href="javascript:yusilInfo(<%=n.getNo()%>)"><%=n.getContents()%></a>
-							</td>
-							<td><%=n.getLostcategory()%></td>
-							<td><%=n.getLoststore()%></td>
-							<td><%=n.getRegdate()%></td>
-						</tr>
-						<%
-						}
-						 %>
-						
-					</table>
-					
+					<div class="tableForList">
+						<table width="100%">
+							<colgroup>
+								<col width="50px" />
+								<col width="130px" />
+								<col />
+								<col width="130px" />
+								<col width="120px" />
+								<col width="90px" />
+							</colgroup>
+							<tr>
+								<th>순번</th>
+								<th>물품명</th>
+								<th>상세내용</th>
+								<th>품목</th>
+								<th>보관장소</th>
+								<th>접수일</th>
+							</tr>
+							<%
+							if(list != null) {
+								int cnt = 1;
+							for (YusilBean n : list) {
+							%>
+							<tr>
+								<td class="td-center"><%=cnt++%></td>
+								<td class="td-center"><div class="td-ellipsis" style="width:130px;"><%=(n.getTitle() != null ? n.getTitle() : "")%></div></td>
+								<td class="click-hover">
+									<div class="td-ellipsis" style="width:360px;" onclick="(function(){location.href='/web/view/cho/yusilInfo.jsp?no=<%=(n.getNo() != 0 ? n.getNo() : -1)%>';})()">
+									<%-- <a href="/web/view/cho/yusilInfo.jsp?no=<%=n.getNo()%>"><%=n.getContents()%></a> --%>
+									<%-- <a href="javascript:yusilInfo(<%=(n.getNo() != 0 ? n.getNo() : -1)%>)"><%=(n.getContents() != null? n.getContents() : "")%></a> --%>
+									<%=(n.getContents() != null? n.getContents() : "")%>
+									</div>
+								</td>
+								<td class="td-center"><%=(n.getLostcategory() != null ? n.getLostcategory() : "")%></td>
+								<td class="td-center"><%=(n.getLoststore() != null ? n.getLoststore() : "")%></td>
+								<td class="td-center"><%=(n.getRegdate() != null ? n.getRegdate() : "")%></td>
+							</tr>
+							<%
+							}
+							}
+							 %>
+							
+						</table>
+					</div>
 					
 					
 					

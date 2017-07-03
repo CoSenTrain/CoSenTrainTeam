@@ -53,8 +53,8 @@ public class YusilDao {
 			closeSqlSession(sqlSession);
 		}
 	}
-	public Integer selectSeq()throws Exception{
+	/*public Integer selectSeq()throws Exception{
 		return sqlSessionFactory.openSession().selectOne("selectSeq");
 	}
-
+	*/
 }
