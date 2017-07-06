@@ -68,11 +68,20 @@ switch (month) {
 	}
 }
 
+//타이틀 값 init
+function getSeletedDate(a, b, c) {
+	var forYYYY = parseInt(a);
+	var forMM = (parseInt(b) > 9 ? "" + parseInt(b) : "0" + parseInt(b));
+	var forDD = (parseInt(c) > 9 ? "" + parseInt(c) : "0" + parseInt(c));
+	document.getElementById("curSelectedOnCal").innerText = forYYYY + "." + forMM + "." + forDD;
+}
+
 let selCalSnackBar;
 (function() {
 	//일 나열하기
 	const chosenDate = document.getElementById("chosenDate");
 	const curSelectedOnCal = document.getElementById("curSelectedOnCal");
+	curSelectedOnCal.innerText = chosenDate.value;	//타이틀 값 init
 	
 	var nowDate = new Date();	//오늘 날짜
 	//nowDate = new Date(2017, 5, 1);	//2017년 ((5 + 1)%12)월 1일
@@ -100,13 +109,13 @@ let selCalSnackBar;
 	var dayCnt = parseInt(blankCnt) + 0;
 	for (var i = 1; i <= totDays(nowDate.getFullYear(), parseInt(nowDate.getMonth()) + 1); i++) {
 		if(i == nowDate.getDate()) {
-			firstDaysList.innerHTML += "<li><span class='available active'  >" + i + "</span></li>";
+			firstDaysList.innerHTML += "<li onclick='getSeletedDate("+nowDate.getFullYear()+","+(parseInt(nowDate.getMonth()) + 1)+","+i+")'><span class='available active'  >" + i + "</span></li>";
 			selfStyle = "color: gray; cursor: pointer;";
 			tagAvailable = "class='available'";
 			availableCnt++;
 		} else {
 			//(!) '3-Depth' 3항 연산자 주의!
-			firstDaysList.innerHTML += "<li><span " + tagAvailable +" style='padding: 3px;" + (tagAvailable.length > 0 ? "" : "cursor:default;") + selfStyle + ((selfStyle.length>0 && dayCnt%7==6) ? ((tagAvailable.length == 0) ? "color:lightblue;" : "color:blue;") : ((selfStyle.length>0 && dayCnt%7==0) ? ((tagAvailable.length == 0) ? "color:lightpink;" : "color:red;") : "")) + "'>" + i + "</span></li>";
+			firstDaysList.innerHTML += "<li onclick='getSeletedDate("+nowDate.getFullYear()+","+(parseInt(nowDate.getMonth()) + 1)+","+i+")'><span " + tagAvailable +" style='padding: 3px;" + (tagAvailable.length > 0 ? "" : "cursor:default;") + selfStyle + ((selfStyle.length>0 && dayCnt%7==6) ? ((tagAvailable.length == 0) ? "color:lightblue;" : "color:blue;") : ((selfStyle.length>0 && dayCnt%7==0) ? ((tagAvailable.length == 0) ? "color:lightpink;" : "color:red;") : "")) + "'>" + i + "</span></li>";
 			if(tagAvailable.length == 0) {
 				if(!alreadyFourWeeks) firstUnavailableCnt++;
 			} else {
@@ -143,7 +152,7 @@ let selCalSnackBar;
 		}
 		dayCnt = parseInt(blankCnt) + 0;
 		for (var i = 1; i <= totDays(nextMonthDate.getFullYear(), parseInt(nextMonthDate.getMonth()) + 1); i++) {
-			secondDaysList.innerHTML += "<li><span " + tagAvailable +" style='padding: 3px;" + (tagAvailable.length > 0 ? "" : "cursor:default;") + selfStyle + ((selfStyle.length>0 && dayCnt%7==6) ? ((tagAvailable.length == 0) ? "color:lightblue;" : "color:blue;") : ((selfStyle.length>0 && dayCnt%7==0) ? ((tagAvailable.length == 0) ? "color:lightpink;" : "color:red;") : "")) + "'>" + i + "</span></li>";
+			secondDaysList.innerHTML += "<li onclick='getSeletedDate("+nextMonthDate.getFullYear()+","+(parseInt(nextMonthDate.getMonth()) + 1)+","+i+")'><span " + tagAvailable +" style='padding: 3px;" + (tagAvailable.length > 0 ? "" : "cursor:default;") + selfStyle + ((selfStyle.length>0 && dayCnt%7==6) ? ((tagAvailable.length == 0) ? "color:lightblue;" : "color:blue;") : ((selfStyle.length>0 && dayCnt%7==0) ? ((tagAvailable.length == 0) ? "color:lightpink;" : "color:red;") : "")) + "'>" + i + "</span></li>";
 			if(availableDays - availableCnt == 1)  {
 				tagAvailable = "";
 				selfStyle = "color: lightgray;";
@@ -166,14 +175,6 @@ let selCalSnackBar;
 		}
 		obj.style.backgroundColor = "crimson";
 		obj.style.color = "white";
-		
-		//선택 날짜 보여주기
-		obj.innerText = obj.innerText.trim();
-		if(parseInt(obj.innerText) >= nowDate.getDate() && parseInt(this.innerText) <= firstMonthCnt) {
-			curSelectedOnCal.innerText = nowDate.getFullYear() + "." + (parseInt(nowDate.getMonth()) < 9 ? "0" + (nowDate.getMonth()) : (nowDate.getMonth())) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
-		} else {
-			curSelectedOnCal.innerText = nextMonthDate.getFullYear() + "." + (parseInt(nextMonthDate.getMonth()) < 9 ? "0" + (nextMonthDate.getMonth()) : (nowDate.getMonth())) + "." + (obj.innerText.length > 1 ? obj.innerText : "0" + obj.innerText);
-		}
 	}
 	var availables = document.getElementsByClassName("available");
 	for (var ii = 0; ii < availables.length; ii++){
