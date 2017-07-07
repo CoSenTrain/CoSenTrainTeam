@@ -38,38 +38,75 @@
 <!-- ----------------------------------------------------------------------------------------------------------- -->
 <%
 request.setCharacterEncoding("EUC-KR");
+%>
+
+
+<form name="paramChainFrm" method="post">
+	<input type="hidden" id="tType" name="tType" />
+	<input type="hidden" id="srcName" name="srcName" />
+	<input type="hidden" id="destName" name="destName" />
+	<input type="hidden" id="dT" name="dT" />
+	<input type="hidden" id="aT" name="aT" />
+	<input type="hidden" id="personCnt" name="personCnt" />
+	<input type="hidden" id="trainNo" name="trainNo" />
+<%
+
 //init
 String tktingMethod = (String) request.getAttribute("tktingMethod");
 tktingMethod = (Obj.isStrNull(tktingMethod) ? "oneTk" : tktingMethod);
+%>
+<input type="hidden" name="tktingMethod" value="<%=tktingMethod%>" />
+<%
 
 String tripType = (String) request.getAttribute("tripType");
 tripType = (Obj.isStrNull(tripType) ? "oneway" : tripType);
+%>
+<input type="hidden" name="tripType" value="<%=tripType%>" />
+<%
 
 String adultCnt = (String) request.getAttribute("adultCnt");
 adultCnt = (Obj.isStrNull(adultCnt) ? "1" : adultCnt);
+%>
+<input type="hidden" name="adultCnt" value="<%=adultCnt%>" />
+<%
 
 String childCnt = (String) request.getAttribute("childCnt");
 childCnt = (Obj.isStrNull(childCnt) ? "0" : childCnt);
+%>
+<input type="hidden" name="childCnt" value="<%=childCnt%>" />
+<%
 
 String seniorCnt = (String) request.getAttribute("seniorCnt");
 seniorCnt = (Obj.isStrNull(seniorCnt) ? "0" : seniorCnt);
+%>
+<input type="hidden" name="seniorCnt" value="<%=seniorCnt%>" />
+<%
 
 String yyyy = (String) request.getAttribute("yyyy");
 if(Obj.isStrNull(yyyy)) {
 	yyyy = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
 }
+%>
+<input type="hidden" name="yyyy" value="<%=yyyy%>" />
+<%
 
 String mm = (String) request.getAttribute("mm");
 if(Obj.isStrNull(mm)) {
 	int month = Calendar.getInstance().get(Calendar.MONTH) + 1;
 	mm = String.valueOf(month < 10 ? "0" + month : month);
 }
+%>
+<input type="hidden" name="mm" value="<%=mm%>" />
+<%
 
 String dd = (String) request.getAttribute("dd");
 if(Obj.isStrNull(dd)) {
 	int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 	dd = String.valueOf(day < 10 ? "0" + day : day);
 }
+%>
+<input type="hidden" name="dd" value="<%=dd%>" />
+<%
 
 String korDayOfWeek = "";
 Calendar cal = Calendar.getInstance();
@@ -99,15 +136,29 @@ case Calendar.SUNDAY:
 default:
 	korDayOfWeek = "휴일";
 }
+%>
+<input type="hidden" name="korDayOfWeek" value="<%=korDayOfWeek%>" />
+<%
 
 String src = (String) request.getAttribute("src");
 src = (Obj.isStrNull(src) ? "수서" : src);
+%>
+<input type="hidden" name="src" value="<%=src%>" />
+<%
 
 String dest = (String) request.getAttribute("dest");
 dest = (Obj.isStrNull(dest) ? "부산" : dest);
+%>
+<input type="hidden" name="dest" value="<%=dest%>" />
+<%
 
 String hh = (String) request.getAttribute("hh");
 hh = (Obj.isStrNull(hh) ? "00" : hh);
+%>
+<input type="hidden" name="hh" value="<%=hh%>" />
+<%
+
+
 
 Object o = request.getAttribute("selScheduleList");
 List<TktingSchedule> selScheduleList = null;
@@ -117,6 +168,11 @@ if(o instanceof List) {
 
 
 %>
+</form>
+<%
+%>
+
+
 <div class="tkting-wrapper">
 	<div class="tkting-wrapper-center">
 		<br />
@@ -398,7 +454,9 @@ if(o instanceof List) {
 							<td><%=getDiffHhMm(e.getDepartureTime(), e.getArrivalTime())%></td>
 							<td><button class="btn-show-popup-look" onclick="showPopupLookTime('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>');"><b>보기</b></button></td>
 							<td><button class="btn-show-popup-look" onclick="showPopupLookFare('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>');"><b>보기</b></button></td>
-							<td><button class="btn-show-popup-resv"><b>예약하기</b></button></td>
+							<%int personCnt = (Integer.valueOf(adultCnt) + Integer.valueOf(childCnt) + Integer.valueOf(seniorCnt)); %>
+							<td><button class="btn-show-popup-resv" onclick="reservationCheck('<%=e.getTrainType().toUpperCase()%>', '<%=e.getTrainNo()%>', '<%=e.getSrcName()%>', '<%=e.getDestName()%>', '<%=e.getDepartureTime()%>', '<%=e.getArrivalTime()%>', <%=e.getTrainNo()%>, <%=personCnt%>, <%=session.getAttribute("user")==null%>
+							)"><b>예약하기</b></button></td>
 						</tr>
 						<%
 						}

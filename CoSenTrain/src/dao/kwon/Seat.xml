@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+t.trainNo, 
+t.type trainType, 
+c.carNo, 
+c.type carType, 
+s.seatNo, 
+s.seatName, 
+TO_CHAR(c.moddate, 'YYYY/MM/DD HH24:MI:SS') carModdate, 
+TO_CHAR(t.moddate, 'YYYY/MM/DD HH24:MI:SS') trainModdate
+ -->
+<mapper namespace="bean.kwon.Seat">
+	<select id="getRunningNo" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT runningNo
+		FROM runningSchedule ss, (SELECT r.routeNo
+		                        FROM route r, (SELECT stationNo src FROM station) s, (SELECT stationNo dest FROM station) d
+		                        WHERE r.src = s.src AND r.dest = d.dest) rr, (SELECT trainNo FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) tr
+		WHERE ss.routeNo = rr.routeNo AND ss.trainNo = tr.trainNo
+		  AND TO_CHAR(departureTime, 'YYYY/MM/DD HH24:MI:SS') = #{dT}
+		  AND TO_CHAR(arrivalTime, 'YYYY/MM/DD HH24:MI:SS') = #{aT}
+	</select>
+	<select id="getCarNoList" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT c.carNo
+		FROM (SELECT carNo, trainNo, type, moddate FROM car) c, (SELECT trainNo, type, moddate FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) t
+		WHERE c.trainNo = t.trainNo
+		ORDER BY c.carNo
+	</select>
+	<select id="getSeatList" parameterType="java.util.Map" resultType="seat">
+		SELECT ROW_NUMBER() OVER(ORDER BY (DECODE(SUBSTR(s.seatName, LENGTH(s.seatName)), 'A', 1000, 'B', 2000, 'C', 3000, 'D', 4000, 5000) + TO_NUMBER(SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1))) ASC) -1 cnt,s.seatNo, s.carNo, LPAD(s.seatName, 3, '0') seatName, SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1) seatNameNumber, SUBSTR(s.seatName, LENGTH(s.seatName)) seatNameLabel
+		FROM seat s, (SELECT carNo, trainNo FROM car WHERE carNo = #{carNo}) c, (SELECT trainNo FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) t
+		WHERE s.carNo = c.carNo AND c.trainNo = t.trainNo
+	</select>
+	<select id="getBookedSeats" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT seatNo
+		FROM ticket
+		WHERE runningNo = #{runningNo}
+		  AND seatNo IN(
+						SELECT s.seatNo
+						FROM seat s, (SELECT carNo, trainNo FROM car WHERE carNo = #{carNo}) c, (SELECT trainNo FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) t
+						WHERE s.carNo = c.carNo AND c.trainNo = t.trainNo
+			)
+	</select>
+</mapper>

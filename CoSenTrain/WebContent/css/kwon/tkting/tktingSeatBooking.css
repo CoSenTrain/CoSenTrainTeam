@@ -1,0 +1,150 @@
+
+
+
+
+/* wrapper */
+.seat-booking-wrapper {
+	background-image: url("/web/img/bg/bg_container.jpg");
+	background-repeat: repeat;
+	background-size: inherit;
+	background-position: center;
+	background-color: #64053C;
+}
+		
+.seat-booking-wrapper .seat-booking-wrapper-center {
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #FFF;
+}
+
+.seat-booking-wrapper .seat-booking-rootlayer-wrapper {
+	width: 940px;
+	height: 500px;
+	padding: 0 30px 30px 30px;
+}
+
+.seat-booking-wrapper .seat-booking-layer-wrapper {
+	width: 890px;
+	height: 450px;
+	padding: 25px;
+	border: 1px solid lightgray;
+	box-shadow: 2px 2px 1px #888888;
+}
+
+/* process-number */
+.seat-booking-wrapper .tkting-process-number {
+	background-color: gray;
+	color:snow;
+	padding: 2px 7px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 1px #888888;
+}
+
+.seat-booking-wrapper .tkting-process-number-active {
+	background-color: crimson;
+	color:snow;
+	padding: 2px 7px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+/* seat booking css */
+#seatBox {
+	width: 570px;
+	height: 350px;
+	margin: 30px auto;
+	align: center;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+#seatBox #holder {
+	margin-top: 10px;
+	height: 200px;
+	width: 550px;
+	background-color: #F5F5F5;
+	border: 1px solid #A4A4A4;
+	margin-left: 10px;
+}
+#seatBox #place {
+	position: relative;
+	margin: 7px;
+}
+#seatBox #place a {
+	font-size: 0.6em;
+}
+#seatBox #place li {
+	list-style: none outside none;
+	position: absolute;
+}
+#seatBox #place li:hover {
+	background-color: yellow;
+}
+#seatBox #place .seat {
+	background: url("/web/img/booking/available_seat_img.gif") no-repeat scroll 0 0 transparent;
+	height: 33px;
+	width: 33px;
+	display: block;
+}
+#seatBox #place .selectedSeat {
+	background-image: url("/web/img/booking/booked_seat_img.gif");
+}
+#seatBox #place .selectingSeat {
+	background-image: url("/web/img/booking/selected_seat_img.gif");
+}
+#seatBox #place .row-1, #seatBox #place .row-2 {
+	margin-top: 20px;
+}
+#seatBox #seatDescription li {
+	verticle-align: middle;
+	list-style: none outside none;
+	padding-left: 35px;
+	height: 35px;
+	float: left;
+}
+#seatBox input[type="button"] {
+	color: snow;
+	background-color: crimson;
+	border: 0;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	width: 150px;
+	border-radius: 0 10px;
+	cursor: pointer;
+    box-shadow: 2px 2px 5px #888888;
+	opacity: .9;
+}
+#seatBox input[type="button"]:active {
+	opacity: 1;
+}
+
+/* car select */
+.btn-group .fa-long-arrow-left {
+    padding: 5px 14px; /* Some padding */
+}
+.btn-group button.car-select {
+	font-weight: bold;
+	font-size: 17px;
+    background-color: #2196f3; /* Green background */
+    border: 1px solid #f3f3f3; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    display: inline-block;
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button.car-select:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button.car-select:hover, .btn-group button.active {
+    background-color: navy;
+}

@@ -114,3 +114,26 @@ function showPopupLookFare(tType, tNo, srcName, destName, dT, aT) {
 		}
 	}, 10);
 }
+
+
+//예약 버튼 처리
+function reservationCheck(tType, tNo, srcName, destName, dT, aT, trainNo, personCnt, hasNotLoggedIn) {
+	tType = tType.toLowerCase();
+	
+	//한명 이상이고, 로그인도 안되어 있으면!
+	if(personCnt > 1 && hasNotLoggedIn) {
+		location.href = '/web/view/kwon/login/login.jsp';
+	} else {
+		paramChainFrm.action = '/web/view/kwon/tkting/tktingReservationProcess.jsp';
+
+		document.getElementById('tType').value = tType;
+		document.getElementById('srcName').value = srcName;
+		document.getElementById('destName').value = destName;
+		document.getElementById('dT').value = dT;
+		document.getElementById('aT').value = aT;
+		document.getElementById('personCnt').value = personCnt;
+		document.getElementById('trainNo').value = trainNo;
+		
+		paramChainFrm.submit();	
+	}
+}

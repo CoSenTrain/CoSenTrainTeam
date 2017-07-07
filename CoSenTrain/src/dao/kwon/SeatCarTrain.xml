@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+t.trainNo, 
+t.type trainType, 
+c.carNo, 
+c.type carType, 
+s.seatNo, 
+s.seatName, 
+TO_CHAR(c.moddate, 'YYYY/MM/DD HH24:MI:SS') carModdate, 
+TO_CHAR(t.moddate, 'YYYY/MM/DD HH24:MI:SS') trainModdate
+ -->
+<mapper namespace="bean.kwon.SeatCarTrain">
+	<select id="getMinCarNo" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT MIN(c.carNo)
+		FROM (SELECT carNo, trainNo, type, moddate FROM car) c, (SELECT trainNo, type, moddate FROM train WHERE trainNo = #{trainNo} AND type = #{tType}) t
+		WHERE  c.trainNo = t.trainNo
+	</select>
+	<select id="selectSeatCarTrain" parameterType="java.util.Map" resultType="sct">
+		SELECT t.trainNo, t.type trainType, c.carNo, c.type carType, s.seatNo, LPAD(s.seatName, 3, '0') seatName, TO_CHAR(c.moddate, 'YYYY/MM/DD HH24:MI:SS') carModdate, TO_CHAR(t.moddate, 'YYYY/MM/DD HH24:MI:SS') trainModdate
+		FROM seat s, (SELECT carNo, trainNo, type, moddate FROM car WHERE carNo = #{carNo}) c, (SELECT trainNo, type, moddate FROM train WHERE trainNo = #{trainNo} AND type = #{tType}) t
+		WHERE s.carNo = c.carNo AND c.trainNo = t.trainNo
+		ORDER BY LPAD(s.seatName, 3, '0')
+	</select>
+	<select id="selectCars" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT c.carNo
+		FROM (SELECT carNo, trainNo, type, moddate FROM car) c, (SELECT trainNo, type, moddate FROM train WHERE trainNo = #{trainNo} AND type = #{tType}) t
+		WHERE c.trainNo = t.trainNo
+		ORDER BY c.carNo
+	</select>
+</mapper>
