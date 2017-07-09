@@ -37,15 +37,7 @@
       
       <!--  start-->
       <div class="reg-first">
-     
-       <!-- 
-       <div id="dv">
-       <img alt="14이상" src="/web/img/lim/join/14join.JPG" onclick="limlogin1()"> 
-       <img alt="14이하" src="/web/img/lim/join/14join_.JPG" onclick="limlogin2()"> 
-       
-       
-      </div>
-       -->
+      
   
        
        <div>
@@ -54,11 +46,11 @@
        		<div class="reg-first-desc">14세 이상 고객</div>
        		<div class="reg-first-btn-wrapper"><button class="reg-first-btn" onclick="limRegister1()">가입하기</button></div>
        	</div>
-       	<div>
+     	<div>
        		<div class="reg-first-fourteen">14<i class="fa fa-long-arrow-down"></i></div>
        		<div class="reg-first-desc">14세 미만 고객</div>
        		<div class="reg-first-btn-wrapper"><button class="reg-first-btn" onclick="limRegister2()">가입하기</button></div>
-       	</div>
+       	</div>  
        </div>
        
       

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="bean.lim.Notice">
+	 <!-- 
+	<select id="getZipCode" resultType="zip"> select * from zipcode</select> 
+	 <select id="selectZipCode" resultType="zip" parameterType="java.lang.String">
+	 select zipcode,sido ,gugun,dong, nvl(bunji,' ')bunji,zipcodeno from zipcode where dong like '%'||#{dong}||'%'
+	 </select> -->
+	 
+	 
+	 
+</mapper>
+ 
