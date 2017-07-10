@@ -5,15 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script type="text/javascript">
-  $(function(){
-	  
-  });
-</script>
 </head>
 <body>
-     
-     <a  href="child2.jsp"> CHILD1</a>
+
 </body>
 </html>

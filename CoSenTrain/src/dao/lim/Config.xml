@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
      <typeAliases>
      	<typeAlias type="bean.lim.Members" alias="member" />
      	<typeAlias type="bean.lim.ZipCode" alias="zip" />
+     	<typeAlias type="bean.lim.Notice" alias="notice"/>
      </typeAliases>
     <!-- DB연동 -->
     <environments default="development">
@@ -63,6 +64,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <mappers>
       <mapper resource="dao/lim/Members.xml" />
       <mapper resource="dao/lim/ZipCode.xml" />
+      <mapper resource="dao/lim/Notice.xml" />
     </mappers>
 </configuration>
 
