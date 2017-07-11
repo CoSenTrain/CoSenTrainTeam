@@ -121,7 +121,6 @@ to {
 }
 
 }
-
 @
 -webkit-keyframes fade2 {from { opacity:.5;
 	
@@ -148,36 +147,42 @@ to {
 	animation-name: fade;
 	animation-duration: 1.0s;
 }
+
 .fade2 {
 	-webkit-animation-name: fade;
 	-webkit-animation-duration: 1.0s;
 	animation-name: fade;
 	animation-duration: 1.0s;
 }
+
 .slideshow-station {
 	max-width: 1000px;
 	position: relative;
 	margin: 50px;
 	text-align: center;
 }
+
 .slideshow-station2 {
 	max-width: 1000px;
 	position: relative;
 	margin: 50px;
 	text-align: center;
 }
+
 .station-wrapper {
 	position: absolute;
 	margin-top: 300px;
 	margin-left: 170px;
 	z-index: 990;
 }
+
 .station-wrapper2 {
 	position: absolute;
 	margin-top: 300px;
 	margin-left: 170px;
 	z-index: 990;
 }
+
 .station {
 	cursor: pointer;
 	height: 13px;
@@ -188,6 +193,7 @@ to {
 	display: inline-block;
 	transition: background-color 0.6s ease;
 }
+
 .station2 {
 	cursor: pointer;
 	height: 13px;
@@ -198,6 +204,7 @@ to {
 	display: inline-block;
 	transition: background-color 0.6s ease;
 }
+
 .login-wrapper {
 	background-image: url("/web/img/bg/bg_container.jpg");
 	background-repeat: repeat;
@@ -254,7 +261,6 @@ to {
 
 	}
 	function start2() {
-
 		document.getElementById("defaultOpen2").click();
 
 	}
@@ -268,7 +274,9 @@ to {
 			tktingMethods[i].innerText = o.innerText;
 		}
 
-		var i, tabcontent, tablinks;
+		var i,
+			tabcontent,
+			tablinks;
 		tabcontent = document.getElementsByClassName("tab4");
 		for (i = 0; i < tabcontent.length; i++) {
 			tabcontent[i].style.display = "none";
@@ -276,7 +284,7 @@ to {
 		tablinks = document.getElementsByClassName("buttonTab");
 		for (i = 0; i < tablinks.length; i++) {
 			tablinks[i].className = tablinks[i].className
-					.replace(" active", "");
+				.replace(" active", "");
 		}
 		document.getElementById(cityName).style.display = "block";
 		evt.currentTarget.className += " active";
@@ -287,7 +295,9 @@ to {
 
 		document.getElementById("changeMethod2").value = cityName;
 
-		var i, tabcontent, tablinks;
+		var i,
+			tabcontent,
+			tablinks;
 		tabcontent = document.getElementsByClassName("tab3");
 		for (i = 0; i < tabcontent.length; i++) {
 			tabcontent[i].style.display = "none";
@@ -295,7 +305,7 @@ to {
 		tablinks = document.getElementsByClassName("buttonTab2");
 		for (i = 0; i < tablinks.length; i++) {
 			tablinks[i].className = tablinks[i].className
-					.replace(" active", "");
+				.replace(" active", "");
 		}
 		document.getElementById(cityName).style.display = "block";
 		evt.currentTarget.className += " active";
@@ -328,7 +338,7 @@ to {
 
 				<!--  start-->
 				<div
-					style="width: 940px; padding: 0 30px 30px 30px; height: 1500px; background-color: white;">
+					style="width: 940px; padding: 0 30px 30px 30px; height: 1700px; background-color: white;">
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
@@ -449,7 +459,7 @@ to {
 
 					<div id="stationservice" class="tab4">
 						<div
-							style="width: 900px; color: #666; height: 1500px; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
+							style="width: 900px; color: #666; height: 1700px; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
 							<div style="width: 940px; height: 50px;">
 								<div style="text-align: center;">
 									<button class="buttonTab2"
@@ -503,9 +513,28 @@ to {
 									</div>
 									<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a
 										class="next" onclick="plusSlides(1)">&#10095;</a>
-
+								</div>
+								<div style="padding-top: 30px; margin-bottom: 15px;"></div>
+								<div
+									style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+									<h4
+										style="padding-left: 15px; float: left; margin-top: 10 px; font-size: 18px; line-height: 19px; color: #8f0349;">고객라운지</h4>
+									<ul style="margin-top: 20px;">
+										<li style="float: left; padding-left: 18px; margin-top: 7px;">이용대상
+											: SR회원, 우리카드 및 SRT 제휴카드(신한카드) 회원, 당일 SRT 특실고객</li>
+										<li style="float: left; padding-left: 18px;">운영시간 :
+											07:00~21:00(연중무휴)</li>
+										<li style="float: left; padding-left: 18px;">출입방법 :
+											(QR코드) SRT 앱 매뉴 -> MY SRT -> 멤버십 카드 확인 -> QR코드 리더기 인식 <br>
+											<span style="float: left;">(카드 리더기) 출입문 옆 설치된 카드리더기에
+												카드 인식</span> <br> <span
+											style="float: left; padding-right: 40px; margin-right: 40px;">SRT
+												특실고객 승차권 확인</span>
+										</li>
+									</ul>
 
 								</div>
+
 
 							</div>
 							<div id="dongtan" class="tab3">
@@ -549,32 +578,398 @@ to {
 									<a class="prev2" onclick="plusSlides2(-1)">&#10094;</a> <a
 										class="next2" onclick="plusSlides2(1)">&#10095;</a>
 								</div>
+								<div style="padding-top: 30px; margin-bottom: 15px;"></div>
+								<div
+									style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+									<h4
+										style="padding-left: 15px; float: left; margin-top: 10 px; font-size: 18px; line-height: 19px; color: #8f0349;">고객라운지</h4>
+									<ul style="margin-top: 20px;">
+										<li style="float: left; padding-left: 18px; margin-top: 7px;">이용대상
+											: SR회원, 우리카드 및 SRT 제휴카드(신한카드) 회원, 당일 SRT 특실고객</li>
+										<li style="float: left; padding-left: 18px;">운영시간 :
+											07:00~21:00(연중무휴)</li>
+										<li style="float: left; padding-left: 18px;">출입방법 :
+											(QR코드) SRT 앱 매뉴 -> MY SRT -> 멤버십 카드 확인 -> QR코드 리더기 인식 <br>
+											<span style="float: left;">(카드 리더기) 출입문 옆 설치된 카드리더기에
+												카드 인식</span> <br> <span
+											style="float: left; padding-right: 40px; margin-right: 40px;">SRT
+												특실고객 승차권 확인</span>
+										</li>
+									</ul>
 
-								흠 동탄은 왜 안되나;
+								</div>
 
+   
 							</div>
 
-							<div id="parking" class="tab3"></div>
+							<div id="parking" class="tab3">
+								<div style="padding-top: 30px;">
+									<h4
+										style="margin-top: 25px; font-size: 18px; line-height: 19px; color: #8f0349;">주차장
+										위치 안내</h4>
+									<table
+										style="width: 100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">
+										<caption>주차장 위치 안내(구분, 주차면, 주소, 지도안내로 구성)</caption>
+										<colgroup>
+											<col width="20%"></col>
+											<col width="20%"></col>
+											<col width="40%"></col>
+											<col width="20%"></col>
 
+										</colgroup>
+										<thead>
+											<tr>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">구분</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">주차면</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">주소</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">지도안내</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>수서역</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>601</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>서울 강남구 수서동 735</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<li>
+													 <a style="color:#555; font-family:'ng','맑은 고딕','돋움','Dotum','Droid','Snas','AppleGothic'; text-decoration: none;"  title="수서역" href="http://dmaps.kr/36m68" target="_blank">바로가기</a>
+												</li>
+												</th>
+												</tr>
+												<tr>
+													<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>동탄역</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>390</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>경기도 화성시 동탄역로 지하 151(오산동, 동탄역사)</b>
+												</th>
+                                                	<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<li>
+													 <a style="color:#555; font-family:'ng','맑은 고딕','돋움','Dotum','Droid','Snas','AppleGothic'; text-decoration: none;"  title="동탄역" href="http://dmaps.kr/36m5x" target="_blank">바로가기</a>
+												</li>
+												</th>
+												</tr>
+												<tr>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>지제역</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>100</b>
+												</th>
+												<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<b>경기 평택시 경기대로 777</b>
+												</th>
+													<th
+													style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+													<li>
+													 <a style="color:#555; font-family:'ng','맑은 고딕','돋움','Dotum','Droid','Snas','AppleGothic'; text-decoration: none;"  title="지제역" href="http://dmaps.kr/36m6e" target="_blank">바로가기</a>
+												</li>
+												</th>
+													         
+											   </tr>
 
-
+										</tbody>
+									</table>
+									<table style="width: 100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">
+                                  <h4 style="margin-top: 25px; font-size: 18px; line-height: 19px; color : #8f0349;">이용요금안내</h4>
+								  <caption>이용요금안내</caption>
+								  <colgroup>
+								    <col width="20%">
+								    <col width="20%">
+								    <col width="20%">
+								    <col width="20%">
+								    <col width="20%">
+								  </colgroup>
+                                    <thead>
+                                    <tr>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">구분</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">시간권</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">1일 주차권</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">
+                                                                   고객할인
+                                                                   <br/>  
+                                    (열차이용고객, 장애인,
+                                    <br/>
+                                    경차 할인만 적용)
+                                                                      </th>
+                                    </tr>
+                                    <tr>
+                                    <th style="width: 100px !important;">최초 30분</th>
+                                    <th>추가 10분당</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+                                    <b>수서역</b>
+                                    </th>                                                    
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">3,000원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">1,000원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">25,000원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">30%</th>
+                                    </tr>
+                                      <tr>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+                                    <b>동탄역</b>
+                                    </th>                                                    
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">1,500원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">400원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">18,000원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">30%</th>
+                                    </tr>
+                                     <tr>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">
+                                    <b>지제역</b>
+                                    </th>                                                    
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">1,500원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">300원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">12,000원</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">30%</th>
+                                    </tr>
+                                    </tbody>
+                                    </table>
+                                    <br />
+                                    <li style="">*주차장이 매우 혼잡하므로 대중교통 이용을 부탁 드립니다.</li>
+								
+							
+                          <div style="padding-top: 30px;">
+                            <div style="padding: 50px 25px; border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #dbdbdb; background-repeat: no-repeat;">
+                             <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">요금 할인</h4>
+                              <ul style="margin-top: 15px;">
+                              <li style="padding-left: 18px;">코센 열차 이용고객(승차권 지참)</li>
+                              <li style="padding-left: 18px;">열차이용고객은 홈티켓 또는 SRT앱 내의 이용내역을 통해 탑승여부를 제시하셔야 합니다.</li>
+                              <li style="padding-left: 18px;">장애인, 국가유공자 (증빙 지참 시, 적용)</li>
+                              <li style="padding-left: 18px;">경차 우대</li>
+                              </ul>
+                            </div>
+                          </div>
+                             <div style="padding-top: 30px;">
+                            <div style="padding: 50px 25px; border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #dbdbdb; background-repeat: no-repeat;">
+                             <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">할인 적용 방법</h4>
+                              <ul style="margin-top: 15px;">
+                              <li style="padding-left: 18px;">주차장 관리원 호출 -> 증빙(승차권, 등록증)을 사전 무인정산기 [증빙제출]에 삽입</li>
+                              <li style="padding-left: 18px;">할인 정산 확인 후 카드(신용카드, 교통카드)로 결제 진행(정산 후, 20분 내 출차하셔야 합니다)</li>
+                              </ul>
+                            </div>
+                          </div>
+                           <div style="padding-top: 30px;">
+                            <div style="padding: 50px 25px; border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #dbdbdb; background-repeat: no-repeat;">
+                             <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">인근 공영주차장 안내</h4>
+                              <ul style="margin-top: 15px;">
+                              <li style="padding-left: 18px;">만차시 주차를 할 수 없는 경우 인근 공용주차장을 이용 바랍니다.</li>
+                              <li style="padding-left: 18px;">수서역 : 지하철3호선 수서역 1번 출구 앞</li>
+                              <li style="padding-left: 18px;">지제역 : 지하철 지제역 앞 할인적용 방법</li>
+                              <li style="padding-left: 18px;">동탄역 : 별도 공영주차장 없음</li>
+                              </ul>
+                            </div>
+                          </div>
+                            <div style="padding-top: 30px;">
+                            <div style="padding: 50px 25px; border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: #dbdbdb; background-repeat: no-repeat;">
+                             <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">무인정산기 이용안내</h4>
+                              <ul style="margin-top: 15px;">
+                              <li style="padding-left: 18px;">카드로만 요금 결제가 가능합니다.(현금정산 불가)</li>
+                              </ul>
+                            </div>
+                          </div>
 						</div>
 					</div>
-
+                     </div>
+                     </div>
 					<div id="trainservice" class="tab4">
 						<div
 							style="width: 900px; color: #666; height: 1500px; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
+                                <div style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+                                <h4 style="font-size: 18px; line-height: 19px; color:#8f0349;">특실서비스</h4>
+                                <ul>
+                                 <li>SRT 특실물품 고객 설문조사 결과를 반영한 고객맞춤 패키지 상품 제공</li>
+                                 <li style="padding-left: 18px;">
+                                 <b>물품</b>
+                                 <br/>
+                                 (기본)생수, 견과류, 쿠키, 물티슈, 일회용 가글
+                                 <br/>
+                                 (선택) 신문, 수면안대
+                                 <br/>
+                                 </li style="padding-left: 18px;">
+                                 <li>
+                                  <b>제공방법</b>
+                                  : 기본제공 물품은 패키지 형태로 모든 특실 고객에게 승무원이 직접 제공하고,
+                                 <br/>
+                                 선택물품은 고객 요청 시 승무원이 개별제공
+                                  </li>
+                                   <li style="padding-left: 18px;">
+                                 <b>물품</b>
+                                 <br/>
+                                 (기본)생수, 견과류, 쿠키, 물티슈, 일회용 가글
+                                 <br/>
+                                 (선택) 신문, 수면안대
+                                 <br/>
+                                 </li>
+                                 <li>
+                                  <b>제공방법</b>
+                                  : 기본제공 물품은 패키지 형태로 모든 특실 고객에게 승무원이 직접 제공하고,
+                                 <br/>
+                                 선택물품은 고객 요청 시 승무원이 개별제공
+                                  </li>
+                                </ul>
+                                
+                                </div>
 
-
-
+                                <div style="background-color: #f3f3f3;">
+                                <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">차내 영상광고서비스</h4>
+                                <ul style="margin-top: 15px;">
+                                 <li style="">운영사 : iMBC</li>
+                                 <li style="padding-left: 18px;">서비스내용 : 차내 자동안내방송, 영상콘텐츠 방송 및 뉴스, 차내 광고 등</li>
+                                 <li style="padding-left: 18px;">고객센터 : 1544-4622(09:00~18:00 운영)</li>
+                                </ul>
+                                </div>
+                                <div style="">
+                                <h4 style="font-size: 18px; line-height: 19px; color: #8f0349;">무선인터넷서비스</h4>
+                               <ul style="margin-top: 15px;">
+                               <li style="">운영사 : KT</li>
+                                 <li style="padding-left: 18px;">서비스내용 : 4G LTE 무선인터넷 무료 제공</li>
+                                 <li style="padding-left: 18px;">고객센터 : 1588-5660(08:00~23:00)</li>
+                                 <li style="font-size: 12px; color: #888; background-image: none;">※ 일부 구간에서 이용 속도가 느리고 장애가 발생할 수 있습니다.</li>
+                               </ul> 
+                                </div>
 						</div>
 					</div>
-
+                     
 					<div id="transportationservice" class="tab4">
 						<div
 							style="width: 900px; color: #666; height: 1500px; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
-
-
+                          <div style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+                            <h4 style="font-size: 18px; line-height: 19px; color:#8f0349;">수서역 찾아오시는 길</h4>                          
+                          <ul style="margin-top: 15px;">
+                            <b>>>버스 이용 시</b>
+                            <li>
+                            [일반] 101 , [간선] 402 , [지선] 2412, 3416, 3425, 3426, 4419 , [마을] 강남03, 강남06, 강남06-1
+                            <br/>
+                                                                                                  ※탑승 후
+                           <b>'쟁골마을'</b>
+                                                 정류장 하차 
+                            </li>
+                             <li>
+                            [일반] 101 , [지선] 2412, 3416 , [직행] 1007, 1007-1, 5600, 5700, 6900, [마을] 강남03, 강남06, 강남06-1
+                            <br/>
+                                                                                                  ※탑승 후
+                           <b>'수서역 5번 출구'</b>
+                                                 정류장 하차 
+                            </li>
+                          </ul>
+                          <ul>
+                            <b>>>지하철 이용 시</b>
+                             <li>분당선-3호선 수서역에서 하차 후 환승통로 이용</li>
+                          </ul>
+                          <ul>
+                          <b>>> 자가용 이용 시 </b>
+                             <li>수서IC에서 밤고개로(0.6km)→광평로(0.2km)→광평로56길(0.2km)
+                             <약 4분 소요>
+                             </li>
+                          <li>헌릉IC에서 헌릉로(0.2km)→자곡로(2.1km)→밤고개로(1.2km)
+                            <약 9분 소요>
+                             </li>
+                                <li>송파IC에서 서울외곽순환도로(5.7km)→서울외곽순환도로(5.4km)→탄천동로(1.3km)
+                           <약 25분 소요> 
+                             </li>
+                                <li>양재IC에서 경부고속도로(0.7km)→양지대로(5.3km)→밤고개로(0.5km)
+                           <약 19분 소요> 
+                             </li>
+                          </ul>
+                          
+                          
+                          </div>
+                       
+                       <div style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+                            <h4 style="font-size: 18px; line-height: 19px; color:#8f0349;">동탄역 찾아오시는 길</h4>                          
+                          <ul style="margin-top: 15px;">
+                            <b>>>버스 이용 시</b>
+                            <li>
+                            [일반] 80, 99, 200, 701, 708-1 , [마을] 19-1, 9A, 9B , [직행] 6001 , [광역] M4130 
+                            <br/>
+                                                                                                  ※탑승 후
+                           <b>'‘동탄역 포스코’ '</b>
+                                                 정류장 하차 
+                            </li>
+                                </ul>
+                          <ul>
+                            <b>>>지하철 이용 시</b>
+                             <li>1호선 서동탄역 하차→’서동탄역신일해피트리’ 정류장에서 701번 버스 탑승→’우남퍼스트빌’ 정류장 하차→도보 5분</li>
+                             <li>708번 버스 탑승→’우남퍼스트빌.자이’ 정류장 하차→도보 9분 </li>
+                             <li>1호선 병점역 하차→’병점역’ 정류장에서 708-1번 버스 탑승→’우남퍼스트빌’ 정류장 하차→도보 5분 </li>
+                          </ul>
+                          <ul>
+                          <b>>> 자가용 이용 시 </b>
+                             <li>오산IC에서 경부고속도로(7.4km)
+                             <약 6분 소요>
+                             </li>
+                          <li>기흥IC에서 경부고속도로(5.4km)→봉담동탄고속도로(5.0km)→봉담동탄고속도로(4.3km)→ 경부고속도로(3.4km)
+                            <약 19분 소요>
+                             </li>
+                                <li>송파IC에서 서울외곽순환도로(5.7km)→서울외곽순환도로(5.4km)→탄천동로(1.3km)
+                           <약 25분 소요> 
+                             </li>
+                                <li>북오산IC에서 봉담동탄고속도로(5.4km)→봉담동탄고속도로(9.2km)→경부고속도로(3.4km)
+                           <약 13분 소요> 
+                             </li>
+                          </ul>
+                          
+                          
+                          </div>
+                       
+                       <div style="margin-top: 25px; border-top-width: 2px; border-top-style: solid; border-top-color: #000;">
+                            <h4 style="font-size: 18px; line-height: 19px; color:#8f0349;">지제역 찾아오시는 길</h4>                          
+                          <ul style="margin-top: 15px;">
+                            <b>>>버스 이용 시</b>
+                            <li>
+                            [일반]1-1, 2, 2-2, 810, 17, 27, 29, 3, 35, 36, 5-1
+                            <br/>
+                                                                                                  ※탑승 후
+                           <b>'지제역'</b>
+                                                 정류장 하차 
+                            </li>
+                          </ul>
+                          <ul>
+                            <b>>>지하철 이용 시</b>
+                             <li>1호선 ‘지제역’ 하차 후 환승통로 이용</li>
+                          </ul>
+                          <ul>
+                          <b>>> 자가용 이용 시 </b>
+                             <li>오성IC에서 서동대로(5.6km)→은실고가길(0.7km)→울성길(0.2km)
+                             <약 19분 소요>
+                             </li>
+                          <li>송탄IC에서 삼남로(2.0km)→남북대로(1.7km)→지제로(1.4km)
+                            <약 17분 소요>
+                             </li>
+                                 
+                          </ul>
+                          
+                          
+                          </div>
+                       
 
 						</div>
 					</div>
@@ -582,7 +977,7 @@ to {
 
 
 
-
+         </div>
 
 					<!-- end -->
 
@@ -596,21 +991,21 @@ to {
 		<script type="text/javascript">
 			var slideIndex = 1;
 			var slideIndex2 = 1;
-
+		
 			function plusSlides(n) {
 				showSlides(slideIndex += n);
 			}
-
+		
 			function currentSlide(n) {
 				showSlides(slideIndex = n);
 			}
 			function plusSlides2(n) {
 				showSlides2(slideIndex2 += n);
 			}
-
+		
 			function currentSlide2(n) {
 				showSlides2(slideIndex2 = n);
-			} 
+			}
 			function showSlides(n) {
 				var i;
 				var slides = document.getElementsByClassName("mySlides");
@@ -626,7 +1021,7 @@ to {
 				}
 				for (i = 0; i < dots.length; i++) {
 					dots[i].className = dots[i].className
-							.replace(" active", "");
+						.replace(" active", "");
 				}
 				slides[slideIndex - 1].style.display = "block";
 				dots[slideIndex - 1].className += " active";
@@ -646,7 +1041,7 @@ to {
 				}
 				for (i = 0; i < dots.length; i++) {
 					dots[i].className = dots[i].className
-							.replace(" active", "");
+						.replace(" active", "");
 				}
 				slides[slideIndex - 1].style.display = "block";
 				dots[slideIndex - 1].className += " active";
@@ -655,19 +1050,19 @@ to {
 				slideIndex++;
 				showSlides(slideIndex);
 			}
-            
+		
 			showSlides(slideIndex);
 			var slidingInterval = setInterval('plusSlides(1)', 3000);
-
-			
+		
+		
 			var intervalShow2 = function() {
 				slideIndex2++;
 				showSlides2(slideIndex2);
 			}
-            
+		
 			showSlides2(slideIndex2);
 			var slidingInterval2 = setInterval('plusSlides2(1)', 3000);
-			
+		
 			function stopSliding(fa) {
 				if (fa.className == "fa fa-pause") {
 					fa.className = "fa fa-play";
