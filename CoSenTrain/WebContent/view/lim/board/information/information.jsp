@@ -171,6 +171,7 @@ function modifyTab(o, evt, cityName) {
 					  PDF를 보시려면 Adobe Reader를 설치하셔야 합니다.
 					  </div>
 					
+					
 					</div>
 					</div>
 					<div id="email" class="tab5">
@@ -468,14 +469,14 @@ function modifyTab(o, evt, cityName) {
 
 
 					<div id="notice" class="tab5">
-						<div style="width: 900px; color: #666; height: 1000px; 
+						<div style="width: 900px; color: #666; height: 2500px; 
 				 
 							padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
-					</div>
+					
 					
 					<div style="margin-top: 25px;">
 					
-					주식회사 에스알(이하 ‘SR’ 또는 ‘회사’라 함)은 「개인정보 보호법」 등 관련법에 따라 영상정보 보호규정을 준수합니다. 이에 따라 영상정보처리기기 운영ㆍ관리 방침을 정하여 ‘개인정보자기결정권’ 보장에 의한 이용자 권익 보호에 최선을 다하고 있습니다.
+					주식회사 코센(이하 ‘CS’ 또는 ‘회사’라 함)은 「개인정보 보호법」 등 관련법에 따라 영상정보 보호규정을 준수합니다. 이에 따라 영상정보처리기기 운영ㆍ관리 방침을 정하여 ‘개인정보자기결정권’ 보장에 의한 이용자 권익 보호에 최선을 다하고 있습니다.
 					</div>
 					<div style="padding: 30px; margin-top: 30px; border-width: 1px; border-style: solid; border-color: #ccc;">
 				      	<div>
@@ -653,39 +654,155 @@ function modifyTab(o, evt, cityName) {
 					  </li>
 					 </ul>
 					 
+					 
 					</div>		
                     <div class="item item-06" style="margin-top: 35px;">
-					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">1. 영상정보처리기기의 설치 근거 및 목적</h3>
-					 <p style="margin-top: 10px;">회사는 「개인정보 보호법」 제25조에 의해 범죄예방 및 수사, 시설안전 및 화재예방, 차량도난 및 파손방지를 위하여 영상정보처리 기기를 설치ㆍ운영하고 있습니다.</p>
+					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">6. 영상정보처리 관리책임자 및 접근권한자 등 안내</h3>
+					 <p style="margin-top: 10px;">회사는 고객의 소중한 영상정보를 보호하고 개인영상정보와 관련한 불편사항을 처리하기 위하여 아래와 같이 영상정보 관리책임자를 두고 있습니다. 회사는 이용자의 목소리를 경청하여 신속하고 충분한 답변을 드릴 수 있도록 최선을 다하겠습니다.</p>
+					 <h4 style="margin: 20px 0 15px 0; font-weight: bold; font-size: 16px; line-height: 18px; color:#1f1f1f;">영상정보처리 관리책임자</h4>
+					 <table style="width:100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">
+					    <caption>영상정보 처리 관리 책임자</caption>
+					    <colgroup>
+					    <col width="25%"></col>
+					    <col width="25%"></col>
+					    <col width="25%"></col>
+					    <col width="25%"></col>
+					    </colgroup>
+					    <thead>
+					     <tr>
+                              <th style="padding:10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">구분</th>					     
+                              <th style="padding:10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">수서역</th>					     
+                              <th style="padding:10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">동탄역</th>					     
+                              <th style="padding:10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">지제역</th>					     
+					     
+					     </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">소속</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">(주)코센</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">(주)코센</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">(주)코센</td>
+					     </tr>
+					      <tr>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">이름</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">박정우</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">이한구</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">신종식</td>
+					     </tr>
+					     <tr>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">직위</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">역장</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">역장</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">역장</td>
+					     </tr>
+					     <tr>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">전화</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">02-6177-8205</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">031-328-9503</td>
+					     <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">031-646-8803</td>
+					     </tr>
+					    </tbody>
+					    
+					 </table>
+					 <h4 style="width: 100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">영상정보처리 접근권한자</h4>
+					 <table style="width: 100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">
+					 <caption>영상정보처리 접근권한자</caption>
+					 <colgroup>
+					  <col width="25%"></col>
+					  <col width="25%"></col>
+					  <col width="25%"></col>
+					  <col width="25%"></col>
+					 </colgroup>
+					 <thead>
+					   <tr>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">구분</td>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">수서역</td>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">동탄역</td>
+					      <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">지제역</td>
+					   </tr>
+					 </thead>
+					 <tbody>
+					 <tr>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">소속</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">(주)맥서브</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;" colspan="2">(주)맥서브</td>
+					 </tr>
+					 <tr>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">이름</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">고장록, 오종화, 류환구</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;" colspan="2">박종만, 김문철, 유익선</td>
+					 </tr>
+					  <tr>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">전화</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;">02-6177-8254</td>
+					   <td style="padding: 10px 0 ; padding-left: 10px; text-align: center; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;" colspan="2">031-300-8693</td>
+					 </tr>
+					 
+					 </tbody>
+					 </table>
+					
 					</div>		
                     <div class="item item-07" style="margin-top: 35px;">
-					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">1. 영상정보처리기기의 설치 근거 및 목적</h3>
-					 <p style="margin-top: 10px;">회사는 「개인정보 보호법」 제25조에 의해 범죄예방 및 수사, 시설안전 및 화재예방, 차량도난 및 파손방지를 위하여 영상정보처리 기기를 설치ㆍ운영하고 있습니다.</p>
+					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">7. 영상정보의 안전성 확보조치</h3>
+					 <p style="margin-top: 10px;">회사는 영상정보 처리 시 개인정보가 분실, 도난, 누출, 변조, 훼손되지 않도록 아래와 같이 안전성 확보조치를 강구하고 있습니다.</p>
+					 <ul>
+					  <li>
+                           <strong style="display: block; margin-bottom: 5px;">가. 영상정보는 안전한 방식으로 암호화 조치</strong>
+					          <ul>
+					          <li style="padding-left: 21px; margin-top: 0px;">회사에서 처리하는 영상정보는 보관ㆍ저장 시 암호화 등을 통하여 안전하게 관리하고 있습니다. </li>
+					          </ul>
+					 </li>
+					  <li>
+					     <strong style="display: block; margin-bottom: 5px;">나. 영상정보 접근권한 및 저장보관 관리 강화</strong>
+					   <ul>
+					          <li style="padding-left: 21px; margin-top: 0px;">회사에서 처리하는 영상정보에 대한 접근권한은 차등부여하고 있고, 개인영상정보의 위ㆍ변조 방지를 위하여 개인영상정보의 생성일시, 열람목적, 열람자, 열람일시 등을 기록하여 관리하고 있습니다. 이 외에도 개인영상정보의 안전한 물리적 보관을 위하여 잠금장치를 설치하고 있습니다. </li>
+					          </ul>
+					  
+					  </li>
+					   <li>
+					     <strong style="display: block; margin-bottom: 5px;">다. 개인정보보호 교육 강화</strong>
+					   <ul>
+					          <li style="padding-left: 21px; margin-top: 0px;">영상정보 취급 관리자에 대한 개인정보보호 교육 및 캠페인을 통하여 개인정보보호의 중요성에 대한 의식을 고취하도록 지속적으로 노력하고 있습니다.</li>
+					          </ul>
+					  
+					  </li>
+					  
+					 </ul>
+					
 					</div>		
+					
                     <div class="item item-08" style="margin-top: 35px;">
-					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">1. 영상정보처리기기의 설치 근거 및 목적</h3>
-					 <p style="margin-top: 10px;">회사는 「개인정보 보호법」 제25조에 의해 범죄예방 및 수사, 시설안전 및 화재예방, 차량도난 및 파손방지를 위하여 영상정보처리 기기를 설치ㆍ운영하고 있습니다.</p>
+					 <h3 style="margin-bottom: 20px; font-weight: bold; font-size: 20px; line-height: 20px; color:#8f0349;">8. 영상정보처리기기 운영ㆍ관리방침의 고지 의무</h3>
+					 <p style="margin-top: 10px;">본 영상정보처리기기 운영ㆍ관리방침의 법령ㆍ정책 또는 보안기술의 변경에 따라 내용 추가, 삭제 및 수정 등 개정이 있을 시에 최소 7일 전에 회사 홈페이지를 통해 고지하도록 하겠습니다.
+					 <br></br>
+					 <br></br>
+					 - 공고 일자 : 2017년 4월 20일
+					 	 <br></br>
+					 - 시행 일자 : 2017년 4월 27일	 
+					 </p>
 					</div>		
-                       					
+                       	</div>				
 
-					
-					
 					</div>
+					
+					 
 
 
 
 
 
-				</div>
+				 
 				<!-- end -->
-			</div>
+			 
 
 		</div>
-
+</div>
+</div>
 		<!-- LOGIN  End   -->
 		<jsp:include page="/view/container/containerBottom.jsp" flush="false" />
 		<!-- 수정 부분 -->
-	</div>
+	
 
 	<script type="text/javascript" src="/web/js/container/clock.js"
 		charset="UTF-8"></script>

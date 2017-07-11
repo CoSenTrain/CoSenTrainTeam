@@ -48,9 +48,9 @@
       <div class="dropdown">
          <button class="dropbtn">SCTrain 소식</button>
          <div class="dropdown-content">
-            <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>공지사항</a>
-            <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>안내사항</a>
-            <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>종합이용안내</a>
+            <a href="/web/view/lim/board/notice/notice1.jsp"><i class="fa fa-caret-right" >&nbsp;</i>공지사항</a>
+            <a href="/web/view/lim/board/information/information.jsp"><i class="fa fa-caret-right" >&nbsp;</i>안내사항</a>
+            <a href="/web/view/lim/board/information/totalInformation.jsp"><i class="fa fa-caret-right" >&nbsp;</i>종합이용안내</a>
             <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>승차권이용안내</a>
          </div>
       </div>
