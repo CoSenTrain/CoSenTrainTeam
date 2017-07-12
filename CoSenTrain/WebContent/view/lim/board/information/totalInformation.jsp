@@ -707,9 +707,9 @@ to {
                                     <thead>
                                     <tr>
                                     <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">구분</th>
-                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">시간권</th>
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" colspan="2">시간권</th>
                                     <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">1일 주차권</th>
-                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2">
+                                    <th style="padding: 10px 0; padding-left: 10px; font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" rowspan="2" >
                                                                    고객할인
                                                                    <br/>  
                                     (열차이용고객, 장애인,
@@ -718,8 +718,8 @@ to {
                                                                       </th>
                                     </tr>
                                     <tr>
-                                    <th style="width: 100px !important;">최초 30분</th>
-                                    <th>추가 10분당</th>
+                                    <th style="width: 100px !important;font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;" ">최초 30분</th>
+                                    <th style="width: 100px !important;font-size: 13px; line-height: 100%; border-width: 0 1px 1px 0; border-style: solid; border-color: #dbdbdb;  background-color: #f8f8f8;"  ">추가 10분당</th>
                                     </tr>
                                     </thead>
                                     <tbody>
