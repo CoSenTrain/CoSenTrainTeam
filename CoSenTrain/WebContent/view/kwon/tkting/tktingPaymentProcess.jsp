@@ -1,3 +1,8 @@
+<%@page import="dao.kwon.DiscountDao"%>
+<%@page import="dao.kwon.TicketingDao"%>
+<%@page import="test.kwon.BookingList"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bean.kwon.BookingInfo"%>
 <%@page import="bean.kwon.TktingSchedule"%>
 <%@page import="dao.kwon.SeatDao"%>
 <%@page import="java.util.List"%>
@@ -8,6 +13,8 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%!SeatDao seatDao = SeatDao.getInstance();%>
+<%!TicketingDao ticketingDao = TicketingDao.getInstance();%>
+<%!DiscountDao discountDao = DiscountDao.getInstance();%>
 <%
 try {	//전체 try	
 request.setCharacterEncoding("EUC-KR");
@@ -29,7 +36,7 @@ trainNo = (Obj.isStrNull(trainNo) ? "-1" : trainNo.trim());
 String carNo = request.getParameter("carNo");
 carNo = (Obj.isStrNull(carNo) ? "-1" : carNo.trim());
 String selectingSeats = request.getParameter("selectingSeats");
-carNo = (Obj.isStrNull(carNo) ? "" : selectingSeats);
+selectingSeats = (Obj.isStrNull(selectingSeats) ? "-1" : selectingSeats);
 
 //map
 Map<String, Object> map = new HashMap<String, Object>();
@@ -41,11 +48,33 @@ map.put("aT", aT);
 map.put("trainNo", Integer.valueOf(trainNo));
 map.put("carNo", Integer.valueOf(carNo));
 map.put("selectingSeats", selectingSeats);
+map.put("runningNo", seatDao.getRunningNo(map));
+map.put("fare", ticketingDao.getRountFare(map));
 		
+request.setAttribute("runningNo", map.get("runningNo"));
+request.setAttribute("fare", map.get("fare"));
+request.setAttribute("discountList", discountDao.selectDiscountKor());
+		
+List<BookingInfo> bookingList = new ArrayList<BookingInfo>();
+if(!Obj.isStrNull(selectingSeats) && !selectingSeats.trim().equals("-1")) {	
+	String[] selectingSeatsArr = selectingSeats.split(",");
+	for(int i = 0; i < selectingSeatsArr.length; i++) {
+		if(!Obj.isStrNull(selectingSeatsArr[i])) {
+			BookingInfo e = new BookingInfo(Integer.valueOf(String.valueOf(map.get("runningNo")).trim()), Integer.valueOf(selectingSeatsArr[i].trim()));
+			bookingList.add(e);
+		}
+	}
+}
+request.setAttribute("getSelectedSeatNames", seatDao.getSelectedSeatNames(bookingList));
+request.setAttribute("getSelectedSeatAsList", seatDao.getSelectedSeatAsList(bookingList));
 ////   DAO   ///////////////////////////////////////////////////////////////////////////////////////////
 
 //전체 좌석 정보들 + 해당 칸의 예매된 티켓 정보들
 out.println(map);
+out.println(bookingList);
+out.println(seatDao.getSelectedSeatNames(bookingList));
+out.println(request.getAttribute("getSelectedSeatNames"));
+//System.out.println(request.getAttribute("discountList"));
 
 
 ////  Dispather   //////////////////////////////////////////////////////////////////////////////////////

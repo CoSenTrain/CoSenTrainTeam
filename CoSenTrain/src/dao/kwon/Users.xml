@@ -26,6 +26,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	private String regdate;
  -->
 <mapper namespace="bean.kwon.Users">
+	<select id="getUserNextval" resultType="java.lang.Integer">
+		SELECT users_seq.NEXTVAL FROM DUAL
+	</select>
 	<select id="selectUsers" parameterType="java.util.Map" resultType="users">
 SELECT userNo, 
         name, 
@@ -81,6 +84,14 @@ WHERE u.zipcodeNo = z.zipcodeNo
 		<if test="logPw != null"> AND pwWeb = #{logPw} </if>
 		<if test="isDeleted != null"> AND isDeleted = #{isDeleted} </if>
 	</select>
+	<insert id="insertNoneUserRequireNo"  parameterType="users">
+INSERT INTO users(userNo, name, pwTicketing, email, emailRecivable, phone, userType) 
+VALUES(#{userNo}, #{name}, #{pwTicketing}, #{email}, #{emailRecivable}, #{phone}, #{userType})
+	</insert>
+	<insert id="insertPointRequireNo"  parameterType="java.util.Map">
+INSERT INTO point(userNo, point, pointTot) 
+VALUES(#{userNo}, 0, 0)
+	</insert>
 </mapper>
 
 <!-- 

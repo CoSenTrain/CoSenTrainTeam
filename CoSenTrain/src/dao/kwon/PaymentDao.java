@@ -2,23 +2,24 @@ package dao.kwon;
 
 import java.io.Closeable;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import bean.kwon.Discount;
+import bean.kwon.TktingSchedule;
 
-public class DiscountDao {
-	private final static DiscountDao instance = new DiscountDao();
+public class PaymentDao {
+	private final static PaymentDao instance = new PaymentDao();
 	private SqlSessionFactory sqlSessionFactory;
 
 	//constructor
-	private DiscountDao() {
+	private PaymentDao() {
 		sqlSessionFactory = SqlSessionFactoryMgr.getSqlSessionFactory();
 	}
 	
 	//getInstance()
-	public static DiscountDao getInstance() {
+	public static PaymentDao getInstance() {
 		return instance;
 	}
 	
@@ -31,27 +32,31 @@ public class DiscountDao {
 		}
 	}
 	
-	public List<Discount> selectDiscount() {
+	public synchronized int getPaymentNextval() {
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			return sqlSession.selectList("selectDiscount");
+			return sqlSession.selectOne("getPaymentNextval");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return -1;
 		} finally {			
 			closeSqlSession(sqlSession);
 		}
 	}
 	
-	public List<Discount> selectDiscountKor() {
+	public void insertPayment(Map<String, Object> map) {
 		SqlSession sqlSession = null;
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			return sqlSession.selectList("selectDiscountKor");
+			int rs = sqlSession.insert("insertPayment", map);
+			if(rs > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
 		} finally {			
 			closeSqlSession(sqlSession);
 		}

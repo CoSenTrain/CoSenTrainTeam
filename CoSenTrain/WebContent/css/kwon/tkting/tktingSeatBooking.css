@@ -75,6 +75,7 @@
 #seatBox #place li {
 	list-style: none outside none;
 	position: absolute;
+	cursor: pointer;
 }
 #seatBox #place li:hover {
 	background-color: yellow;

@@ -19,12 +19,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </typeAliases>
      -->
      <typeAliases>
+     	<typeAlias type="bean.kwon.BookingInfo" alias="bookingInfo" />
      	<typeAlias type="bean.kwon.Car" alias="car" />
      	<typeAlias type="bean.kwon.Discount" alias="discount" />
+     	<typeAlias type="bean.kwon.Ticket" alias="ticket" />
      	<typeAlias type="bean.kwon.TktingSchedule" alias="sch" />
      	<typeAlias type="bean.kwon.Users" alias="users" />
      	<typeAlias type="bean.kwon.Seat" alias="seat" />
      	<typeAlias type="bean.kwon.SeatCarTrain" alias="sct" />
+     	<typeAlias type="bean.kwon.Payment" alias="payment" />
      </typeAliases>
     <!-- DB연동 -->
     <environments default="development">
@@ -70,6 +73,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       <mapper resource="dao/kwon/Users.xml" />
       <mapper resource="dao/kwon/Seat.xml" />
       <mapper resource="dao/kwon/SeatCarTrain.xml" />
+      <mapper resource="dao/kwon/Payment.xml" />
     </mappers>
 </configuration>
 

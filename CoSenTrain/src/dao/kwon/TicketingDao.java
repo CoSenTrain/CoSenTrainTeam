@@ -8,6 +8,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import bean.kwon.BookingInfo;
+import bean.kwon.Ticket;
 import bean.kwon.TktingSchedule;
 
 public class TicketingDao {
@@ -86,4 +88,57 @@ public class TicketingDao {
 			closeSqlSession(sqlSession);
 		}
 	}	
+	
+	public synchronized List<BookingInfo> getBookingList() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("getBookingList");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
+	public synchronized int getTicketNoNextval() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getTicketNoNextval");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
+	public synchronized int doTicket(Map<String, Object> map, List<Integer> seatList) {
+		int currval =  getTicketNoNextval();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			int rsCnt = 0;
+			for (int i = 0; i < seatList.size(); i++) {
+				Ticket ticket = new Ticket(currval, seatList.get(i).intValue(), Integer.valueOf(String.valueOf(map.get("userNo")).trim()), Integer.valueOf(String.valueOf(map.get("runningNo")).trim()), Integer.valueOf(String.valueOf(map.get("paymentNo")).trim()), Integer.valueOf(String.valueOf(map.get("discountNo")).trim()));
+				System.out.println("TicketingDao(112 Line) : " + ticket);
+				int rs = sqlSession.insert("doTicket", ticket);
+				rsCnt += (rs > 0 ? 1 : 0);
+			}
+			if(rsCnt == seatList.size()) {
+				sqlSession.commit();
+				return currval;
+			} else {
+				sqlSession.rollback();
+				return -1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
 }

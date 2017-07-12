@@ -29,7 +29,7 @@ TO_CHAR(t.moddate, 'YYYY/MM/DD HH24:MI:SS') trainModdate
 		ORDER BY c.carNo
 	</select>
 	<select id="getSeatList" parameterType="java.util.Map" resultType="seat">
-		SELECT ROW_NUMBER() OVER(ORDER BY (DECODE(SUBSTR(s.seatName, LENGTH(s.seatName)), 'A', 1000, 'B', 2000, 'C', 3000, 'D', 4000, 5000) + TO_NUMBER(SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1))) ASC) -1 cnt,s.seatNo, s.carNo, LPAD(s.seatName, 3, '0') seatName, SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1) seatNameNumber, SUBSTR(s.seatName, LENGTH(s.seatName)) seatNameLabel
+		SELECT ROW_NUMBER() OVER(ORDER BY (DECODE(SUBSTR(s.seatName, LENGTH(s.seatName)), 'A', 1000, 'B', 2000, 'C', 3000, 'D', 4000, 5000) + TO_NUMBER(SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1))) ASC) -1 cnt, s.seatNo, s.carNo, LPAD(s.seatName, 3, '0') seatName, SUBSTR(s.seatName, 1, LENGTH(s.seatName) - 1) seatNameNumber, SUBSTR(s.seatName, LENGTH(s.seatName)) seatNameLabel
 		FROM seat s, (SELECT carNo, trainNo FROM car WHERE carNo = #{carNo}) c, (SELECT trainNo FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) t
 		WHERE s.carNo = c.carNo AND c.trainNo = t.trainNo
 	</select>
@@ -42,5 +42,8 @@ TO_CHAR(t.moddate, 'YYYY/MM/DD HH24:MI:SS') trainModdate
 						FROM seat s, (SELECT carNo, trainNo FROM car WHERE carNo = #{carNo}) c, (SELECT trainNo FROM train WHERE trainNo = #{trainNo} AND LOWER(type) = LOWER(#{tType})) t
 						WHERE s.carNo = c.carNo AND c.trainNo = t.trainNo
 			)
+	</select>
+	<select id="getSelectedSeatName" parameterType="java.lang.Integer" resultType="java.lang.String">
+		SELECT LPAD(seatName, 3, '0') FROM seat WHERE seatNo = #{VALUE}
 	</select>
 </mapper>

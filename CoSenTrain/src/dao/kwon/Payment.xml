@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.kwon.Payment">
+	<select id="getPaymentNextval" resultType="java.lang.Integer">
+		SELECT payment_seq.NEXTVAL FROM DUAL
+	</select>
+	<insert id="insertPayment" parameterType="java.util.Map">
+		INSERT INTO payment(paymentNo, userNo, money) VALUES(#{paymentNo}, #{userNo}, #{money})
+	</insert>
+</mapper>
+

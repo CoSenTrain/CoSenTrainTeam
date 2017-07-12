@@ -32,6 +32,19 @@ public class UsersDao {
 		}
 	}
 	
+	public synchronized int getNextval() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getUserNextval");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
 	public List<Users> selectUsers(Map<String, Object> map) {
 		SqlSession sqlSession = null;
 		try {
@@ -53,6 +66,34 @@ public class UsersDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
+	public void insertNoneUserRequireNo(Map<String, Object> map) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+
+			Users user = new Users();
+			user.setUserNo(Integer.valueOf(String.valueOf(map.get("userNo")))); 
+			user.setName(String.valueOf(map.get("name")));
+			user.setPwTicketing(Integer.valueOf(String.valueOf(map.get("pwTicketing"))));
+			user.setEmail(String.valueOf(map.get("email")));
+			user.setEmailRecivable(String.valueOf(map.get("emailRecivable")));
+			user.setPhone(String.valueOf(map.get("phone")));
+			user.setUserType(String.valueOf(map.get("userType")));
+			
+			int rs = sqlSession.insert("insertNoneUserRequireNo", user);
+			rs += sqlSession.insert("insertPointRequireNo", map);
+			if(rs > 0) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {			
 			closeSqlSession(sqlSession);
 		}

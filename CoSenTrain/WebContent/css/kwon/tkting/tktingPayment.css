@@ -1,0 +1,104 @@
+
+
+
+
+/* wrapper */
+.payment-wrapper {
+    background-image: url("/web/img/bg/bg_container.jpg");
+    background-repeat: repeat;
+    background-size: inherit;
+    background-position: center;
+    background-color: #64053C;
+}
+.payment-wrapper .payment-wrapper-center {
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #FFF;
+}
+.payment-wrapper .payment-rootlayer-wrapper {
+    width: 940px;
+    min-height: 500px;
+    padding: 0 30px 30px 30px;
+}
+.payment-wrapper .payment-layer-wrapper {
+    width: 890px;
+    padding: 25px;
+    border: 1px solid lightgray;
+    box-shadow: 2px 2px 1px #888888;
+}
+/* process-number */
+
+.payment-wrapper .tkting-process-number {
+    background-color: gray;
+    color: snow;
+    padding: 2px 7px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px #888888;
+}
+.payment-wrapper .tkting-process-number-active {
+    background-color: crimson;
+    color: snow;
+    padding: 2px 7px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px #888888;
+}
+/* End of Wrapper */
+
+.payment-layer-wrapper table {
+    width: 890px;
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+    margin: 30px 0;
+    border-spacing: 0;
+}
+.payment-layer-wrapper td {
+    color: #555555;
+}
+.payment-layer-wrapper td:last-child {
+    color: black;
+}
+.payment-layer-wrapper th,
+.payment-layer-wrapper td {
+    border: 1px solid lightgray;
+    border-bottom: 0;
+    border-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.payment-layer-wrapper th:first-child,
+.payment-layer-wrapper td:first-child {
+    border-left: 0;
+}
+.payment-layer-wrapper td select {
+    width: 200px;
+}
+.payment-layer-wrapper div {
+    width: 100%;
+    text-align: center;
+}
+.payment-layer-wrapper button {
+	margin: 0 5px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 0 10px;
+    cursor: pointer;
+    opacity: .8;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.payment-layer-wrapper button:first-child {
+    background-color: crimson;
+    color: snow;
+}
+.payment-layer-wrapper button:last-child {
+    background-color: gray;
+    color: snow;
+}
+.payment-layer-wrapper button:hover {
+    opacity: 1;
+    box-shadow: 3px 3px 3px #888888;
+}

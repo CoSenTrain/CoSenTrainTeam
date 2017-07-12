@@ -7,4 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 SELECT discountNo, DECODE(condition, '일반', 'normal', '어린이', 'child', '노인', 'senior', '장애', 'disabled', '국가유공자', 'nNerit', 'etc') condition, discount 
 FROM discount
 	</select>
+	<select id="selectDiscountKor" resultType="discount">
+SELECT discountNo, condition, discount FROM discount
+	</select>
 </mapper>

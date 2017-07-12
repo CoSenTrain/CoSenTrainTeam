@@ -9,22 +9,26 @@ var bookedSeats = [3, 10, 25];
 var runningNo = -1;
 //칸 번호
 var carNo = -1;
+//선택 정보
+var str = [];
+//예약 가능 체크
+var addedCheckCnt = 0;
 
 //Seat Booking
 var settings = {
-             rows: 3,
-             cols: 11,
-             rowCssPrefix: 'row-',
-             colCssPrefix: 'col-',
-             seatWidth: 50,
-             seatHeight: 60,
-             seatCss: 'seat',
-             selectedSeatCss: 'selectedSeat',
-             selectingSeatCss: 'selectingSeat'
-         };
+		rows: 3,
+		cols: 11,
+		rowCssPrefix: 'row-',
+		colCssPrefix: 'col-',
+		seatWidth: 50,
+		seatHeight: 60,
+		seatCss: 'seat',
+		selectedSeatCss: 'selectedSeat',
+		selectingSeatCss: 'selectingSeat'
+};
 var init = function(reservedSeat) {
 	var str = [],
-		seatNo, className;
+	seatNo, className;
 	for (i = 0; i < settings.rows; i++) {
 		for (j = 0; j < settings.cols; j++) {
 			seatNo = (i + j * settings.rows + 1);
@@ -39,7 +43,7 @@ var init = function(reservedSeat) {
 };
 var initForAjax = function(reservedSeat, seatList) {
 	var str = [],
-		seatNo, className;
+	seatNo, className;
 	var listCnt = 0;
 	for (i = 0; i < settings.rows; i++) {
 		for (j = 0; j < settings.cols; j++) {	//좌석은 모두 33 개
@@ -81,7 +85,7 @@ function ajaxProcess(url, method, dataType, data, job) {
 		data:data,
 		cache:false,
 		success:function(rs) {
-			
+
 			//do JOB
 			switch(job){
 			case 'getRunningNo':
@@ -90,6 +94,13 @@ function ajaxProcess(url, method, dataType, data, job) {
 			case 'seatList':
 				bookedSeats = rs.bookedSeats;
 				initForAjax(bookedSeats, rs.seatList);
+
+				if(rs.hasAdded && str.length > 0) {	//예약하기
+					$('input#selectingSeats').val((str.join(',')));	//선택 좌석
+					paramChainFrm.submit();
+				} else if(str.length > 0) {
+					alert('예약된 좌석입니다. \n 다른 좌석을 선택해 주세요 ^^');
+				}
 				break;
 			}
 		},
@@ -105,12 +116,12 @@ $(function() {
 		//Class Setting
 		$('.car-select').removeClass(' active');
 		$(this).addClass(' active');
-		
+
 		//Logic
 		//스케줄 번호 조회
 		ajaxProcess('/web/view/kwon/tkting/runningNoProcess.jsp', 'GET', 'JSON', data, 'getRunningNo');
 		//해당 칸의 좌석 목록 조회
-	    data['carNo'] = carNo = $(this).val();
+		data['carNo'] = carNo = $(this).val();
 		ajaxProcess('/web/view/kwon/tkting/seatListProcess.jsp', 'GET', 'JSON', data, 'seatList');
 	});
 	$('.car-select:eq(0)').click();
@@ -124,19 +135,36 @@ $('#btnShow').click(function() {
 	alert(str.join(','));
 });
  */
+
+function bookingCheck(bookedSeats, selectingSeats) {
+	for (var i = 0; i < bookedSeats.length; i++) {
+		for (var j = 0; j < selectingSeats.length;j++) {
+			if(bookedSeats[i] == selectingSeats[j]) return false;
+		}
+	}
+	return true;
+}
+
 $('#btnShowNew').click(function() {
-	var str = [],
-		item;
+	str = [];
+	var item;
 	$.each($('#place li.' + settings.selectingSeatCss + ' a'), function(index, value) {
 		item = $(this).attr('title');
 		str.push(item);
 	});
 
+	//alert(bookedSeats[0]);
+	//alert(str[0]);
 	//결제화면 가기
 	$('input#selectingSeats').val((str.join(',')));	//선택 좌석
 	if((parseInt($('input#selectingSeats').val().split(',').length) == parseInt($('input#personCnt').val())) && $('input#selectingSeats').val() != '') {
 		$('input#carNo').val(carNo);	//선택 좌석
-		paramChainFrm.submit();
+
+		//해당 칸의 좌석 목록 조회
+		data['carNo'] = carNo;
+		data['selectingSeats'] = $('input#selectingSeats').val();
+		ajaxProcess('/web/view/kwon/tkting/seatListProcess.jsp', 'GET', 'JSON', data, 'seatList');
+
 	} else {
 		alert($('input#personCnt').val() + "좌석 선택하십시오.");
 	}

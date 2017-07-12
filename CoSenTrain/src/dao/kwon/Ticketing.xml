@@ -50,6 +50,19 @@ SELECT fare
 FROM route r, (SELECT stationNo src FROM station WHERE name = #{srcName}) s, (SELECT stationNo dest FROM station WHERE name = #{destName}) d
 WHERE r.src = s.src AND r.dest = d.dest
 	</select>
+	<select id="getBookingList" resultType="bookingInfo">
+SELECT t.runningNo, s.seatNo
+FROM ticket t, payment p, seat s
+WHERE t.paymentNo = p.paymentNo AND t.seatNo = s.seatNo
+AND p.regdate >= SYSDATE - 1
+	</select>
+	<select id="getTicketNoNextval" resultType="java.lang.Integer">
+		SELECT ticket_seq.NEXTVAL FROM DUAL
+	</select>
+	<insert id="doTicket" parameterType="ticket">
+INSERT INTO ticket(ticketNo, seatNo, userNo, runningNo, paymentNo, discountNo) 
+VALUES(#{ticketNo}, #{seatNo}, #{userNo}, #{runningNo}, #{paymentNo}, #{discountNo})
+	</insert>
 </mapper>
 
 <!-- 
