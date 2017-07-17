@@ -7,15 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
-		<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
+	<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
+	<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
 
-		<form action="#">
-			<div class="container">
-				ticketManagement
-				<input type="text" id="ticketNo" name="ticketNo">
-				<input type="button" value="°Ë»ö">
-			</div>
-		</form>
+	<div class="container">
+		noticeManagement
+	</div>
+
 </body>
 </html>

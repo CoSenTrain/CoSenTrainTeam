@@ -5,13 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
 </head>
 <body>
-		<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
-		<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
-	<div class="container">
-		<jsp:include page="/view/admin/graph.jsp"></jsp:include>
-		salesManagement
-	</div>
+	<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
+	<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
+	<div class="showAjaxData"></div>
 </body>
 </html>
