@@ -52,7 +52,8 @@ if(Obj.isStrNull(logId) && Obj.isStrNull(logPw)) {
 	} else {
 		session.setAttribute("user", user);
 		session.setMaxInactiveInterval(60*60*60);
-		path = "/web/view/container/container.jsp";
+		boolean isAdmin = user.getUserType().equalsIgnoreCase("admin");
+		path = "/web/view/" + (isAdmin ? "admin/adminIndex.jsp" : "container/container.jsp");
 	}
 }
 
