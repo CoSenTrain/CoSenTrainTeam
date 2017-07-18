@@ -51,7 +51,7 @@ if(Obj.isStrNull(logId) && Obj.isStrNull(logPw)) {
 		path = "/web/view/kwon/login/login.jsp";
 	} else {
 		session.setAttribute("user", user);
-		session.setMaxInactiveInterval(60*60*60);
+		session.setMaxInactiveInterval(60*60*60*60);
 		boolean isAdmin = user.getUserType().equalsIgnoreCase("admin");
 		path = "/web/view/" + (isAdmin ? "admin/adminIndex.jsp" : "container/container.jsp");
 	}

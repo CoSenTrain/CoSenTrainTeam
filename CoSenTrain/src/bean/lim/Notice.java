@@ -6,6 +6,7 @@ public class Notice {
 	private String title;
 	private String contents;
 	private String imgfile;
+	private String type;
 	private int userno;
 	private String feedbackcontentstype;
 	private String feedbackreplytype;
@@ -23,7 +24,8 @@ public class Notice {
 		super();
 	}
 
-	public Notice(int rm, int no, String title, String contents, String imgfile, int userno,
+	
+	public Notice(int rm, int no, String title, String contents, String imgfile, String type, int userno,
 			String feedbackcontentstype, String feedbackreplytype, String lostcategory, String loststore, int step,
 			int lev, int parentno, int refgroup, int replycnt, String moddate, String regdate) {
 		super();
@@ -32,6 +34,7 @@ public class Notice {
 		this.title = title;
 		this.contents = contents;
 		this.imgfile = imgfile;
+		this.type = type;
 		this.userno = userno;
 		this.feedbackcontentstype = feedbackcontentstype;
 		this.feedbackreplytype = feedbackreplytype;
@@ -45,6 +48,17 @@ public class Notice {
 		this.moddate = moddate;
 		this.regdate = regdate;
 	}
+
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 
 	public int getRm() {
 		return rm;
@@ -182,13 +196,16 @@ public class Notice {
 		this.regdate = regdate;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Notice [rm=" + rm + ", no=" + no + ", title=" + title + ", contents=" + contents + ", imgfile="
-				+ imgfile + ", userno=" + userno + ", feedbackcontentstype=" + feedbackcontentstype
+				+ imgfile + ", type=" + type + ", userno=" + userno + ", feedbackcontentstype=" + feedbackcontentstype
 				+ ", feedbackreplytype=" + feedbackreplytype + ", lostcategory=" + lostcategory + ", loststore="
 				+ loststore + ", step=" + step + ", lev=" + lev + ", parentno=" + parentno + ", refgroup=" + refgroup
 				+ ", replycnt=" + replycnt + ", moddate=" + moddate + ", regdate=" + regdate + "]";
 	}
+
+	
 
 }
