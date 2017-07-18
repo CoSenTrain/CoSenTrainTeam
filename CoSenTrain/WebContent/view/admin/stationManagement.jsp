@@ -1,10 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>station</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="/web/img/favicon.jpg">
+<link rel="icon" sizes="16x16 32x32" href="/web/img/favicon.jpg">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+
+<script>
+
+</script>
 </head>
 <body>
 	<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
@@ -14,8 +21,8 @@
 		stationManagement
 		<form action="">
 			<div class="container">
-				<input type="text" id="ticketNo" name="ticketNo"> 
-				<inputtype="button" value="검색">
+				<input type="text" id="ticketNo" name="ticketNo" /> 
+				<input type="button" name="" value="검색" />
 			</div>
 		</form>
 	</div>

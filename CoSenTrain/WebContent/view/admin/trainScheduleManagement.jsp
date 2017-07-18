@@ -1,10 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>trainSchedule</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="/web/img/favicon.jpg">
+<link rel="icon" sizes="16x16 32x32" href="/web/img/favicon.jpg">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+
+<script>
+
+</script>
 </head>
 <body>
 	<jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
@@ -13,7 +20,7 @@
 	<div class="container">
 		trainScheduleManagement
 		
-		<table border="1" cellpadding="10" cellspacing="0">
+		<table border="1">
 			<thead>
 				<tr>
 					<th style="width: 80px">기차 번호</th>

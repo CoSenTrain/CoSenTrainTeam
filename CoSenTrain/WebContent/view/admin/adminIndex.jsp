@@ -2,12 +2,12 @@
 <%@page import="bean.lee.AreaGraphBean"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.lee.GraphDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%!GraphDao graphDao = GraphDao.getInstance();%>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<title>Bootstrap Example</title>
+<title>Sales</title>
 <meta charset="utf-8">
 <link rel="shortcut icon" href="/web/img/favicon.jpg">
 <link rel="icon" sizes="16x16 32x32" href="/web/img/favicon.jpg">
@@ -16,8 +16,7 @@
 
 <script>
 	function showAjax() {
-		if ($("select#start").select().val() == $("select#arrive").select()
-				.val()) {
+		if ($("select#start").select().val() == $("select#arrive").select() .val()) {
 			alert('다시 선택하세요');
 			$("select#start").select().val('empty');
 			$("select#arrive").select().val('empty');

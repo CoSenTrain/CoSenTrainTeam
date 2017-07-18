@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="btn-group btn-group-justified" data-toggle="buttons-radio">
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary" value="ticket">티켓</button>
+				<button type="button" class="btn btn-primary active" value="ticket">티켓</button>
 			</div>
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary" value="users">회원</button>
@@ -48,8 +48,8 @@ url('https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0N
 <script>
 $(function() {
 	$('.jumbotron .btn-group button').click(function() {
-		$('.jumbotron .btn-group button').removeClass("active");
-		$(this).addClass("active");
+		$('.jumbotron .btn-group button').removeClass(" active");
+		$(this).addClass(" active");
 		ticketNoFrm.targetTable.value = $(this)[0].value;
 	});
 	$('.jumbotron .btn-group button:eq(0)').click();

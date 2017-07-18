@@ -10,18 +10,15 @@
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				<span class="icon-bar"></span> 
-				<!-- <span class="icon-bar"></span> 
-				<span class="icon-bar"></span> -->
 			</button>
-			<a class="navbar-brand" href="#">COSEN TRAIN</a>
+			<a class="navbar-brand" href="/web/view/admin/adminIndex.jsp?nav=sales">COSEN TRAIN</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/web/view/admin/adminIndex.jsp">概免包府</a></li>
-				<li><a href="/web/view/admin/ticketManagement.jsp">萍南包府</a></li>
-				<li><a href="/web/view/admin/trainScheduleManagement.jsp">扁瞒 胶纳领 包府</a></li>
-				<li><a href="/web/view/admin/stationManagement.jsp">开 包府</a></li>
-				<li><a href="/web/view/admin/noticeManagement.jsp"">傍瘤荤亲 包府</a></li>
+				<li class=${param.nav eq null || param.nav eq "sales" ? "active" : ""}><a href="/web/view/admin/adminIndex.jsp?nav=sales">概免包府</a></li>
+				<li class=${param.nav ne null && param.nav eq "trainSchedule" ? "active" : ""}><a href="/web/view/admin/trainScheduleManagement.jsp?nav=trainSchedule">扁瞒 胶纳领 包府</a></li>
+				<li class=${param.nav ne null && param.nav eq "station" ? "active" : ""}><a href="/web/view/admin/stationManagement.jsp?nav=station">开 包府</a></li>
+				<li class=${param.nav ne null && param.nav eq "notice" ? "active" : ""}><a href="/web/view/admin/noticeManagement.jsp?nav=notice"">傍瘤荤亲 包府</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
