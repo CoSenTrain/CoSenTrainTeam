@@ -2,19 +2,18 @@
 <%@page import="bean.lee.AreaGraphBean"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.lee.GraphDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%!GraphDao graphDao = GraphDao.getInstance();%>
 <html lang="en">
 <head>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+<link rel="shortcut icon" href="/web/img/favicon.jpg">
+<link rel="icon" sizes="16x16 32x32" href="/web/img/favicon.jpg">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<script src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script>
 	function showAjax() {
 		if ($("select#start").select().val() == $("select#arrive").select()
@@ -58,7 +57,7 @@
 		<div class="row">
 			<div class="showAjaxData">에이작스로 데이터 가져올 부분</div>
 			<div class="col-sm-6">
-			<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
+				<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
 				<table border="1">
 					<thead>
 						<tr>
@@ -112,8 +111,66 @@
 				</table>
 			</div>
 		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
 		<div class="row">
+			<table border="1">
+			<thead>
+				<tr>
+					<th>출발지</th>
+					<th>수량</th>
+					<th>백분률</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					List<AreaGraphBean> list3 = graphDao.selectGraphSrc();
+					for (int i = 0; i < list3.size(); i++) {
+				%>
+				<tr>
+					<td><%=list3.get(i).getStartArea() %>역</td>
+					<td><%=list3.get(i).getCount() %></td>
+					<td><%=list3.get(i).getPersent() %>%</td>
+				</tr>
+					<%
+						}
+					%>
+			</tbody>
+			</table>
 		</div>
+		
+		<div class="row">
+			<table border="1">
+			<thead>
+				<tr>
+					<th>도착지</th>
+					<th>수량</th>
+					<th>백분률</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					List<AreaGraphBean> list4 = graphDao.selectGraphDest();
+					for (int i = 0; i < list4.size(); i++) {
+				%>
+				<tr>
+					<td><%=list4.get(i).getArriveArea() %>역</td>
+					<td><%=list4.get(i).getCount() %></td>
+					<td><%=list4.get(i).getPersent() %>%</td>
+				</tr>
+					<%
+						}
+					%>
+			</tbody>
+			</table>
+		</div>
+		
+		
+		
 	</div>
 
 

@@ -4,6 +4,8 @@ import java.io.Closeable;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
+import bean.lee.AreaGraphBean;
 import bean.lee.TimeGraphBean;
 import dao.lee.SqlSessionFactoryMgr;
 
@@ -55,6 +57,35 @@ public class GraphDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	
+	
+	
+	public List<AreaGraphBean> selectGraphSrc() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectGraphSrc");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
+	public List<AreaGraphBean> selectGraphDest() {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectGraphDest");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
+	
 	
 
 }

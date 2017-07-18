@@ -5,12 +5,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="bean.lee.AreaGraphBean">
 
-<!-- 	<select id="selectGraphStartTime" resultType="areaGraph">
-		SELECT TO_CHAR(DEPARTURETIME,'HH24') departureTime,COUNT(DEPARTURETIME) count,ROUND((COUNT(DEPARTURETIME)/(SELECT COUNT(DEPARTURETIME)
-    				                                                                                               FROM RUNNINGsCHEDULE)*100),2) persent
-		FROM RUNNINGsCHEDULE
-		GROUP BY TO_CHAR(DEPARTURETIME,'HH24') 
-		ORDER BY departureTime
-	</select> -->
+	<select id="selectGraphSrc" resultType="areaGraph">
+		SELECT SRC startArea, COUNT(SRC) count,ROUND(COUNT(SRC)/SUM(COUNT(SRC))OVER()*100,2) persent
+		FROM RUNNINGSCHEDULE R, ROUTE RO 
+		WHERE R.ROUTENO = RO.ROUTENO 
+		GROUP BY SRC
+	</select>
 
+	<select id="selectGraphDest" resultType="areaGraph">
+		SELECT DEST arriveArea, COUNT(DEST) count,ROUND(COUNT(DEST)/SUM(COUNT(DEST))OVER()*100,2) persent
+		FROM RUNNINGSCHEDULE R, ROUTE RO 
+		WHERE R.ROUTENO = RO.ROUTENO 
+		GROUP BY DEST
+	</select>
 </mapper>
