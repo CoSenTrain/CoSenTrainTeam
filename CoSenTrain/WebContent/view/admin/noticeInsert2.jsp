@@ -24,12 +24,9 @@
   
   Notice nt = new Notice();
   
+
   int no= NoticeDao.getInstance().getNoticeNumber(); 
-  nt.setTitle(b.getTitle());
-  nt.setUserno(b.getUserno());
-  nt.setContents(b.getContents());
-  nt.setType("notice");
-  
+  nt.setNo(no);
   
 	String pathUpload = "C:\\Users\\user\\git\\CoSenTrainTeamNew\\CoSenTrain\\WebContent\\img\\lim\\notice\\upload\\";
  
@@ -43,8 +40,19 @@
 		List<FileItem> list = fileUpload.parseRequest(request);
 		for (FileItem file : list) {
 			String name = file.getFieldName();
-		  
+			if (name.equals("title")) {
+				nt.setTitle(file.getString("EUC-KR"));
 
+			}
+			if (name.equals("userno")) {
+				nt.setUserno(Integer.parseInt(file.getString("EUC-KR")));
+
+			}
+			if (name.equals("contents")) {
+				nt.setContents(file.getString("EUC-KR"));
+
+			}
+			
 			if (file.getName() != null && file.getName().length() > 0) {
 
 				if (!file.isFormField()) {
@@ -57,10 +65,13 @@
 		 
 		} //for
 		 nt.setImgfile(fileName);
-	 
+		
+		 
+		  nt.setType("notice");
 	} //if
     
   System.out.println(nt);
+  
   NoticeDao.getInstance().insertNotice(nt);
   
   

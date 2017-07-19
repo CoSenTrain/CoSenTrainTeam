@@ -1,3 +1,5 @@
+<%@page import="dao.lim.NoticeDao"%>
+<%@page import="bean.lim.Notice"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -38,6 +40,22 @@
    </style>
 </head>
 <body>
+   <%
+   int no =Integer.parseInt(request.getParameter("no"));
+   
+   Notice notice = NoticeDao.getInstance().getOneNotice(no);
+   String title = notice.getTitle();
+    String contents = notice.getContents();
+    if(contents==null||contents.trim().equals("")){
+      contents="";
+    }
+    String regdate = notice.getRegdate();
+    String imgFile = notice.getImgfile();
+    if(imgFile==null){
+        imgFile="none";
+      }
+   %>
+   
    <div class="container">
       
       
@@ -59,8 +77,8 @@
       <br />
       
       <!--  start-->
-      <div style="width:940px;padding:0 30px 30px 15px;height:700px;background-color:white;">
-      <span style="float: left;"> <ul><li>전체 건</li></ul></span>   <span style="float: right;">
+      <div style="width:940px;padding:0 30px 30px 15px;height:1200px;background-color:white;">
+    <!--   <span style="float: left;"> <ul><li>전체 건</li></ul></span>   <span style="float: right;">
       <select style="width:80px; height:26px; padding-left:5px; border-width: 1px; border-style:solid; 
       border-color:#ccc; background-color: #f8f8f8; background-position:63px center; vertical-align: middle; "
        id="sel1">
@@ -71,36 +89,66 @@
        type="text" size="20" id="searchData" name="searchData" value="">
       <input style="width:48px; height:26px; padding:0; font-size: 14px; color:white; background-color:crimson;  line-height: 0;
        border-style: none; cursor: pointer; vertical-align: middle;" type="submit" value="검색"/> </span><br>
-       <br>
-       <div style="width:940px; padding:10 30px 30px 15px; height:600px; background-color: white; border: 1px solid lightgray;">
-       <table >
+       <br> -->
+       <div style="width:940px; padding:10 30px 30px 15px; height:1200px; background-color: white; border: 1px solid lightgray;">
+        <div style="line-height: 180%; font-size:  14px; color:#666; ">
+            <h3 style="padding:15px; font-size: 16px; line-height: 16px; color:#333; border-width: 2px 0 1px 0; border-style: solid; border-color: #222; background: #fff; "><%=title%></h3>
+          <table style="border-spacing: 0;">
+          <colgroup>
+            <col style="width:100px;">
+            <col style="width:840px;">
+           </colgroup>
+           <tbody>
+             <tr>
+              <th style="padding: 15px 0; text-align: center; font-size: 13px; line-height: 13px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dbdbdb; background-color: #f8f8f8;">등록일자</th>
+               <td style="padding: 15px 0; padding-left: 15px; font-size: 13px; line-height: 13px; text-align: left; border-bottom-width: 1px; border-bottom-style: solid;border-bottom-color: #dbdbdb; background-color: #f8f8f8;"><%=regdate %></td>
+             </tr>
+           </tbody>
+           </table>
+          <div style="text-align:center;  padding: 15px; font-size: 14px; line-height: 150%; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #222; background: #fff;">
+              <%=contents %>
+              
+           <%
+            if(imgFile!="none"){
+            	
+            
+           %>     
+            <img src="/web/img/lim/notice/upload/<%=notice.getImgfile()%>">
+            <%
+            }
+            %>
+            
+          </div>
+           <div style="padding: 15px 0; text-align: center;">
+              <button style="background-color:#505050; border-radius:0 7 px; display: inline-block; width: 120px; height: 50px; margin:auto; color:snow;  padding-top: 7px; font-size: 15px; font-weight: bold; line-height: 15px; text-align: center; " onclick="move()" value="목록">목록</button>
+                   
+     
+ 
+     
+           </div>
+        <!--  <table style="width: 100%; margin-top: 15px; border-top-width: 1px; border-top-style: solid; border-top-color: #dbdbdb;">
+           <colgroup>
+            <col width="100px">
+            <col width="840px">
+           </colgroup>
+            <tbody>
+              <tr>
+                   <th>이전글</th>
+                   <td style="min-height: 22px; padding: 15px; padding-right: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dbdbdb;"> </td>              
+              </tr>     
+                 <tr>
+                   <th>다음글</th>
+                   <td style="min-height: 22px; padding: 15px; padding-right: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dbdbdb;"> </td>              
+              </tr>  
+            </tbody>
+         </table>
+         -->             
+            
+
+         
+          
        
-       <colgroup>
-       <col width="80px">
-       <col width="740px">
-       <col width="120px">
-       
-       </colgroup>
-          <tr>
-           <th style="padding:10px 0; font-weight: bold; line-height: 15px; color: #000; border-bottom-width: 1px;
-            border-bottom-style: solid; border-bottom-color: #222; word-break:keep-all; "><br>순번</br></th>
-           <th style="padding:10px 0; font-weight: bold; line-height: 15px; color: #000; border-bottom-width: 1px;
-            border-bottom-style: solid; border-bottom-color: #222; word-break:keep-all; "><br>제목</br></th>
-           <th style="padding:10px 0; font-weight: bold; line-height: 15px; color: #000; border-bottom-width: 1px;
-            border-bottom-style: solid; border-bottom-color: #222; word-break:keep-all; "><br>작성일</br></th>
-          </tr>
-            <tr style="color:gray; padding:3px 3px 3px 3px;">
-             <td style="padding:15px 0; line-height:15px; text-align:center; border-bottom-width: 1px;
-              border-bottom-style: solid; border-bottom-color: #dbdbdb; word-break:keep-all;">no</td>
-             <td style="padding:15px 0; line-height:15px; text-align:center; border-bottom-width: 1px;
-              border-bottom-style: solid; border-bottom-color: #dbdbdb; word-break:keep-all;">contents</th>
-             <td style="padding:15px 0; line-height:15px; text-align:center; border-bottom-width: 1px;
-              border-bottom-style: solid; border-bottom-color: #dbdbdb; word-break:keep-all;">regdate</td>
-            </tr>
-       
-       
-       </table>
-       
+       </div>
        
        </div>
    
@@ -118,7 +166,13 @@
       </div>
    
    <script type="text/javascript"  src="/web/js/container/clock.js" charset="UTF-8"></script>
+ <script type="text/javascript">
+  function move(){
+	    
+	  location.href="/web/view/lim/board/notice/notice1.jsp";
+  }
  
+ </script>
 </body>
  
 </html>

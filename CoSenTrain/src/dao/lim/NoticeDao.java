@@ -1,11 +1,12 @@
 package dao.lim;
 
 import java.io.Closeable;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
- 
 import bean.lim.Notice;
 
 public class NoticeDao {
@@ -59,6 +60,58 @@ public class NoticeDao {
 		}finally {
 			closeSqlSession(sqlSession);
 		}
+	}
+	
+	public List<Notice> getNotice(HashMap<String, Object>map) throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("getNotice",map);
+			
+		} catch (Exception e) {
+		     e.printStackTrace();
+		     return null;
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+		
+		
+	}
+	public Integer getTotalRow(HashMap<String, Object>map) throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getTotalRow", map);
+			
+		} catch (Exception e) {
+			 e.printStackTrace();
+		     return null;
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+		
+	}
+	
+	
+	public Notice getOneNotice(int no) throws Exception{
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectOne("getOneNotice", no);
+			
+		} catch (Exception e) {
+			 e.printStackTrace();
+		     return null;
+			// TODO: handle exception
+		}finally {
+			closeSqlSession(sqlSession);
+		}
+		
+		
 	}
 	
 	

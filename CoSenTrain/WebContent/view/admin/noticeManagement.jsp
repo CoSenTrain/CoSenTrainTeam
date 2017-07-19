@@ -1,3 +1,5 @@
+<%@page import="bean.lim.Notice"%>
+<%@page import="dao.lim.NoticeDao"%>
 <%@page import="bean.kwon.Users"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -40,7 +42,11 @@
 	Users user = (Users)session.getAttribute("user");
   int userno =user.getUserNo();
 	%>
+	<%
 	
+  List<Notice> notice=NoticeDao.getInstance().getNotice(null);
+
+	%>
 	
 	
 		 
@@ -64,33 +70,35 @@
 							<col width="150" />
 							<col width="150" />
 							<col width="150" />
-							<col width="150" />
 
 						</colgroup>
 						<thead>
 							<tr>
 								<th scope="col">NO</th>
-								<th scope="col">WRITER</th>
 								<th scope="col">TITLE</th>
-								<th scope="col">HIT</th>
 								<th scope="col">REGDATE</th>
 
 							</tr>
 						</thead>
 
 						<tbody>
-							<c:forEach var="i" items="${notice}" varStatus="cnt">
+						  <%
+						  
+						     for(int i=0;i<notice.size();i++){
+						   %>
+						  
 								<tr>
-									<td>${cnt.count}</td>
+									<td><%=notice.get(i).getNo() %></td>
 <%-- 									<td><a href="editHit.do?cmd=editHit&no=${i.no}&page=${pageBean.currentPage}&job=info">${i.writer}</a></td> --%>
-									<td><a href="/web/view/admin/noticeHit.jsp">${i.writer}</a></td>
-									<td> ${i.title}</td>
-									<td>${i.hit}</td>
-									<td>${i.regdate}</td>
+									<td><%=notice.get(i).getTitle() %></td>
+									<td><%=notice.get(i).getRegdate() %></td>
 
 
 								</tr>
-							</c:forEach>
+							
+							<%
+						     }
+							%>
 
 						</tbody>
 					</table>

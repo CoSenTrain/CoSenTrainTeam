@@ -44,6 +44,7 @@
 	<%
 	Users user = (Users)session.getAttribute("user");
   int userno =user.getUserNo();
+  System.out.print(userno);
 	%>
 	
 <jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
