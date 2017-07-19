@@ -55,7 +55,8 @@
 		</form>
 		<div class="row">
 			<div class="showAjaxData">에이작스로 데이터 가져올 부분</div>
-			<div class="col-sm-6">
+			<!-- ---------------------출발시간별 표 & 그래프----------------------- -->
+			<div class="col-sm-3">
 				<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
 				<table border="1">
 					<thead>
@@ -82,8 +83,12 @@
 					</tbody>
 				</table>
 			</div>
-			<!-- 도착시간별로 데이터를 뿌려주는 부분 -->
-			<div class="col-sm-6">
+			<div class="col-sm-9">			
+				<jsp:include page="/view/admin/depatureTimeGraph.jsp"></jsp:include>
+			</div>
+			<!-- ---------------------도착시간별 표 & 그래프----------------------- -->
+			<div class="col-sm-3">
+				<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
 				<table border="1">
 					<thead>
 						<tr>
@@ -109,6 +114,10 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="col-sm-9">			
+				<jsp:include page="/view/admin/arriveTimeGraph.jsp"></jsp:include>
+			</div>
+			
 		</div>
 		<br>
 		<br>
@@ -117,6 +126,8 @@
 		<br>
 		
 		<div class="row">
+		<!-- ---------------------출발역별 표 & 그래프----------------------- -->
+		<div class="col-sm-3">
 			<table border="1">
 			<thead>
 				<tr>
@@ -141,8 +152,12 @@
 			</tbody>
 			</table>
 		</div>
-		
-		<div class="row">
+			<div class="col-sm-9">
+				<jsp:include page="/view/admin/depatureStationGraph.jsp"></jsp:include>
+			</div>
+
+			<!-- ---------------------도착역별 표 & 그래프----------------------- -->
+			<div class="col-sm-3">		
 			<table border="1">
 			<thead>
 				<tr>
@@ -167,8 +182,9 @@
 			</tbody>
 			</table>
 		</div>
-		
-		
+		<div class="col-sm-9">
+			<jsp:include page="/view/admin/arriveStationGraph.jsp"></jsp:include>
+		</div>
 		
 	</div>
 

@@ -6,16 +6,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="bean.lee.AreaGraphBean">
 
 	<select id="selectGraphSrc" resultType="areaGraph">
-		SELECT SRC startArea, COUNT(SRC) count,ROUND(COUNT(SRC)/SUM(COUNT(SRC))OVER()*100,2) persent
+		SELECT DECODE(SRC,'1','수서역','2','대전역','3','동대구역','4','울산역','부산역') startArea, COUNT(SRC) count,ROUND(COUNT(SRC)/SUM(COUNT(SRC))OVER()*100,2) persent
 		FROM RUNNINGSCHEDULE R, ROUTE RO 
 		WHERE R.ROUTENO = RO.ROUTENO 
 		GROUP BY SRC
+		ORDER BY SRC
 	</select>
 
 	<select id="selectGraphDest" resultType="areaGraph">
-		SELECT DEST arriveArea, COUNT(DEST) count,ROUND(COUNT(DEST)/SUM(COUNT(DEST))OVER()*100,2) persent
+		SELECT DECODE(DEST,'1','수서역','2','대전역','3','동대구역','4','울산역','부산역') arriveArea, COUNT(DEST) count,ROUND(COUNT(DEST)/SUM(COUNT(DEST))OVER()*100,2) persent
 		FROM RUNNINGSCHEDULE R, ROUTE RO 
 		WHERE R.ROUTENO = RO.ROUTENO 
 		GROUP BY DEST
+		ORDER BY DEST
+
 	</select>
 </mapper>
