@@ -43,13 +43,16 @@
 </head>
 <body>
 <%
- 
+request.setCharacterEncoding("EUC-KR");
 
 HashMap<String, Object> map = new HashMap<String, Object>();
 int currentPage = 1;
 int pageScale = 10;
 int totalRow = 0;
-
+String query=request.getParameter("query");
+String data=request.getParameter("data");
+map.put("Q", query);
+map.put("D", data);
 try {
 	totalRow = NoticeDao.getInstance().getTotalRow(map);
 
@@ -120,12 +123,12 @@ List<Notice> notice =NoticeDao.getInstance().getNotice(map);
       <span style="float: left;"> <ul><li>전체 <%=totalRow %>건</li></ul></span>   <span style="float: right;">
       <select style="width:80px; height:26px; padding-left:5px; border-width: 1px; border-style:solid; 
       border-color:#ccc; background-color: #f8f8f8; background-position:63px center; vertical-align: middle; "
-       id="sel1">
-      <option value="all" selected="selected">전체</option><option value="subject">제목</option>
-      <option value="data">내용</option> 
+       id="query" name="query">
+      <option value="empty" selected="selected">선택하세요</option><option value="title">제목</option>
+      <option value="contents">내용</option> 
       </select><input style="width:190px; height:24px; padding: 0 5px; border-width : 1px; border-style: solid; 
       border-color:#CCC; background-color: #f8f8f8; vertical-align: middle;" 
-       type="text" size="20" id="searchData" name="searchData" value="">
+       type="text" size="20" id="data" name="data" value="">
       <input style="width:48px; height:26px; padding:0; font-size: 14px; color:white; background-color:crimson;  line-height: 0;
        border-style: none; cursor: pointer; vertical-align: middle;" type="submit" value="검색"/> </span><br>
        <br>
@@ -164,124 +167,77 @@ List<Notice> notice =NoticeDao.getInstance().getNotice(map);
        %>
       
        </table>
-       
-        	<div style="text-align: center;">
-         
-
-		
-				<a href="/web/view/lim/board/notice/notice1.jsp?page=1"><img
-					src="/web/img/lim/button/btn_first.gif" alt="처음페이지" /></a>
-                    <%
-                     if(currentBlock>1){
-                    
-                    %>
-                    	<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=startPage-1%>"><img
-							src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
-                    
-                    <%
-                     }else{
-                    %>
-                   <a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage-1%>"><img
-							src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
-                   
-                   <%
-                   
-                     }
-                   %>
-                   
-              <%--      
-				<c:choose>
-					<c:when test="${pageBean.currentBlock gt 1}">
-					
-					</c:when>
-					<c:otherwise>
+              <div style="text-align: center;">
+						<%if(query!=null&&data!=null){ %> <!-- 검색일때는 검색결과 내에서 페이징. -->
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=1&query=<%=query%>&data=<%=data%>"><img src="/web/img/lim/button/btn_first.gif" alt="처음페이지" /></a>
+						<% }else{ %> <!-- 아니면 전체 데이터 내에서 페이징. -->
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=1"><img src="/web/img/lim/button/btn_first.gif" alt="처음페이지" /></a>
+						<%} %>
+						<% if(currentBlock>1){ %>
+						<%if(query!=null&&data!=null){ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=startPage-1%>&query=<%=query%>&data=<%=data%>"><img src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
+						<% }else{ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=startPage-1%>"><img src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
+						<%} %>
+						<%}else{ %>
 						<a href="#"><img src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
-					</c:otherwise>
-				</c:choose>
- --%>
-
-
-
-<%-- 
-				<c:choose>
-					<c:when test="${pageBean.currentPage ne pageBean.startPage }">
-						<a
-							href="editList.do?cmd=editList&page=${pageBean.currentPage-1}">
-							BEFORE</a>
-					</c:when>
-				</c:choose> --%>
-				<%-- <span> <c:forEach var="i" begin="${pageBean.startPage }"
-						end="${pageBean.endPage }" step="1">
-						<c:choose>
-							<c:when test="${i eq pageBean.currentPage}">
-								<font color="red" size="3">[${i}]</font>
-							</c:when>
-							<c:otherwise>
-								<a href="editList.do?cmd=editList&page=${i}">[${i }]</a>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</span> --%>
-                   <span>
-                    <%
-                    
-                     for(int i=0;i<=endPage;i++){
-                    %>
-                       
-                       <%=i %>
-                   <%
-                   
-                     }
-                   %>
-                   </span>
-                   
-                  <%
-                     if(currentPage<=endPage){
-                  %>
-                   <a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage+1%>">
-						NEXT</a>
-                   <%
-                     }
-                  
-                   if(totalPage>endPage){
-                   %>
-                   <a href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage+1%>"><img
-							src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
-                   
-                   <%
-                     }else{
-                   %>
-                     <a href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage+1%>"><img
-							src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
-                   <%
-                   
-                     }
-                   %>
-                   
-			<%-- 	<c:if test="${pageBean.currentPage ne pageBean.endPage}">
-					<a href="editList.do?cmd=editList&page=${pageBean.currentPage+1}">
-						NEXT</a>
-				</c:if>
-										<c:choose>
-					<c:when test="${pageBean.totalPage gt pageBean.endPage}">
-						<a href="editList.do?cmd=editList&page=${pageBean.endPage+1}"><img
-							src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
-
-					</c:when>
-					<c:otherwise>
-						<a href="#"><img src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
-					</c:otherwise>
-				</c:choose>
- --%>
- 
-				<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=totalPage%>"><img
-					src="/web/img/lim/button/btn_last.gif" alt="마지막페이지" /></a>
-
-		
-           
-         
-             	</div>
-       </div>
+						<%} %>
+						<%if(currentPage!=startPage){ %>
+						<%if(query!=null&&data!=null){ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage-1%>&query=<%=query%>&data=<%=data%>">BEFORE</a>
+						<%}else{ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage-1%>">BEFORE</a>
+						<%} %>
+						<%}else{ %>
+							<!-- BEFORE -->
+						<%} %>
+						<span>
+							<%
+							for(int i=startPage;i<=endPage;i++){
+								if(i==currentPage){
+								%>
+								<font color="red" size="5">[<%=i %>]</font>
+								<%
+								continue;
+								}else{								
+								%>
+								<%if(query!=null&&data!=null){ %>
+								<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">[<%=i%>]</a>
+								<%}else{ %>
+								<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=i%>">[<%=i%>]</a>
+								<%} %>
+								<% 
+									}
+								}
+							%>
+						</span>
+						<%if(currentPage!=endPage){ %>	
+						<%if(query!=null&&data!=null){ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage+1%>&query=<%=query%>&data=<%=data%>">NEXT</a>	
+						<%}else{ %>	
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage+1%>">NEXT</a>
+						<%} %>		
+						<%}else{ %>
+						<!-- NEXT -->
+						<%} %>
+							<%if(totalPage>endPage){ %>
+							<%if(query!=null&&data!=null){ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage+1%>&query=<%=query%>&data=<%=data%>"><img src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
+						<%}else{ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage+1%>"><img src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
+						<%} %>
+						<%}else{ %>
+								<a href="#"><img src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
+								<%} %>
+								<%if(query!=null&&data!=null){ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"><img src="/web/img/lim/button/btn_last.gif" alt="마지막페이지" /></a>
+						<%}else{ %>
+						<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=totalPage%>"><img src="/web/img/lim/button/btn_last.gif" alt="마지막페이지" /></a>
+						<%} %>
+					</div>
+       
+       
+        	       </div>
    
        
       

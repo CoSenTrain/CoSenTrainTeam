@@ -20,7 +20,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 from(
  select rownum rm, no,title,contents,imgfile,regdate,type from board where type='notice')
      where rm between #{start} and #{end} order by no desc
-   
+     
+ <!--   <when test="fileName!=null">
+     writer=#{writer},title=#{title},contents=#{contents},fileName=#{fileName}
+      </when>
+      <otherwise>
+      writer=#{writer},title=#{title},contents=#{contents} 
+      </otherwise>
+     </choose> -->
        
    </select>
   
