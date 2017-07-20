@@ -5,11 +5,25 @@ public class TktingSchedule {
 	private long runningNo;
 	private long trainNo;
 	private String trainType;
+	private int src;
 	private String srcName;
+	private int dest;
 	private String destName;
 	private String departureTime;
 	private String arrivalTime;
-	
+
+	public int getSrc() {
+		return src;
+	}
+	public void setSrc(int src) {
+		this.src = src;
+	}
+	public int getDest() {
+		return dest;
+	}
+	public void setDest(int dest) {
+		this.dest = dest;
+	}
 	public long getRm() {
 		return rm;
 	}
@@ -62,7 +76,7 @@ public class TktingSchedule {
 	@Override
 	public String toString() {
 		return "TktingSchedule [rm=" + rm + ", runningNo=" + runningNo + ", trainNo=" + trainNo + ", trainType="
-				+ trainType + ", srcName=" + srcName + ", destName=" + destName + ", departureTime=" + departureTime
-				+ ", arrivalTime=" + arrivalTime + "]<br />";
+				+ trainType + ", src=" + src + ", srcName=" + srcName + ", dest=" + dest + ", destName=" + destName
+				+ ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + "]";
 	}
 }

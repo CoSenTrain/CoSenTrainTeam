@@ -63,6 +63,17 @@ AND p.regdate >= SYSDATE - 1
 INSERT INTO ticket(ticketNo, seatNo, userNo, runningNo, paymentNo, discountNo) 
 VALUES(#{ticketNo}, #{seatNo}, #{userNo}, #{runningNo}, #{paymentNo}, #{discountNo})
 	</insert>
+	
+	<!-- ADMIN -->
+	<select id="selectBaseSchedule" parameterType="java.lang.String" resultType="sch">
+SELECT s.runningNo, s.trainNo, r.routeNo, r.src, r.srcName, r.dest, r.destName, TO_CHAR(s.departureTime, 'YYYY-MM-DD') || 'T' || TO_CHAR(s.departureTime, 'HH24:MI') departureTime, TO_CHAR(s.arrivalTime, 'YYYY-MM-DD') || 'T' || TO_CHAR(s.arrivalTime, 'HH24:MI') arrivalTime
+FROM (SELECT r.routeNo, s.src, s.srcName, d.dest, d.destName
+FROM route r, (SELECT stationNo src, name srcName FROM station) s, (SELECT stationNo dest, name destName FROM station) d
+WHERE r.src = s.src AND r.dest = d.dest) r, runningSchedule s
+WHERE r.routeNo = s.routeNo
+AND TO_CHAR(s.departureTime, 'YYYY.MM.DD') = #{VALUE}
+ORDER BY s.trainNo, s.departureTime, s.arrivalTime
+	</select>
 </mapper>
 
 <!-- 

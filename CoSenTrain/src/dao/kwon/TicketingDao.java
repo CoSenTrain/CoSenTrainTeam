@@ -141,4 +141,17 @@ public class TicketingDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	
+	public List<TktingSchedule> selectBaseSchedule(String baseDate) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			return sqlSession.selectList("selectBaseSchedule", baseDate);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {			
+			closeSqlSession(sqlSession);
+		}
+	}
 }
