@@ -13,13 +13,7 @@
  <script type="text/javascript">
   function noticeInsert(){
 	 var obj= document.nFrm;
-	 if(!obj.title.value||!obj.contents.value||!obj.userno.value){
-			alert('입력사항확인!');
-			clearCheck(obj);
-		  }else{
-			  obj.submit();
-		  }   
-   
+	 obj.submit();
   }
  
   function clearCheck(obj){//제약사항 
@@ -54,7 +48,7 @@
 <jsp:include page="/view/admin/jumbotron.jsp"></jsp:include>
 	<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
 	
-	<div>
+	 
 	
 <div class="container">
 	<div class="col-xs-12">
@@ -62,7 +56,7 @@
 	</div>
 	<div class="col-xs-12">
 		<div class="btn-group btn-group-justified">
-			<a href="noticeInsert()" class="btn btn-primary"> <span class="glyphicon glyphicon-check"></span> 저장</a>
+			<a href="javascript:noticeInsert()" class="btn btn-primary"> <span class="glyphicon glyphicon-check"></span> 저장</a>
 			<a href="#" class="btn btn-primary"> <span class="glyphicon glyphicon-edit"></span> 수정</a>
 			<a href="#" class="btn btn-primary"> <span class="glyphicon glyphicon-trash"></span> 삭제</a>
 		</div>
@@ -73,7 +67,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="email">제목 : </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="userno" id="userno" placeholder="Enter Title" required="required">
+					<input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" required="required" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -85,7 +79,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="email">내용 : </label>
 				<div class="col-sm-10">
-					<input type="file" class="form-control" name="file" id="file" required="required">
+					<input type="file" class="form-control" name="file" id="file" required="required" />
 				</div>
 			</div>
 		</form>
