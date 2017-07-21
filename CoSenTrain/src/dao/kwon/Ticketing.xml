@@ -74,6 +74,16 @@ WHERE r.routeNo = s.routeNo
 AND TO_CHAR(s.departureTime, 'YYYY.MM.DD') = #{VALUE}
 ORDER BY s.trainNo, s.departureTime, s.arrivalTime
 	</select>
+	<select id="getRouteNo" parameterType="java.util.Map" resultType="java.lang.Integer">
+		SELECT routeNo rNo FROM route WHERE src = #{src} AND dest = #{dest}
+	</select>
+	<insert id="saveSchedule" parameterType="sch">
+		<selectKey keyProperty="runningNo" resultType="java.lang.Integer" order="BEFORE">
+			SELECT runningSchedule_seq.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO runningSchedule(runningNo, trainNo, routeNo, departureTime, arrivalTime)
+		VALUES(#{runningNo}, #{trainNo}, #{routeNo}, TO_DATE(REPLACE(#{departureTime}, 'T', '/'), 'YYYY-MM-DD/HH24:MI'), TO_DATE(REPLACE(#{arrivalTime}, 'T', '/'), 'YYYY-MM-DD/HH24:MI'))
+	</insert>
 </mapper>
 
 <!-- 

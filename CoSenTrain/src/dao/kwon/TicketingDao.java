@@ -154,4 +154,26 @@ public class TicketingDao {
 			closeSqlSession(sqlSession);
 		}
 	}
+	
+	public void saveSchedule(List<TktingSchedule> list) {
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = sqlSessionFactory.openSession();
+			
+			for (int i = 0; i < list.size(); i++) {
+				TktingSchedule e = list.get(i);
+				Map<String, Integer> map = new HashMap<String, Integer>();
+				map.put("src", Integer.valueOf(e.getSrc()));
+				map.put("dest", Integer.valueOf(e.getDest()));
+				int routeNo = sqlSession.selectOne("getRouteNo", map);
+				e.setRouteNo(routeNo);
+				sqlSession.insert("saveSchedule", e);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {		
+			sqlSession.commit();
+			closeSqlSession(sqlSession);
+		}
+	}
 }

@@ -98,7 +98,6 @@
 
 
 
-
 <script>
 var optionHTML = '';
 function setOptionHTML(rs) {
@@ -121,10 +120,10 @@ function appendPlus() {
 	eles += '<td><input type="datetime-local" name="arrivalTime'+curCnt+'" class="form-control" required="required" /></td>';
 	eles += '</tr>';
 	$('table').html($('table').html() + eles);
-	$('table').find('.appendCnt'+curCnt).find('select[name="src"]').find('option[value="1"]').prop("selected", true);
-	$('table').find('.appendCnt'+curCnt).find('select[name="src"]').find('option[value="1"]').attr("selected", "selected");
-	$('table').find('.appendCnt'+curCnt).find('select[name="dest"]').find('option[value="2"]').prop("selected", true);
-	$('table').find('.appendCnt'+curCnt).find('select[name="dest"]').find('option[value="2"]').attr("selected", "selected");
+	$('table').find('.appendCnt'+curCnt).find('select[name="src'+curCnt+'"]').find('option[value="1"]').prop("selected", true);
+	$('table').find('.appendCnt'+curCnt).find('select[name="src'+curCnt+'"]').find('option[value="1"]').attr("selected", "selected");
+	$('table').find('.appendCnt'+curCnt).find('select[name="dest'+curCnt+'"]').find('option[value="2"]').prop("selected", true);
+	$('table').find('.appendCnt'+curCnt).find('select[name="dest'+curCnt+'"]').find('option[value="2"]').attr("selected", "selected");
 }
 function appendMinus() {
 	$('tr').remove('.appendCnt'+(--appendCnt));
@@ -171,10 +170,10 @@ function selectBase(rs) {
 					eles += '<td><input type="datetime-local" name="arrivalTime'+curCnt+'" class="form-control" value="' + o.arrivalTime + '" required="required" /></td>';
 					eles += '</tr>';
 					$('table').html($('table').html() + eles);
-					$('table').find('.appendCnt'+curCnt).find('select[name="src"]').find('option[value="'+o.src+'"]').prop("selected", true);
-					$('table').find('.appendCnt'+curCnt).find('select[name="src"]').find('option[value="'+o.src+'"]').attr("selected", "selected");
-					$('table').find('.appendCnt'+curCnt).find('select[name="dest"]').find('option[value="'+o.dest+'"]').prop("selected", true);
-					$('table').find('.appendCnt'+curCnt).find('select[name="dest"]').find('option[value="'+o.dest+'"]').attr("selected", "selected");
+					$('table').find('.appendCnt'+curCnt).find('select[name="src'+curCnt+'"]').find('option[value="'+o.src+'"]').prop("selected", true);
+					$('table').find('.appendCnt'+curCnt).find('select[name="src'+curCnt+'"]').find('option[value="'+o.src+'"]').attr("selected", "selected");
+					$('table').find('.appendCnt'+curCnt).find('select[name="dest'+curCnt+'"]').find('option[value="'+o.dest+'"]').prop("selected", true);
+					$('table').find('.appendCnt'+curCnt).find('select[name="dest'+curCnt+'"]').find('option[value="'+o.dest+'"]').attr("selected", "selected");
 					
 					//Progress Bar
 			    	$('#progBar').css('width', parseInt((cnt/size)*100)+'%');
@@ -212,6 +211,11 @@ function ajaxy(url, dataType, type, data, job){
 			switch(job) {
 			case 'optionHTML':
 				for(var i = 0; i < 10; i++) setTimeout(appendPlus, 100);
+				break;
+			case 'selectBase':
+				$("body").css("cursor", "default");
+				$("body").css("opacity", "1");
+				$('#topProg').hide();
 				break;
 			}
 		}

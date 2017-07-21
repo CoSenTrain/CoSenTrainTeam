@@ -5,6 +5,7 @@ public class TktingSchedule {
 	private long runningNo;
 	private long trainNo;
 	private String trainType;
+	private int routeNo;
 	private int src;
 	private String srcName;
 	private int dest;
@@ -12,6 +13,12 @@ public class TktingSchedule {
 	private String departureTime;
 	private String arrivalTime;
 
+	public int getRouteNo() {
+		return routeNo;
+	}
+	public void setRouteNo(int routeNo) {
+		this.routeNo = routeNo;
+	}
 	public int getSrc() {
 		return src;
 	}
@@ -76,7 +83,7 @@ public class TktingSchedule {
 	@Override
 	public String toString() {
 		return "TktingSchedule [rm=" + rm + ", runningNo=" + runningNo + ", trainNo=" + trainNo + ", trainType="
-				+ trainType + ", src=" + src + ", srcName=" + srcName + ", dest=" + dest + ", destName=" + destName
-				+ ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + "]";
+				+ trainType + ", routeNo=" + routeNo + ", src=" + src + ", srcName=" + srcName + ", dest=" + dest
+				+ ", destName=" + destName + ", departureTime=" + departureTime + ", arrivalTime=" + arrivalTime + "]";
 	}
 }
