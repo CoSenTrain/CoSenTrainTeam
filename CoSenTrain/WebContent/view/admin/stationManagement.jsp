@@ -18,11 +18,15 @@
 	<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
 	
 	<div class="container">
-		stationManagement
-		<form action="">
-			<div class="container">
-				<input type="text" id="ticketNo" name="ticketNo" /> 
-				<input type="button" name="" value="검색" />
+		<div class="well"><h3>stationManagement <small>( 페이지 준비중입니다 )...</small></h3></div>
+		<form class="form col-xs-12" name="frm" action="#" method="post">
+			<div class="input-group input-group-lg">
+				<input type="text" class="form-control" placeholder="Search" required="required">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
 			</div>
 		</form>
 	</div>

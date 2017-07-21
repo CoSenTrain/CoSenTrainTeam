@@ -27,9 +27,12 @@
 			$("select#start").select().val('empty');
 			$("select#arrive").select().val('empty');
 		} else {
+			//do AJAX
+			/* 
 			var start = $("select#start option:selected").text();
 			var arrive = $("select#arrive option:selected").text();
-			$("div.showAjaxData").html(start + "출발/" + arrive + "도착");
+			$("h3.showAjaxData").html(start + "출발/" + arrive + "도착");
+			*/
 		}
 	}
 </script>
@@ -41,30 +44,55 @@
 
 
 	<div class="container">
-		<div class="col-xs-12" id="curve_chart"></div>
-		<form action="test.jsp" method="post">
-			출발역 <select id="start" name="start">
-				<option selected="selected" value="empty">역을 선택하세요</option>
-				<option value="suSeo">수서</option>
-				<option value="daeJeon">대전</option>
-				<option value="eastDaeGu">동대구</option>
-				<option value="newKyungJu">신경주</option>
-				<option value="buSan">부산</option>
-			</select><br> 도착역 <select id="arrive" name="arrive">
-				<option selected="selected" value="empty">역을 선택하세요</option>
-				<option value="suSeo">수서</option>
-				<option value="daeJeon">대전</option>
-				<option value="eastDaeGu">동대구</option>
-				<option value="newKyungJu">신경주</option>
-				<option value="buSan">부산</option>
-			</select> <input type="button" value="검색" onclick="showAjax()">
-		</form>
-		<div class="row">
-			<div class="showAjaxData">에이작스로 데이터 가져올 부분</div>
+		<!-- <div class="col-xs-12" id="curve_chart"></div> -->
+		<div class="panel panel-default col-xs-12" style="padding: 0;">
+			&nbsp;
+			<form action="test.jsp" method="post" class="form">
+				<div class="form-group col-xs-12">
+					<!-- <label class="control-label col-sm-2" for="baseDate">출발역 : </label> -->
+					<div class="col-sm-12">
+						<select id="start" name="src" class="form-control">
+							<option selected="selected" value="empty">출발역을 선택하세요</option>
+							<option value="1">수서</option>
+							<option value="2">대전</option>
+							<option value="3">동대구</option>
+							<option value="4">신경주</option>
+							<option value="5">부산</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<!-- <label class="control-label col-sm-2" for="baseDate">도착역 : </label> -->
+					<div class="col-sm-12">
+						<select id="arrive" name="dest" class="form-control">
+							<option selected="selected" value="empty" >도착역을 선택하세요</option>
+							<option value="1">수서</option>
+							<option value="2">대전</option>
+							<option value="3">동대구</option>
+							<option value="4">신경주</option>
+							<option value="5">부산</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-xs-12">
+					<div class="col-sm-12">
+	  					<input type="button" value="검색" class="form-control btn btn-justified btn-primary" onclick="showAjax()" />
+					</div>
+				</div>
+			</form>
+		</div>
+			<br />
+			<br />
+	</div>
+	<div class="container">
+		<div class="row ">
+			<!-- <h3 class="showAjaxData">에이작스로 데이터 가져올 부분</h3> -->
 			<!-- ---------------------출발시간별 표 & 그래프----------------------- -->
+			
+			<div class="well well-defualt"><h3>출발시간별 표 & 그래프</h3></div>
 			<div class="col-sm-3">
-				<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
-				<table border="1">
+			<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
+				<table class="table table-bordered table-striped table-hover table-responsive table-condensed">
 					<thead>
 						<tr>
 							<th>출발시간</th>
@@ -80,7 +108,7 @@
 						%>
 						<tr>
 							<td><%=list.get(i).getDepartureTime()%>시</td>
-							<td><%=list.get(i).getCount()%></td>
+							<td><%=(int) list.get(i).getCount()%></td>
 							<td><%=list.get(i).getPersent()%>%</td>
 						</tr>
 						<%
@@ -89,13 +117,20 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="col-sm-9">			
+			<div class="col-sm-9">
 				<jsp:include page="/view/admin/depatureTimeGraph.jsp"></jsp:include>
 			</div>
+			<br />
+			<br />
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
 			<!-- ---------------------도착시간별 표 & 그래프----------------------- -->
+			<div class="well"><h3>도착시간별 표 & 그래프</h3></div>
 			<div class="col-sm-3">
 				<!-- 출발시간별로 데이터를 뿌려주는 부분 -->
-				<table border="1">
+				<table class="table table-bordered table-striped table-hover table-responsive table-condensed">
 					<thead>
 						<tr>
 							<th>도착시간</th>
@@ -111,7 +146,7 @@
 						%>
 						<tr>
 							<td><%=list2.get(i).getArrivalTime()%>시</td>
-							<td><%=list2.get(i).getCount()%></td>
+							<td><%=(int) list2.get(i).getCount()%></td>
 							<td><%=list2.get(i).getPersent()%>%</td>
 						</tr>
 						<%
@@ -123,77 +158,82 @@
 			<div class="col-sm-9">			
 				<jsp:include page="/view/admin/arriveTimeGraph.jsp"></jsp:include>
 			</div>
-			
+			<br />
+			<br />
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		
+	</div>
+	<div class="container">
 		<div class="row">
 		<!-- ---------------------출발역별 표 & 그래프----------------------- -->
-		<div class="col-sm-3">
-			<table border="1">
-			<thead>
-				<tr>
-					<th>출발지</th>
-					<th>수량</th>
-					<th>백분률</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-					List<AreaGraphBean> list3 = graphDao.selectGraphSrc();
-					for (int i = 0; i < list3.size(); i++) {
-				%>
-				<tr>
-					<td><%=list3.get(i).getStartArea() %>역</td>
-					<td><%=list3.get(i).getCount() %></td>
-					<td><%=list3.get(i).getPersent() %>%</td>
-				</tr>
+			<div class="well"><h3>출발역별 표 & 그래프</h3></div>
+			<div class="col-sm-3">
+			<table class="table table-bordered table-striped table-hover table-responsive table-condensed">
+				<thead>
+					<tr>
+						<th>출발지</th>
+						<th>수량</th>
+						<th>백분률</th>
+					</tr>
+				</thead>
+				<tbody>
 					<%
-						}
+						List<AreaGraphBean> list3 = graphDao.selectGraphSrc();
+						for (int i = 0; i < list3.size(); i++) {
 					%>
-			</tbody>
-			</table>
-		</div>
+					<tr>
+						<td><%=list3.get(i).getStartArea() %>역</td>
+						<td><%=(int) list3.get(i).getCount() %></td>
+						<td><%=list3.get(i).getPersent() %>%</td>
+					</tr>
+						<%
+							}
+						%>
+				</tbody>
+				</table>
+			</div>
 			<div class="col-sm-9">
 				<jsp:include page="/view/admin/depatureStationGraph.jsp"></jsp:include>
 			</div>
-
-			<!-- ---------------------도착역별 표 & 그래프----------------------- -->
-			<div class="col-sm-3">		
-			<table border="1">
-			<thead>
-				<tr>
-					<th>도착지</th>
-					<th>수량</th>
-					<th>백분률</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-					List<AreaGraphBean> list4 = graphDao.selectGraphDest();
-					for (int i = 0; i < list4.size(); i++) {
-				%>
-				<tr>
-					<td><%=list4.get(i).getArriveArea() %>역</td>
-					<td><%=list4.get(i).getCount() %></td>
-					<td><%=list4.get(i).getPersent() %>%</td>
-				</tr>
-					<%
-						}
-					%>
-			</tbody>
-			</table>
 		</div>
-		<div class="col-sm-9">
-			<jsp:include page="/view/admin/arriveStationGraph.jsp"></jsp:include>
-		</div>
-		
+		<br />
+		<br />
 	</div>
-
+	<div class="container">
+		<div class="row">
+			<!-- ---------------------도착역별 표 & 그래프----------------------- -->
+			<div class="well"><h3>도착역별 표 & 그래프</h3></div>
+				<div class="col-sm-3">		
+				<table class="table table-bordered table-striped table-hover table-responsive table-condensed">
+				<thead>
+					<tr>
+						<th>도착지</th>
+						<th>수량</th>
+						<th>백분률</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						List<AreaGraphBean> list4 = graphDao.selectGraphDest();
+						for (int i = 0; i < list4.size(); i++) {
+					%>
+					<tr>
+						<td><%=list4.get(i).getArriveArea() %>역</td>
+						<td><%=(int) list4.get(i).getCount() %></td>
+						<td><%=list4.get(i).getPersent() %>%</td>
+					</tr>
+						<%
+							}
+						%>
+				</tbody>
+				</table>
+			</div>
+			<div class="col-sm-9">
+				<jsp:include page="/view/admin/arriveStationGraph.jsp"></jsp:include>
+			</div>
+			<br />
+			<br />
+		</div>
+	</div>
 
 
 
