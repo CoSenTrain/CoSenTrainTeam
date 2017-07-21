@@ -56,56 +56,40 @@
 	
 	<div>
 	
-<div >
-		 
-		<div>
-			<div>
-				<div>
-					<h1>게시판 등록</h1>
-					<div>
-						<span>
-							<span><a onclick="noticeInsert()">저장</a></span>
-							<span><a href="#">수정</a></span>
-							<span><a href="#">삭제</a></span>
-						</span>
-					</div>
-					<form action="/web/view/admin/noticeInsert2.jsp" method="post" name="nFrm" enctype="multipart/form-data">
-					<table >
-						<colgroup>
-							<col width="90" />
-							<col />
-						</colgroup>
-
-						<tbody>
-					 	 
-						
-						 
-						<tr>
-							<th >제목</th>
-							<td><input type="text" name="title" id="title" value=""  size="50" />
-							         <input type="hidden" name="userno" id="userno" value="<%=userno%>"/>
-							</td>
-					
-						</tr>
-						<tr>
-							<th >내용</th>
-							<td >
-								<textarea name="contents" id="contents"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<th >이미지첨부</th>
-							<td>
-							<input type="file" name="file"  size="50" />
-							</td>
-						</tr>
-						</tbody>
-					</table>
-                   </form>
-				</div>
-			</div>
+<div class="container">
+	<div class="col-xs-12">
+		<div class="well"><h3>게시판 등록</h3></div>
+	</div>
+	<div class="col-xs-12">
+		<div class="btn-group btn-group-justified">
+			<a href="noticeInsert()" class="btn btn-primary"> <span class="glyphicon glyphicon-check"></span> 저장</a>
+			<a href="#" class="btn btn-primary"> <span class="glyphicon glyphicon-edit"></span> 수정</a>
+			<a href="#" class="btn btn-primary"> <span class="glyphicon glyphicon-trash"></span> 삭제</a>
 		</div>
 	</div>
+	<div class=" panel col-xs-12">
+		<form action="/web/view/admin/noticeInsert2.jsp" method="post" name="nFrm" enctype="multipart/form-data">
+			<input type="hidden" name="userno" id="userno" value="<%=userno%>"/>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">제목 : </label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="userno" id="userno" placeholder="Enter Title" required="required">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">내용 : </label>
+				<div class="col-sm-10">
+					<textarea  class="form-control" rows="5" name="contents" id="contents" placeholder="Enter Contents" required="required" draggable="true"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">내용 : </label>
+				<div class="col-sm-10">
+					<input type="file" class="form-control" name="file" id="file" required="required">
+				</div>
+			</div>
+		</form>
 	</div>
+</div>
 </body>
 </html>
