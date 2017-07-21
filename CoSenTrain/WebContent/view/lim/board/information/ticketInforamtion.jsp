@@ -155,6 +155,118 @@ input {
 					<div id="ticketbuy" class="tab10">
 						<div
 							style="width: 900px; color: #666; height: 1050px; border: 1px solid lightgray; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">
+						
+						 <h4 style="margin-top: 20px;">구입처</h4>
+						  <ul style="margin-top: 15px;">
+						   <li style="padding-left: 18px; word-break : keep-all;">홈페이지, 코센트레인</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">CS앱</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">승차권 자동발매기</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">역 (전용역, 공용역 포함)</li>
+						  </ul>
+						  	 <h4 style="margin-top: 20px;">구입기간</h4>
+						  <ul style="margin-top: 15px;">
+						   <li style="padding-left: 18px; word-break : keep-all;">열차출발 1개월전 07:00부터 열차출발 20분전까지 (앱은 5분전까지) 승차권 구입이 가능합니다.</li>
+						  </ul>
+                         <h4 style="margin-top: 20px;">결제/발권</h4>						  
+						   <ul style="margin-top: 15px;">
+						   <li style="padding-left: 18px; word-break : keep-all;">신용카드, 포인트, 현금계좌이체(홈페이지에 한함)를 이용하여 결제 할 수 있습니다.</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">결제금액이 50,000원 이상이면 신용카드 할부 결제가 가능합니다.</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">결제 후 스마트폰승차권, 홈티켓으로 직접 발권 하실 수 있습니다.</li>
+						  </ul>
+						   <h4 style="margin-top: 20px;">반환</h4>	
+						     <ul style="margin-top: 15px;">
+						   <li style="padding-left: 18px; word-break : keep-all;">승차권에 표기된 출발시각 이전까지 홈페이지, SR앱어플에서 승차권을 반환하실 수 있습니다.</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">열차 출발시각 이후에는 역에서 반환하셔야 합니다. (단, 스마트폰승차권의 경우 앱어플을 통해 열차 출발 후 5분 이내에 반환 가능합니다.)</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">승차권에 표기된 도착역 도착시각 이후에는 반환 하실 수 없습니다.</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">구입한 승차권을 반환하는 경우 반환시점에 따른 반환수수료가 발생합니다.</li>
+						   <li style="padding-left: 18px; word-break : keep-all;">취소/반환 수수료 </li>
+						  </ul>
+						<table style="width: 100%; margin-top: 15px; border-top-width: 2px; border-top-style: solid; border-top-color: #5e5e5e;">
+						<colgroup>
+						<col width="50px"/>
+						<col width="50px"/>
+						<col width="50px"/>
+						<col width="75px"/>
+						<col width="75px"/>
+						<col width="75px"/>
+						<col width="75px"/>
+						<col width="80px"/>
+						<col width="100px"/>
+						<col width="80px"/>
+						<col width="80px"/>
+						<col width="80px"/>
+						<col />
+						</colgroup>
+						<thead>
+						 <tr>
+						 <th rowspan="2" colspan="3" scope="col">매체</th>
+						 <th rowspan="6" scope="col">출발전</th>
+						 <th rowspan="4" scope="col">출발후</th>
+						 </tr>
+						 <tr>
+						  <th style="border-left-style :solid;" scope="col">7일 이전 </th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">3일 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">2일 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">1일 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">
+						  당일 ~ 
+						  <br></br>
+						  1시간 이전
+						  </th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">
+						 1시간 경과후
+						  <br></br>
+						  출발시각전
+						  </th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">5분 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">20분 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">60분 이전</th>
+						  <th style="padding: 10px 0; text-align: center; font-size: 13px; line-height: 100%; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;">도착시간 이전</th>
+						 </tr>
+						 
+						</thead>
+						<tbody>
+						<tr>
+						<th style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; " rowspan="4" scope="row">일반</th>
+						<th style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; " rowspan="2" scope="row">인터넷</th>
+						</tr>
+						<tr>
+						<th style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; " scope="row">반환</th>
+						<td style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; " colspan="4">무료</td>
+						<td style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; ">400원</td>
+						<td style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; ">10%</td>
+						<td style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; ">15%</td>
+						<td style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8; " colspan="3">반환불가</td>
+						</tr>
+						<tr>
+						  <th style="border-left-style: solid;" rowspan="2" scope="row">역창구</th>
+						</tr>
+						<tr>
+						<th style="border-left-style: solid;" scope="row">반환</th>
+						<td colspan="3" style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">400원</td>
+						<td colspan="2" style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">5%</td>
+						<td style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">10%</td>
+						<td colspan="2" style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">15%</td>
+						<td style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">40%</td>
+						<td style="padding: 10px 0; text-align: center; border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb;">70%</td>
+						
+						</tr>
+						<tr>
+						  <th style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;  rowspan="4" scope="row">단체</th>
+						  <th style="border-left-style: none; text-align: center; padding: 10px 0; font-size: 13px; line-height: 100%; font-weight: normal;border-width: 0 0 1px 1px; border-style: solid; border-color: #dbdbdb; background-color: #f8f8f8;  rowspan="2" scope="row">인테넷</th>
+						</tr>
+						<tr>
+						 <th></th>
+						
+						</tr>
+						
+						
+						</tbody>
+						
+						
+						</table>   	
+						   	
+						   	
 						</div>
 					</div>
                     <div id="selfticket" class="tab10">
