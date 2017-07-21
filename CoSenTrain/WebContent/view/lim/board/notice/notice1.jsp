@@ -41,16 +41,11 @@ input {
 	margin: 0 auto;
 	background-color: snow;
 }
-
-.lim_join {
-	
-}
 </style>
 </head>
 <body>
 	<%
 		request.setCharacterEncoding("EUC-KR");
-
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		int currentPage = 1;
 		int pageScale = 10;
@@ -62,7 +57,7 @@ input {
 			map.put("Q", query);
 			map.put("D", data);
 		}
-
+		
 		Integer tmpInt = NoticeDao.getInstance().getTotalRow(map);
 		totalRow = (tmpInt == null ? 0 : tmpInt);
 		String pageStr = request.getParameter("page");

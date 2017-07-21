@@ -40,8 +40,10 @@
 <div>
 	<%
 	Users user = (Users)session.getAttribute("user");
-  int userno =user.getUserNo();
-  
+     if(user!=null){
+	int userno =user.getUserNo();
+     }
+     
 	%>
 	<%
 	request.setCharacterEncoding("EUC-KR");
