@@ -28,7 +28,7 @@ var loaddata1;
 
 function getnewdata1(){
    $.ajax({
-      url : "/CoSenTrain/view/admin/departureTimeGraphJson.jsp",
+      url : "/web/view/admin/departureTimeGraphJson.jsp",
       async : false,
       dataType : "json",
       success : function(data1) {
