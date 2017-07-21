@@ -34,7 +34,6 @@
             <a href="/web/view/kwon/tkting/kwonTkting.jsp"><i class="fa fa-caret-right" >&nbsp;</i>승차권예약</a>
             <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>발권/취소(반환)</a>
             <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>예약변경</a>
-            <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>이용내역/영수증</a>
          </div>
       </div>
       <div class="dropdown">
@@ -51,7 +50,7 @@
             <a href="/web/view/lim/board/notice/notice1.jsp"><i class="fa fa-caret-right" >&nbsp;</i>공지사항</a>
             <a href="/web/view/lim/board/information/information.jsp"><i class="fa fa-caret-right" >&nbsp;</i>안내사항</a>
             <a href="/web/view/lim/board/information/totalInformation.jsp"><i class="fa fa-caret-right" >&nbsp;</i>종합이용안내</a>
-            <a href="#"><i class="fa fa-caret-right" >&nbsp;</i>승차권이용안내</a>
+            <a href="/web/view/lim/board/information/ticketInforamtion.jsp"><i class="fa fa-caret-right" >&nbsp;</i>승차권이용안내</a>
          </div>
       </div>
       <div class="dropdown">

@@ -149,13 +149,13 @@
 							%>
 				<!-- 검색일때는 검색결과 내에서 페이징. -->
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=1&query=<%=query%>&data=<%=data%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=1&query=<%=query%>&data=<%=data%>"><img
 					src="/web/img/lim/button/btn_first.gif" alt="처음페이지" /></a>
 				<%
 								} else {
 							%>
 				<!-- 아니면 전체 데이터 내에서 페이징. -->
-				<a href="/web/view/lim/board/notice/notice1.jsp?page=1"><img
+				<a href="/web/view/admin/noticeManagement.jsp?page=1"><img
 					src="/web/img/lim/button/btn_first.gif" alt="처음페이지" /></a>
 				<%
 								}
@@ -167,13 +167,13 @@
 								if (query != null && data != null) {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=<%=startPage - 1%>&query=<%=query%>&data=<%=data%>"><img
 					src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
 				<%
 								} else {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=startPage - 1%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=<%=startPage - 1%>"><img
 					src="/web/img/lim/button/btn_prev.gif" alt="이전" /></a>
 				<%
 								}
@@ -192,12 +192,12 @@
 								if (query != null && data != null) {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">BEFORE</a>
+					href="/web/view/admin/noticeManagement.jsp?page=<%=currentPage - 1%>&query=<%=query%>&data=<%=data%>">BEFORE</a>
 				<%
 								} else {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage - 1%>">BEFORE</a>
+					href="/web/view/admin/noticeManagement.jsp?page=<%=currentPage - 1%>">BEFORE</a>
 				<%
 								}
 							%>
@@ -218,10 +218,10 @@
 						 %> <%
 						 	if (query != null && data != null) {
 						 %> <a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">[<%=i%>]
+					href="/web/view/admin/noticeManagement.jsp?page=<%=i%>&query=<%=query%>&data=<%=data%>">[<%=i%>]
 				</a> <%
 						 	} else {
-						 %> <a href="/web/view/lim/board/notice/notice1.jsp?page=<%=i%>">[<%=i%>]
+						 %> <a href="/web/view/admin/noticeManagement.jsp?page=<%=i%>">[<%=i%>]
 				</a> <%
 						 	}
 						 %> <%
@@ -236,12 +236,12 @@
 								if (query != null && data != null) {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">NEXT</a>
+					href="/web/view/admin/noticeManagement.jsp?page=<%=currentPage + 1%>&query=<%=query%>&data=<%=data%>">NEXT</a>
 				<%
 								} else {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=currentPage + 1%>">NEXT</a>
+					href="/web/view/admin/noticeManagement.jsp?page=<%=currentPage + 1%>">NEXT</a>
 				<%
 								}
 							%>
@@ -259,13 +259,13 @@
 								if (query != null && data != null) {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage + 1%>&query=<%=query%>&data=<%=data%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=<%=endPage + 1%>&query=<%=query%>&data=<%=data%>"><img
 					src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
 				<%
 								} else {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=endPage + 1%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=<%=endPage + 1%>"><img
 					src="/web/img/lim/button/btn_next.gif" alt="다음" /></a>
 				<%
 								}
@@ -281,12 +281,12 @@
 								if (query != null && data != null) {
 							%>
 				<a
-					href="/web/view/lim/board/notice/notice1.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"><img
+					href="/web/view/admin/noticeManagement.jsp?page=<%=totalPage%>&query=<%=query%>&data=<%=data%>"><img
 					src="/web/img/lim/button/btn_last.gif" alt="마지막페이지" /></a>
 				<%
 								} else {
 							%>
-				<a href="/web/view/lim/board/notice/notice1.jsp?page=<%=totalPage%>"><img
+				<a href="/web/view/admin/noticeManagement.jsp?page=<%=totalPage%>"><img
 					src="/web/img/lim/button/btn_last.gif" alt="마지막페이지" /></a>
 				<%
 								}

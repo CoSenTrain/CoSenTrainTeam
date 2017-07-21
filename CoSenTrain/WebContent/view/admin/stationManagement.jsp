@@ -18,7 +18,13 @@
 	<jsp:include page="/view/admin/navigation.jsp"></jsp:include>
 	
 	<div class="container">
-		<div class="well"><h3>stationManagement <small>( 페이지 준비중입니다 )...</small></h3></div>
+		<div class="well"><h3>StationManagement <small>
+		
+		
+		( 역추가 예정이 아직 없습니다. )</small></h3></div>
+		  <img alt="" src="/web/img/station/suseo.jpg">
+		  <br>
+		  <br>
 		<form class="form col-xs-12" name="frm" action="#" method="post">
 			<div class="input-group input-group-lg">
 				<input type="text" class="form-control" placeholder="Search" required="required">

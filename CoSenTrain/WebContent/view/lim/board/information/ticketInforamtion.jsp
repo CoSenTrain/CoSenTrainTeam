@@ -120,7 +120,7 @@ input {
 				<!--  start-->
 				<div
 					style="width: 940px; padding: 0 30px 30px 30px; height: 3000px; background-color: white;">
-					<div style="width: 940px; height: 50px;">
+					<div style="width: 940px; height: 100px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'ticketbuy')" id="defaultOpen">승차권 구입/반환/분실</button>
@@ -269,6 +269,9 @@ input {
 						   	
 						</div>
 					</div>
+					
+					
+					
                     <div id="selfticket" class="tab10">
 						<div
 							style="width: 900px; color: #666; height: 1050px; border: 1px solid lightgray; padding: 10px 30px 30px 5px; margin-top: 20px; margin-bottom: 20px;">

@@ -56,8 +56,10 @@ border-width: 1px 1px 1px 0;
 border-style: solid;
 border-color: #ccc;
 background-color: snow;
+line-height : 100%;
 color:gray;
-
+width:180px;
+height:70px;
 }
 </style>
 <script type="text/javascript">
@@ -119,15 +121,15 @@ function modifyTab(o, evt, cityName) {
 
 				<!--  start-->
 				<div style="width: 940px; padding: 0 30px 30px 30px; height: 3000px; background-color: white;">
-					<div style="width: 940px; height: 50px;">
+					<div style="width: 940px; height: 70px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
 								onclick="modifyTab(this,event,'service')" id="defaultOpen">고객서비스헌장</button>
 							<button class="buttonTab" onclick="modifyTab(this,event,'terms')">여객운송약관/부속약관</button>
-							<button class="buttonTab" onclick="modifyTab(this,event,'email')">이메일무단수집거부/저작권정책</button>
+							<button class="buttonTab" onclick="modifyTab(this,event,'email')">이메일무단수집거부</button>
 							<button class="buttonTab" onclick="modifyTab(this,event,'fee')">촬영승인/수수료기준</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'notice')">영상정보처리기기 운영방침</button>
+								onclick="modifyTab(this,event,'notice')">영상정보처리기기</button>
 							<input type="hidden" id="changeMethod" name="changeMethod"
 								value="service" />
 						</div>
