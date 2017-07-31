@@ -342,13 +342,13 @@ to {
 					<div style="width: 940px; height: 50px;">
 						<div style="text-align: center;">
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'discount')" id="defaultOpen">고객서비스헌장</button>
+								onclick="modifyTab(this,event,'discount')" id="defaultOpen">할인제도</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'stationservice',start2())">여객운송약관/부속약관</button>
+								onclick="modifyTab(this,event,'stationservice',start2())">역서비스</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'trainservice')">이메일무단수집거부/저작권정책</button>
+								onclick="modifyTab(this,event,'trainservice')">열차서비스</button>
 							<button class="buttonTab"
-								onclick="modifyTab(this,event,'transportationservice')">촬영승인/수수료기준</button>
+								onclick="modifyTab(this,event,'transportationservice')">연계교통서비스</button>
 							<input type="hidden" id="changeMethod" name="changeMethod"
 								value="discount" />
 						</div>
